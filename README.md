@@ -1,0 +1,2 @@
+# Sports Facility Booking/Scheduling Software
+This program is a booking and scheduling software for sports facilities. It utilizes Tkinter, Time, and Datetime in order to create a 2 primary user interfaces; an employee display and a customer display. The employee display contains all booking information and allows the person operating the software to edit bookings through a wide variety of ways. The customer display is created for displaying reservations to customers, and it automatically updates every hour to present new bookings.
