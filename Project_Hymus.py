@@ -16,7 +16,7 @@ def prebooking(): #Pre-booking allows you to create daily, weekly, or bi-weekly 
     prebooking_window.configure(bg='lightblue')
 
     '''Logo Image'''
-    img = Image.open('hymussportslogo.png')
+    img = Image.open(INSERT COMPANY LOGO IMAGE HERE)
     resized_img = img.resize((400, 200), Image.ANTIALIAS)
     logo = ImageTk.PhotoImage(resized_img)
     logo_label = Label(prebooking_window, image=logo).pack()
@@ -2986,7 +2986,7 @@ def start_up(): #The start-up function automatically re-inserts
     startup_window.configure(bg='lightblue')
 
     '''Logo Image'''
-    img = Image.open('hymussportslogo.png')
+    img = Image.open(INSERT COMPANY LOGO IMAGE HERE)
     resized_img = img.resize((400, 200), Image.ANTIALIAS)
     logo = ImageTk.PhotoImage(resized_img)
     logo_label = Label(startup_window, image=logo).pack()
@@ -3153,7 +3153,7 @@ def booking_info(): #Creates bookings for given user inputs.
     info_window.configure(bg='lightblue')
 
     '''Logo Image'''
-    img = Image.open('hymussportslogo.png')
+    img = Image.open(INSERT COMPANY LOGO IMAGE HERE)
     resized_img = img.resize((400, 200), Image.ANTIALIAS)
     logo = ImageTk.PhotoImage(resized_img)
     logo_label = Label(info_window, image=logo).pack()
@@ -3480,7 +3480,7 @@ def cancellation_info(): #Cancels bookings using booking IDs.
     cancellation_window.configure(bg='lightblue')
 
     '''Logo Image'''
-    img = Image.open('hymussportslogo.png')
+    img = Image.open(INSERT COMPANY LOGO IMAGE HERE)
     resized_img = img.resize((400, 200), Image.ANTIALIAS)
     logo = ImageTk.PhotoImage(resized_img)
     logo_label = Label(cancellation_window, image=logo).pack()
