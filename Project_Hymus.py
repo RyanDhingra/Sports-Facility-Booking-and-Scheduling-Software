@@ -2975,7 +2975,7 @@ def customer_display(): #Live customer display that updates automatically every 
     
     
 
-def start_up(): #The start-up function automatically re-inserts
+def start_up(): #The start-up function automatically re-inserts all bookings.
 
     months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
