@@ -16,7 +16,7 @@ def prebooking(): #Pre-booking allows you to create daily, weekly, or bi-weekly 
     prebooking_window.configure(bg='lightblue')
 
     '''Logo Image'''
-    img = Image.open(INSERT COMPANY LOGO IMAGE HERE)
+    img = Image.open('hymussportslogo.png')
     resized_img = img.resize((400, 200), Image.ANTIALIAS)
     logo = ImageTk.PhotoImage(resized_img)
     logo_label = Label(prebooking_window, image=logo).pack()
@@ -24,7 +24,7 @@ def prebooking(): #Pre-booking allows you to create daily, weekly, or bi-weekly 
     '''User Inputs'''
     time_choice_list = ['12AM', '1AM', '2AM', '3AM', '4AM', '5AM', '6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM', '9PM', '10PM', '11PM', '12AM']
     months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    days = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31]
+    days = [x for x in range(1, 32)]
     days_by_month = [31,29,31,30,31,30,31,31,30,31,30,31]
     courts = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20']
     hours = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
@@ -186,212 +186,19 @@ def prebooking(): #Pre-booking allows you to create daily, weekly, or bi-weekly 
             input_month = booking_month.get()
             time_range = [list_of_time_slots[0][0], list_of_time_slots[-1][-1]]
             length_num = hour_num.get()
+
+            court_functions = [january_courts, february_courts, march_courts, april_courts, may_courts, june_courts, july_courts, august_courts, september_courts, october_courts, november_courts, december_courts]
             
-            '''Court Activator'''
-            if input_month == "January":
-                if "January" not in activated_list:
-                    january_courts()
-                    for day in day_list:
-                        for times in list_of_time_slots:
-                            for court in court_num_list:
-                                input_courtnum = int(court)
-                                input_day = int(day)
-                                booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-                    activated_list.append("January")
-                else:
-                    for day in day_list:
-                        for times in list_of_time_slots:
-                            for court in court_num_list:
-                                input_courtnum = int(court)
-                                input_day = int(day)
-                                booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-            elif input_month ==  "February":
-                if "February" not in activated_list:
-                    february_courts()
-                    for day in day_list:
-                        for times in list_of_time_slots:
-                            for court in court_num_list:
-                                input_courtnum = int(court)
-                                input_day = int(day)
-                                booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-                        activated_list.append("February")
-                else:
-                    for day in day_list:
-                        for times in list_of_time_slots:
-                            for court in court_num_list:
-                                input_courtnum = int(court)
-                                input_day = int(day)
-                                booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-            elif input_month ==  "March":
-                if "March" not in activated_list:
-                    march_courts()
-                    for day in day_list:
-                        for times in list_of_time_slots:
-                            for court in court_num_list:
-                                input_courtnum = int(court)
-                                input_day = int(day)
-                                booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-                        activated_list.append("March")
-                else:
-                    for day in day_list:
-                        for times in list_of_time_slots:
-                            for court in court_num_list:
-                                input_courtnum = int(court)
-                                input_day = int(day)
-                                booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-            elif input_month == "April":
-                if "April" not in activated_list:
-                    april_courts()
-                    for day in day_list:
-                        for times in list_of_time_slots:
-                            for court in court_num_list:
-                                input_courtnum = int(court)
-                                input_day = int(day)
-                                booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-                        activated_list.append("April")
-                else:
-                    for day in day_list:
-                        for times in list_of_time_slots:
-                            for court in court_num_list:
-                                input_courtnum = int(court)
-                                input_day = int(day)
-                                booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-            elif input_month == "May":
-                if "May" not in activated_list:
-                    may_courts()
-                    for day in day_list:
-                        for times in list_of_time_slots:
-                            for court in court_num_list:
-                                input_courtnum = int(court)
-                                input_day = int(day)
-                                booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-                        activated_list.append("May")
-                else:
-                    for day in day_list:
-                        for times in list_of_time_slots:
-                            for court in court_num_list:
-                                input_courtnum = int(court)
-                                input_day = int(day)
-                                booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-            elif input_month ==  "June":
-                if "June" not in activated_list:
-                    june_courts()
-                    for day in day_list:
-                        for times in list_of_time_slots:
-                            for court in court_num_list:
-                                input_courtnum = int(court)
-                                input_day = int(day)
-                                booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-                        activated_list.append("June")
-                else:
-                    for day in day_list:
-                        for times in list_of_time_slots:
-                            for court in court_num_list:
-                                input_courtnum = int(court)
-                                input_day = int(day)
-                                booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-            elif input_month ==  "July":
-                if "July" not in activated_list:
-                    july_courts()
-                    for day in day_list:
-                        for times in list_of_time_slots:
-                            for court in court_num_list:
-                                input_courtnum = int(court)
-                                input_day = int(day)
-                                booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-                        activated_list.append("July")
-                else:
-                    for day in day_list:
-                        for times in list_of_time_slots:
-                            for court in court_num_list:
-                                input_courtnum = int(court)
-                                input_day = int(day)
-                                booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-            elif input_month ==  "August":
-                if "August" not in activated_list:
-                    august_courts()
-                    for day in day_list:
-                        for times in list_of_time_slots:
-                            for court in court_num_list:
-                                input_courtnum = int(court)
-                                input_day = int(day)
-                                booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-                        activated_list.append("August")
-                else:
-                    for day in day_list:
-                        for times in list_of_time_slots:
-                            for court in court_num_list:
-                                input_courtnum = int(court)
-                                input_day = int(day)
-                                booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-            elif input_month ==  "September":
-                if "September" not in activated_list:
-                    september_courts()
-                    for day in day_list:
-                        for times in list_of_time_slots:
-                            for court in court_num_list:
-                                input_courtnum = int(court)
-                                input_day = int(day)
-                                booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-                        activated_list.append("September")
-                else:
-                    for day in day_list:
-                        for times in list_of_time_slots:
-                            for court in court_num_list:
-                                input_courtnum = int(court)
-                                input_day = int(day)
-                                booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-            elif input_month ==  "October":
-                if "October" not in activated_list:
-                    october_courts()
-                    for day in day_list:
-                        for times in list_of_time_slots:
-                            for court in court_num_list:
-                                input_courtnum = int(court)
-                                input_day = int(day)
-                                booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-                        activated_list.append("October")
-                else:
-                    for day in day_list:
-                        for times in list_of_time_slots:
-                            for court in court_num_list:
-                                input_courtnum = int(court)
-                                input_day = int(day)
-                                booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-            elif input_month ==  "November":
-                if "November" not in activated_list:
-                    november_courts()
-                    for day in day_list:
-                        for times in list_of_time_slots:
-                            for court in court_num_list:
-                                input_courtnum = int(court)
-                                input_day = int(day)
-                                booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-                        activated_list.append("November")
-                else:
-                    for day in day_list:
-                        for times in list_of_time_slots:
-                            for court in court_num_list:
-                                input_courtnum = int(court)
-                                input_day = int(day)
-                                booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-            elif input_month ==  "December":
-                if "December" not in activated_list:
-                    december_courts()
-                    for day in day_list:
-                        for times in list_of_time_slots:
-                            for court in court_num_list:
-                                input_courtnum = int(court)
-                                input_day = int(day)
-                                booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-                        activated_list.append("December")
-                else:
-                    for day in day_list:
-                        for times in list_of_time_slots:
-                            for court in court_num_list:
-                                input_courtnum = int(court)
-                                input_day = int(day)
-                                booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
+            if input_month not in activated_list:
+                court_functions[months.index(input_month)]()
+                activated_list.append(input_month)
+
+            for day in day_list:
+                for times in list_of_time_slots:
+                    for court in court_num_list:
+                        input_courtnum = int(court)
+                        input_day = int(day)
+                        booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
 
             prebooking_window.destroy()
         
@@ -418,98 +225,28 @@ def customer_display(): #Live customer display that updates automatically every 
         resized_court = court_img.resize((152, 197), Image.ANTIALIAS)
         court_bg = ImageTk.PhotoImage(resized_court)
 
-        columnplaceholder = Label(root, text="                                                               ", bg= "lightblue").grid(row = 0, column=0)
-        columnplaceholder = Label(root, text="                                                               ", bg= "lightblue").grid(row = 0, column=2)
-        columnplaceholder = Label(root, text="                                                               ", bg= "lightblue").grid(row = 0, column=4)
-        columnplaceholder = Label(root, text="                                                               ", bg= "lightblue").grid(row = 0, column=6)
-        columnplaceholder = Label(root, text="                                                               ", bg= "lightblue").grid(row = 0, column=8)
+        a = 0
+        while a < 10:
+            columnplaceholder = Label(root, text="                                                               ", bg= "lightblue").grid(row = 0, column=a)
+            a += 2
         
-        row_placeholder = Label(root, text=" ", bg= "lightblue").grid(row = 3, column=1)
-        row_placeholder = Label(root, text=" ", bg= "lightblue").grid(row = 6, column=1) 
-        row_placeholder = Label(root, text=" ", bg= "lightblue").grid(row = 9, column=1) 
-        row_placeholder = Label(root, text=" ", bg= "lightblue").grid(row = 12, column=1)
+        for x in range(3,13,3):
+            row_placeholder = Label(root, text=" ", bg= "lightblue").grid(row = x, column=1)
 
-        court_number = Label(root, text="Court 1", bg= "lightblue", font=16).grid(row = 1, column=1)
-        court_number = Label(root, text="Court 2", bg= "lightblue", font=16).grid(row = 4, column=1) 
-        court_number = Label(root, text="Court 3", bg= "lightblue", font=16).grid(row = 7, column=1) 
-        court_number = Label(root, text="Court 4", bg= "lightblue", font=16).grid(row = 10, column=1)
-        court_number = Label(root, text="Court 5", bg= "lightblue", font=16).grid(row = 1, column=3)
-        court_number = Label(root, text="Court 6", bg= "lightblue", font=16).grid(row = 4, column=3) 
-        court_number = Label(root, text="Court 7", bg= "lightblue", font=16).grid(row = 7, column=3) 
-        court_number = Label(root, text="Court 8", bg= "lightblue", font=16).grid(row = 10, column=3)
-        court_number = Label(root, text="Court 9", bg= "lightblue", font=16).grid(row = 1, column=5)
-        court_number = Label(root, text="Court 10", bg= "lightblue", font=16).grid(row = 4, column=5) 
-        court_number = Label(root, text="Court 11", bg= "lightblue", font=16).grid(row = 7, column=5) 
-        court_number = Label(root, text="Court 12", bg= "lightblue", font=16).grid(row = 10, column=5)
-        court_number = Label(root, text="Court 13", bg= "lightblue", font=16).grid(row = 1, column=7)
-        court_number = Label(root, text="Court 14", bg= "lightblue", font=16).grid(row = 4, column=7) 
-        court_number = Label(root, text="Court 15", bg= "lightblue", font=16).grid(row = 7, column=7) 
-        court_number = Label(root, text="Court 16", bg= "lightblue", font=16).grid(row = 10, column=7)
-        court_number = Label(root, text="Court 17", bg= "lightblue", font=16).grid(row = 1, column=9)
-        court_number = Label(root, text="Court 18", bg= "lightblue", font=16).grid(row = 4, column=9) 
-        court_number = Label(root, text="Court 19", bg= "lightblue", font=16).grid(row = 7, column=9) 
-        court_number = Label(root, text="Court 20", bg= "lightblue", font=16).grid(row = 10, column=9)
+        court_num = 1
+        for a in range(1,10,2):
+            for b in range(1,11,3):
+                court_number = Label(root, text=f"Court {court_num}", bg= "lightblue", font=16).grid(row=b, column=a)
+                court_num +=1
 
-        display_court1 = Text(root, width=17, height=11, font=16, bg = "#008B00")
-        display_court1.image_create(END, image=court_bg)
-        display_court1.grid(row = 2, column=1)
-        display_court2 = Text(root, width=17, height=11, font=16, bg = "#008B00")
-        display_court2.image_create(END, image=court_bg)
-        display_court2.grid(row = 5, column=1)
-        display_court3 = Text(root, width=17, height=11, font=16, bg = "#008B00")
-        display_court2.image_create(END, image=court_bg)
-        display_court3.grid(row = 8, column=1)
-        display_court4 = Text(root, width=17, height=11, font=16, bg = "#008B00")
-        display_court4.image_create(END, image=court_bg)
-        display_court4.grid(row = 11, column=1)
-        display_court5 = Text(root, width=17, height=11, font=16, bg = "#008B00")
-        display_court5.image_create(END, image=court_bg)
-        display_court5.grid(row = 2, column=3)
-        display_court6 = Text(root, width=17, height=11, font=16, bg = "#008B00")
-        display_court6.image_create(END, image=court_bg)
-        display_court6.grid(row = 5, column=3)
-        display_court7 = Text(root, width=17, height=11, font=16, bg = "#008B00")
-        display_court7.image_create(END, image=court_bg)
-        display_court7.grid(row = 8, column=3)
-        display_court8 = Text(root, width=17, height=11, font=16, bg = "#008B00")
-        display_court8.image_create(END, image=court_bg)
-        display_court8.grid(row = 11, column=3)
-        display_court9 = Text(root, width=17, height=11, font=16, bg = "#008B00")
-        display_court9.image_create(END, image=court_bg)
-        display_court9.grid(row = 2, column=5)
-        display_court10 = Text(root, width=17, height=11, font=16, bg = "#008B00")
-        display_court10.image_create(END, image=court_bg)
-        display_court10.grid(row = 5, column=5)
-        display_court11 = Text(root, width=17, height=11, font=16, bg = "#008B00")
-        display_court11.image_create(END, image=court_bg)
-        display_court11.grid(row = 8, column=5)
-        display_court12 = Text(root, width=17, height=11, font=16, bg = "#008B00")
-        display_court12.image_create(END, image=court_bg)
-        display_court12.grid(row = 11, column=5)
-        display_court13 = Text(root, width=17, height=11, font=16, bg = "#008B00")
-        display_court13.image_create(END, image=court_bg)
-        display_court13.grid(row = 2, column=7)
-        display_court14 = Text(root, width=17, height=11, font=16, bg = "#008B00")
-        display_court14.image_create(END, image=court_bg)
-        display_court14.grid(row = 5, column=7)
-        display_court15 = Text(root, width=17, height=11, font=16, bg = "#008B00")
-        display_court15.image_create(END, image=court_bg)
-        display_court15.grid(row = 8, column=7)
-        display_court16 = Text(root, width=17, height=11, font=16, bg = "#008B00")
-        display_court16.image_create(END, image=court_bg)
-        display_court16.grid(row = 11, column=7)
-        display_court17 = Text(root, width=17, height=11, font=16, bg = "#008B00")
-        display_court17.image_create(END, image=court_bg)
-        display_court17.grid(row = 2, column=9)
-        display_court18 = Text(root, width=17, height=11, font=16, bg = "#008B00")
-        display_court18.image_create(END, image=court_bg)
-        display_court18.grid(row = 5, column=9)
-        display_court19 = Text(root, width=17, height=11, font=16, bg = "#008B00")
-        display_court19.image_create(END, image=court_bg)
-        display_court19.grid(row = 8, column=9)
-        display_court20 = Text(root, width=17, height=11, font=16, bg = "#008B00")
-        display_court20.image_create(END, image=court_bg)
-        display_court20.grid(row = 11, column=9)
+        displaycourt_list = []
+
+        for a in range(1,10,2):
+            for b in range(2,12,3):
+                display_court = Text(root, width=17, height=11, font=16, bg = "#008B00")
+                display_court.image_create(END, image=court_bg)
+                display_court.grid(row=b, column=a)
+                displaycourt_list.append(display_court)
 
         def updater(): #Customer diplay helper funtion.
 
@@ -520,2446 +257,29 @@ def customer_display(): #Live customer display that updates automatically every 
             hour = current_time.strftime('%H')
             secs = current_time.strftime('%S')
             time_delay = ((60 - int(mins)) * 60) - int(secs)
+            month_courtlists = [jan_courtlist, feb_courtlist, mar_courtlist, apr_courtlist, may_courtlist, jun_courtlist, jul_courtlist, aug_courtlist, sep_courtlist, oct_courtlist, nov_courtlist, dec_courtlist]
 
             while list_of_months[int(month) - 1] in activated_list:
-                    
-                if list_of_months[int(month) - 1] == "January":
-                    court1 = jan_courtlist[((((int(day)-1)*24) + int(hour)) * 20)].get(1.0, END).split('\n')
-                    court2 = jan_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 1].get(1.0, END).split('\n')
-                    court3 = jan_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 2].get(1.0, END).split('\n')
-                    court4 = jan_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 3].get(1.0, END).split('\n')
-                    court5 = jan_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 4].get(1.0, END).split('\n')
-                    court6 = jan_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 5].get(1.0, END).split('\n')
-                    court7 = jan_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 6].get(1.0, END).split('\n')
-                    court8 = jan_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 7].get(1.0, END).split('\n')
-                    court9 = jan_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 8].get(1.0, END).split('\n')
-                    court10 = jan_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 9].get(1.0, END).split('\n')
-                    court11 = jan_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 10].get(1.0, END).split('\n')
-                    court12 = jan_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 11].get(1.0, END).split('\n')
-                    court13 = jan_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 12].get(1.0, END).split('\n')
-                    court14 = jan_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 13].get(1.0, END).split('\n')
-                    court15 = jan_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 14].get(1.0, END).split('\n')
-                    court16 = jan_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 15].get(1.0, END).split('\n')
-                    court17 = jan_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 16].get(1.0, END).split('\n')
-                    court18 = jan_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 17].get(1.0, END).split('\n')
-                    court19 = jan_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 18].get(1.0, END).split('\n')
-                    court20 = jan_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 19].get(1.0, END).split('\n')
-                    
-                    if court1 != ['','']:
-                        display_court1.delete(1.0, END)
-                        display_court1.insert(END, court1[0] + '\n')
-                        display_court1.insert(END, court1[2])
-                        display_court1.config(bg='#00688B', fg="white")
-                    else:
-                        display_court1.delete(1.0, END)
-                        display_court1.config(bg="#008B00")
-                        display_court1.image_create(END, image=court_bg)
-                    if court2 != ['','']:
-                        display_court2.delete(1.0, END)
-                        display_court2.insert(END, court2[0] + '\n')
-                        display_court2.insert(END, court2[2])
-                        display_court2.config(bg='#00688B', fg="white")
-                    else:
-                        display_court2.delete(1.0, END)
-                        display_court2.config(bg="#008B00")
-                        display_court2.image_create(END, image=court_bg)
-                    if court3 != ['','']:
-                        display_court3.delete(1.0, END)
-                        display_court3.insert(END, court3[0] + '\n')
-                        display_court3.insert(END, court3[2])
-                        display_court3.config(bg='#00688B', fg="white")
-                    else:
-                        display_court3.delete(1.0, END)
-                        display_court3.config(bg="#008B00")
-                        display_court3.image_create(END, image=court_bg)
-                    if court4 != ['','']:
-                        display_court4.delete(1.0, END)
-                        display_court4.insert(END, court4[0] + '\n')
-                        display_court4.insert(END, court4[2])
-                        display_court4.config(bg='#00688B', fg="white")
-                    else:
-                        display_court4.delete(1.0, END)
-                        display_court4.config(bg="#008B00")
-                        display_court4.image_create(END, image=court_bg)
-                    if court5 != ['','']:
-                        display_court5.delete(1.0, END)
-                        display_court5.insert(END, court5[0] + '\n')
-                        display_court5.insert(END, court5[2])
-                        display_court5.config(bg='#00688B', fg="white")
-                    else:
-                        display_court5.delete(1.0, END)
-                        display_court5.config(bg="#008B00")
-                        display_court5.image_create(END, image=court_bg)
-                    if court6 != ['','']:
-                        display_court6.delete(1.0, END)
-                        display_court6.insert(END, court6[0] + '\n')
-                        display_court6.insert(END, court6[2])
-                        display_court6.config(bg='#00688B', fg="white")
-                    else:
-                        display_court6.delete(1.0, END)
-                        display_court6.config(bg="#008B00")
-                        display_court6.image_create(END, image=court_bg)
-                    if court7 != ['','']:
-                        display_court7.delete(1.0, END)
-                        display_court7.insert(END, court7[0] + '\n')
-                        display_court7.insert(END, court7[2])
-                        display_court7.config(bg='#00688B', fg="white")
-                    else:
-                        display_court7.delete(1.0, END)
-                        display_court7.config(bg="#008B00")
-                        display_court7.image_create(END, image=court_bg)
-                    if court8 != ['','']:
-                        display_court8.delete(1.0, END)
-                        display_court8.insert(END, court8[0] + '\n')
-                        display_court8.insert(END, court8[2])
-                        display_court8.config(bg='#00688B', fg="white")
-                    else:
-                        display_court8.delete(1.0, END)
-                        display_court8.config(bg="#008B00")
-                        display_court8.image_create(END, image=court_bg)
-                    if court9 != ['','']:
-                        display_court9.delete(1.0, END)
-                        display_court9.insert(END, court9[0] + '\n')
-                        display_court9.insert(END, court9[2])
-                        display_court9.config(bg='#00688B', fg="white")
-                    else:
-                        display_court9.delete(1.0, END)
-                        display_court9.config(bg="#008B00")
-                        display_court9.image_create(END, image=court_bg)
-                    if court10 != ['','']:
-                        display_court10.delete(1.0, END)
-                        display_court10.insert(END, court10[0] + '\n')
-                        display_court10.insert(END, court10[2])
-                        display_court10.config(bg='#00688B', fg="white")
-                    else:
-                        display_court10.delete(1.0, END)
-                        display_court10.config(bg="#008B00")
-                        display_court10.image_create(END, image=court_bg)
-                    if court11 != ['','']:
-                        display_court11.delete(1.0, END)
-                        display_court11.insert(END, court11[0] + '\n')
-                        display_court11.insert(END, court11[2])
-                        display_court11.config(bg='#00688B', fg="white")
-                    else:
-                        display_court11.delete(1.0, END)
-                        display_court11.config(bg="#008B00")
-                        display_court11.image_create(END, image=court_bg)
-                    if court12 != ['','']:
-                        display_court12.delete(1.0, END)
-                        display_court12.insert(END, court12[0] + '\n')
-                        display_court12.insert(END, court12[2])
-                        display_court12.config(bg='#00688B', fg="white")
-                    else:
-                        display_court12.delete(1.0, END)
-                        display_court12.config(bg="#008B00")
-                        display_court12.image_create(END, image=court_bg)
-                    if court13 != ['','']:
-                        display_court13.delete(1.0, END)
-                        display_court13.insert(END, court13[0] + '\n')
-                        display_court13.insert(END, court13[2])
-                        display_court13.config(bg='#00688B', fg="white")
-                    else:
-                        display_court13.delete(1.0, END)
-                        display_court13.config(bg="#008B00")
-                        display_court13.image_create(END, image=court_bg)
-                    if court14 != ['','']:
-                        display_court14.delete(1.0, END)
-                        display_court14.insert(END, court14[0] + '\n')
-                        display_court14.insert(END, court14[2])
-                        display_court14.config(bg='#00688B', fg="white")
-                    else:
-                        display_court14.delete(1.0, END)
-                        display_court14.config(bg="#008B00")
-                        display_court14.image_create(END, image=court_bg)
-                    if court15 != ['','']:
-                        display_court15.delete(1.0, END)
-                        display_court15.insert(END, court15[0] + '\n')
-                        display_court15.insert(END, court15[2])
-                        display_court15.config(bg='#00688B', fg="white")
-                    else:
-                        display_court15.delete(1.0, END)
-                        display_court15.config(bg="#008B00")
-                        display_court15.image_create(END, image=court_bg)
-                    if court16 != ['','']:
-                        display_court16.delete(1.0, END)
-                        display_court16.insert(END, court16[0] + '\n')
-                        display_court16.insert(END, court16[2])
-                        display_court16.config(bg='#00688B', fg="white")
-                    else:
-                        display_court16.delete(1.0, END)
-                        display_court16.config(bg="#008B00")
-                        display_court16.image_create(END, image=court_bg)
-                    if court17 != ['','']:
-                        display_court17.delete(1.0, END)
-                        display_court17.insert(END, court17[0] + '\n')
-                        display_court17.insert(END, court17[2])
-                        display_court17.config(bg='#00688B', fg="white")
-                    else:
-                        display_court17.delete(1.0, END)
-                        display_court17.config(bg="#008B00")
-                        display_court17.image_create(END, image=court_bg)
-                    if court18 != ['','']:
-                        display_court18.delete(1.0, END)
-                        display_court18.insert(END, court18[0] + '\n')
-                        display_court18.insert(END, court18[2])
-                        display_court18.config(bg='#00688B', fg="white")
-                    else:
-                        display_court18.delete(1.0, END)
-                        display_court18.config(bg="008B00")
-                        display_court18.image_create(END, image=court_bg)
-                    if court19 != ['','']:
-                        display_court19.delete(1.0, END)
-                        display_court19.insert(END, court19[0] + '\n')
-                        display_court19.insert(END, court19[2])
-                        display_court19.config(bg='#00688B', fg="white")
-                    else:
-                        display_court19.delete(1.0, END)
-                        display_court19.config(bg="#008B00")
-                        display_court19.image_create(END, image=court_bg)
-                    if court20 != ['','']:
-                        display_court20.delete(1.0, END)
-                        display_court20.insert(END, court20[0] + '\n')
-                        display_court20.insert(END, court20[2])
-                        display_court20.config(bg='#00688B', fg="white")
-                    else:
-                        display_court20.delete(1.0, END)
-                        display_court20.config(bg="#008B00")
-                        display_court20.image_create(END, image=court_bg)
-                
-                elif list_of_months[int(month) - 1] == "February":
-                    
-                    court1 = feb_courtlist[((((int(day)-1)*24) + int(hour)) * 20)].get(1.0, END).split('\n')
-                    court2 = feb_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 1].get(1.0, END).split('\n')
-                    court3 = feb_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 2].get(1.0, END).split('\n')
-                    court4 = feb_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 3].get(1.0, END).split('\n')
-                    court5 = feb_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 4].get(1.0, END).split('\n')
-                    court6 = feb_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 5].get(1.0, END).split('\n')
-                    court7 = feb_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 6].get(1.0, END).split('\n')
-                    court8 = feb_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 7].get(1.0, END).split('\n')
-                    court9 = feb_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 8].get(1.0, END).split('\n')
-                    court10 = feb_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 9].get(1.0, END).split('\n')
-                    court11 = feb_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 10].get(1.0, END).split('\n')
-                    court12 = feb_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 11].get(1.0, END).split('\n')
-                    court13 = feb_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 12].get(1.0, END).split('\n')
-                    court14 = feb_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 13].get(1.0, END).split('\n')
-                    court15 = feb_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 14].get(1.0, END).split('\n')
-                    court16 = feb_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 15].get(1.0, END).split('\n')
-                    court17 = feb_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 16].get(1.0, END).split('\n')
-                    court18 = feb_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 17].get(1.0, END).split('\n')
-                    court19 = feb_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 18].get(1.0, END).split('\n')
-                    court20 = feb_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 19].get(1.0, END).split('\n')
-                    
-                    if court1 != ['','']:
-                        display_court1.delete(1.0, END)
-                        display_court1.insert(END, court1[0] + '\n')
-                        display_court1.insert(END, court1[2])
-                        display_court1.config(bg='#00688B', fg="white")
-                    else:
-                        display_court1.delete(1.0, END)
-                        display_court1.config(bg="#008B00")
-                        display_court1.image_create(END, image=court_bg)
-                    if court2 != ['','']:
-                        display_court2.delete(1.0, END)
-                        display_court2.insert(END, court2[0] + '\n')
-                        display_court2.insert(END, court2[2])
-                        display_court2.config(bg='#00688B', fg="white")
-                    else:
-                        display_court2.delete(1.0, END)
-                        display_court2.config(bg="#008B00")
-                        display_court2.image_create(END, image=court_bg)
-                    if court3 != ['','']:
-                        display_court3.delete(1.0, END)
-                        display_court3.insert(END, court3[0] + '\n')
-                        display_court3.insert(END, court3[2])
-                        display_court3.config(bg='#00688B', fg="white")
-                    else:
-                        display_court3.delete(1.0, END)
-                        display_court3.config(bg="#008B00")
-                        display_court3.image_create(END, image=court_bg)
-                    if court4 != ['','']:
-                        display_court4.delete(1.0, END)
-                        display_court4.insert(END, court4[0] + '\n')
-                        display_court4.insert(END, court4[2])
-                        display_court4.config(bg='#00688B', fg="white")
-                    else:
-                        display_court4.delete(1.0, END)
-                        display_court4.config(bg="#008B00")
-                        display_court4.image_create(END, image=court_bg)
-                    if court5 != ['','']:
-                        display_court5.delete(1.0, END)
-                        display_court5.insert(END, court5[0] + '\n')
-                        display_court5.insert(END, court5[2])
-                        display_court5.config(bg='#00688B', fg="white")
-                    else:
-                        display_court5.delete(1.0, END)
-                        display_court5.config(bg="#008B00")
-                        display_court5.image_create(END, image=court_bg)
-                    if court6 != ['','']:
-                        display_court6.delete(1.0, END)
-                        display_court6.insert(END, court6[0] + '\n')
-                        display_court6.insert(END, court6[2])
-                        display_court6.config(bg='#00688B', fg="white")
-                    else:
-                        display_court6.delete(1.0, END)
-                        display_court6.config(bg="#008B00")
-                        display_court6.image_create(END, image=court_bg)
-                    if court7 != ['','']:
-                        display_court7.delete(1.0, END)
-                        display_court7.insert(END, court7[0] + '\n')
-                        display_court7.insert(END, court7[2])
-                        display_court7.config(bg='#00688B', fg="white")
-                    else:
-                        display_court7.delete(1.0, END)
-                        display_court7.config(bg="#008B00")
-                        display_court7.image_create(END, image=court_bg)
-                    if court8 != ['','']:
-                        display_court8.delete(1.0, END)
-                        display_court8.insert(END, court8[0] + '\n')
-                        display_court8.insert(END, court8[2])
-                        display_court8.config(bg='#00688B', fg="white")
-                    else:
-                        display_court8.delete(1.0, END)
-                        display_court8.config(bg="#008B00")
-                        display_court8.image_create(END, image=court_bg)
-                    if court9 != ['','']:
-                        display_court9.delete(1.0, END)
-                        display_court9.insert(END, court9[0] + '\n')
-                        display_court9.insert(END, court9[2])
-                        display_court9.config(bg='#00688B', fg="white")
-                    else:
-                        display_court9.delete(1.0, END)
-                        display_court9.config(bg="#008B00")
-                        display_court9.image_create(END, image=court_bg)
-                    if court10 != ['','']:
-                        display_court10.delete(1.0, END)
-                        display_court10.insert(END, court10[0] + '\n')
-                        display_court10.insert(END, court10[2])
-                        display_court10.config(bg='#00688B', fg="white")
-                    else:
-                        display_court10.delete(1.0, END)
-                        display_court10.config(bg="#008B00")
-                        display_court10.image_create(END, image=court_bg)
-                    if court11 != ['','']:
-                        display_court11.delete(1.0, END)
-                        display_court11.insert(END, court11[0] + '\n')
-                        display_court11.insert(END, court11[2])
-                        display_court11.config(bg='#00688B', fg="white")
-                    else:
-                        display_court11.delete(1.0, END)
-                        display_court11.config(bg="#008B00")
-                        display_court11.image_create(END, image=court_bg)
-                    if court12 != ['','']:
-                        display_court12.delete(1.0, END)
-                        display_court12.insert(END, court12[0] + '\n')
-                        display_court12.insert(END, court12[2])
-                        display_court12.config(bg='#00688B', fg="white")
-                    else:
-                        display_court12.delete(1.0, END)
-                        display_court12.config(bg="#008B00")
-                        display_court12.image_create(END, image=court_bg)
-                    if court13 != ['','']:
-                        display_court13.delete(1.0, END)
-                        display_court13.insert(END, court13[0] + '\n')
-                        display_court13.insert(END, court13[2])
-                        display_court13.config(bg='#00688B', fg="white")
-                    else:
-                        display_court13.delete(1.0, END)
-                        display_court13.config(bg="#008B00")
-                        display_court13.image_create(END, image=court_bg)
-                    if court14 != ['','']:
-                        display_court14.delete(1.0, END)
-                        display_court14.insert(END, court14[0] + '\n')
-                        display_court14.insert(END, court14[2])
-                        display_court14.config(bg='#00688B', fg="white")
-                    else:
-                        display_court14.delete(1.0, END)
-                        display_court14.config(bg="#008B00")
-                        display_court14.image_create(END, image=court_bg)
-                    if court15 != ['','']:
-                        display_court15.delete(1.0, END)
-                        display_court15.insert(END, court15[0] + '\n')
-                        display_court15.insert(END, court15[2])
-                        display_court15.config(bg='#00688B', fg="white")
-                    else:
-                        display_court15.delete(1.0, END)
-                        display_court15.config(bg="#008B00")
-                        display_court15.image_create(END, image=court_bg)
-                    if court16 != ['','']:
-                        display_court16.delete(1.0, END)
-                        display_court16.insert(END, court16[0] + '\n')
-                        display_court16.insert(END, court16[2])
-                        display_court16.config(bg='#00688B', fg="white")
-                    else:
-                        display_court16.delete(1.0, END)
-                        display_court16.config(bg="#008B00")
-                        display_court16.image_create(END, image=court_bg)
-                    if court17 != ['','']:
-                        display_court17.delete(1.0, END)
-                        display_court17.insert(END, court17[0] + '\n')
-                        display_court17.insert(END, court17[2])
-                        display_court17.config(bg='#00688B', fg="white")
-                    else:
-                        display_court17.delete(1.0, END)
-                        display_court17.config(bg="#008B00")
-                        display_court17.image_create(END, image=court_bg)
-                    if court18 != ['','']:
-                        display_court18.delete(1.0, END)
-                        display_court18.insert(END, court18[0] + '\n')
-                        display_court18.insert(END, court18[2])
-                        display_court18.config(bg='#00688B', fg="white")
-                    else:
-                        display_court18.delete(1.0, END)
-                        display_court18.config(bg="#008B00")
-                        display_court18.image_create(END, image=court_bg)
-                    if court19 != ['','']:
-                        display_court19.delete(1.0, END)
-                        display_court19.insert(END, court19[0] + '\n')
-                        display_court19.insert(END, court19[2])
-                        display_court19.config(bg='#00688B', fg="white")
-                    else:
-                        display_court19.delete(1.0, END)
-                        display_court19.config(bg="#008B00")
-                        display_court19.image_create(END, image=court_bg)
-                    if court20 != ['','']:
-                        display_court20.delete(1.0, END)
-                        display_court20.insert(END, court20[0] + '\n')
-                        display_court20.insert(END, court20[2])
-                        display_court20.config(bg='#00688B', fg="white")
-                    else:
-                        display_court20.delete(1.0, END)
-                        display_court20.config(bg="#008B00")
-                        display_court20.image_create(END, image=court_bg)
-                    
-                elif list_of_months[int(month) - 1] == "March":
-                    court1 = mar_courtlist[((((int(day)-1)*24) + int(hour)) * 20)].get(1.0, END).split('\n')
-                    court2 = mar_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 2].get(1.0, END).split('\n')
-                    court3 = mar_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 3].get(1.0, END).split('\n')
-                    court4 = mar_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 4].get(1.0, END).split('\n')
-                    court5 = mar_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 5].get(1.0, END).split('\n')
-                    court6 = mar_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 6].get(1.0, END).split('\n')
-                    court7 = mar_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 7].get(1.0, END).split('\n')
-                    court8 = mar_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 8].get(1.0, END).split('\n')
-                    court9 = mar_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 9].get(1.0, END).split('\n')
-                    court10 = mar_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 10].get(1.0, END).split('\n')
-                    court11 = mar_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 11].get(1.0, END).split('\n')
-                    court12 = mar_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 12].get(1.0, END).split('\n')
-                    court13 = mar_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 13].get(1.0, END).split('\n')
-                    court14 = mar_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 14].get(1.0, END).split('\n')
-                    court15 = mar_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 15].get(1.0, END).split('\n')
-                    court16 = mar_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 16].get(1.0, END).split('\n')
-                    court17 = mar_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 17].get(1.0, END).split('\n')
-                    court18 = mar_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 18].get(1.0, END).split('\n')
-                    court19 = mar_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 19].get(1.0, END).split('\n')
-                    court20 = mar_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 20].get(1.0, END).split('\n')
 
-                    if court1 != ['','']:
-                        display_court1.delete(1.0, END)
-                        display_court1.insert(END, court1[0] + '\n')
-                        display_court1.insert(END, court1[2])
-                        display_court1.config(bg='#00688B', fg="white")
-                    else:
-                        display_court1.delete(1.0, END)
-                        display_court1.config(bg="#008B00")
-                        display_court1.image_create(END, image=court_bg)
-                    if court2 != ['','']:
-                        display_court2.delete(1.0, END)
-                        display_court2.insert(END, court2[0] + '\n')
-                        display_court2.insert(END, court2[2])
-                        display_court2.config(bg='#00688B', fg="white")
-                    else:
-                        display_court2.delete(1.0, END)
-                        display_court2.config(bg="#008B00")
-                        display_court2.image_create(END, image=court_bg)
-                    if court3 != ['','']:
-                        display_court3.delete(1.0, END)
-                        display_court3.insert(END, court3[0] + '\n')
-                        display_court3.insert(END, court3[2])
-                        display_court3.config(bg='#00688B', fg="white")
-                    else:
-                        display_court3.delete(1.0, END)
-                        display_court3.config(bg="#008B00")
-                        display_court3.image_create(END, image=court_bg)
-                    if court4 != ['','']:
-                        display_court4.delete(1.0, END)
-                        display_court4.insert(END, court4[0] + '\n')
-                        display_court4.insert(END, court4[2])
-                        display_court4.config(bg='#00688B', fg="white")
-                    else:
-                        display_court4.delete(1.0, END)
-                        display_court4.config(bg="#008B00")
-                        display_court4.image_create(END, image=court_bg)
-                    if court5 != ['','']:
-                        display_court5.delete(1.0, END)
-                        display_court5.insert(END, court5[0] + '\n')
-                        display_court5.insert(END, court5[2])
-                        display_court5.config(bg='#00688B', fg="white")
-                    else:
-                        display_court5.delete(1.0, END)
-                        display_court5.config(bg="#008B00")
-                        display_court5.image_create(END, image=court_bg)
-                    if court6 != ['','']:
-                        display_court6.delete(1.0, END)
-                        display_court6.insert(END, court6[0] + '\n')
-                        display_court6.insert(END, court6[2])
-                        display_court6.config(bg='#00688B', fg="white")
-                    else:
-                        display_court6.delete(1.0, END)
-                        display_court6.config(bg="#008B00")
-                        display_court6.image_create(END, image=court_bg)
-                    if court7 != ['','']:
-                        display_court7.delete(1.0, END)
-                        display_court7.insert(END, court7[0] + '\n')
-                        display_court7.insert(END, court7[2])
-                        display_court7.config(bg='#00688B', fg="white")
-                    else:
-                        display_court7.delete(1.0, END)
-                        display_court7.config(bg="#008B00")
-                        display_court7.image_create(END, image=court_bg)
-                    if court8 != ['','']:
-                        display_court8.delete(1.0, END)
-                        display_court8.insert(END, court8[0] + '\n')
-                        display_court8.insert(END, court8[2])
-                        display_court8.config(bg='#00688B', fg="white")
-                    else:
-                        display_court8.delete(1.0, END)
-                        display_court8.config(bg="#008B00")
-                        display_court8.image_create(END, image=court_bg)
-                    if court9 != ['','']:
-                        display_court9.delete(1.0, END)
-                        display_court9.insert(END, court9[0] + '\n')
-                        display_court9.insert(END, court9[2])
-                        display_court9.config(bg='#00688B', fg="white")
-                    else:
-                        display_court9.delete(1.0, END)
-                        display_court9.config(bg="#008B00")
-                        display_court9.image_create(END, image=court_bg)
-                    if court10 != ['','']:
-                        display_court10.delete(1.0, END)
-                        display_court10.insert(END, court10[0] + '\n')
-                        display_court10.insert(END, court10[2])
-                        display_court10.config(bg='#00688B', fg="white")
-                    else:
-                        display_court10.delete(1.0, END)
-                        display_court10.config(bg="#008B00")
-                        display_court10.image_create(END, image=court_bg)
-                    if court11 != ['','']:
-                        display_court11.delete(1.0, END)
-                        display_court11.insert(END, court11[0] + '\n')
-                        display_court11.insert(END, court11[2])
-                        display_court11.config(bg='#00688B', fg="white")
-                    else:
-                        display_court11.delete(1.0, END)
-                        display_court11.config(bg="#008B00")
-                        display_court11.image_create(END, image=court_bg)
-                    if court12 != ['','']:
-                        display_court12.delete(1.0, END)
-                        display_court12.insert(END, court12[0] + '\n')
-                        display_court12.insert(END, court12[2])
-                        display_court12.config(bg='#00688B', fg="white")
-                    else:
-                        display_court12.delete(1.0, END)
-                        display_court12.config(bg="#008B00")
-                        display_court12.image_create(END, image=court_bg)
-                    if court13 != ['','']:
-                        display_court13.delete(1.0, END)
-                        display_court13.insert(END, court13[0] + '\n')
-                        display_court13.insert(END, court13[2])
-                        display_court13.config(bg='#00688B', fg="white")
-                    else:
-                        display_court13.delete(1.0, END)
-                        display_court13.config(bg="#008B00")
-                        display_court13.image_create(END, image=court_bg)
-                    if court14 != ['','']:
-                        display_court14.delete(1.0, END)
-                        display_court14.insert(END, court14[0] + '\n')
-                        display_court14.insert(END, court14[2])
-                        display_court14.config(bg='#00688B', fg="white")
-                    else:
-                        display_court14.delete(1.0, END)
-                        display_court14.config(bg="#008B00")
-                        display_court14.image_create(END, image=court_bg)
-                    if court15 != ['','']:
-                        display_court15.delete(1.0, END)
-                        display_court15.insert(END, court15[0] + '\n')
-                        display_court15.insert(END, court15[2])
-                        display_court15.config(bg='#00688B', fg="white")
-                    else:
-                        display_court15.delete(1.0, END)
-                        display_court15.config(bg="#008B00")
-                        display_court15.image_create(END, image=court_bg)
-                    if court16 != ['','']:
-                        display_court16.delete(1.0, END)
-                        display_court16.insert(END, court16[0] + '\n')
-                        display_court16.insert(END, court16[2])
-                        display_court16.config(bg='#00688B', fg="white")
-                    else:
-                        display_court16.delete(1.0, END)
-                        display_court16.config(bg="#008B00")
-                        display_court16.image_create(END, image=court_bg)
-                    if court17 != ['','']:
-                        display_court17.delete(1.0, END)
-                        display_court17.insert(END, court17[0] + '\n')
-                        display_court17.insert(END, court17[2])
-                        display_court17.config(bg='#00688B', fg="white")
-                    else:
-                        display_court17.delete(1.0, END)
-                        display_court17.config(bg="#008B00")
-                        display_court17.image_create(END, image=court_bg)
-                    if court18 != ['','']:
-                        display_court18.delete(1.0, END)
-                        display_court18.insert(END, court18[0] + '\n')
-                        display_court18.insert(END, court18[2])
-                        display_court18.config(bg='#00688B', fg="white")
-                    else:
-                        display_court18.delete(1.0, END)
-                        display_court18.config(bg="008B00")
-                        display_court18.image_create(END, image=court_bg)
-                    if court19 != ['','']:
-                        display_court19.delete(1.0, END)
-                        display_court19.insert(END, court19[0] + '\n')
-                        display_court19.insert(END, court19[2])
-                        display_court19.config(bg='#00688B', fg="white")
-                    else:
-                        display_court19.delete(1.0, END)
-                        display_court19.config(bg="#008B00")
-                        display_court19.image_create(END, image=court_bg)
-                    if court20 != ['','']:
-                        display_court20.delete(1.0, END)
-                        display_court20.insert(END, court20[0] + '\n')
-                        display_court20.insert(END, court20[2])
-                        display_court20.config(bg='#00688B', fg="white")
-                    else:
-                        display_court20.delete(1.0, END)
-                        display_court20.config(bg="#008B00")
-                        display_court20.image_create(END, image=court_bg)
-                
-                elif list_of_months[int(month) - 1] == "April":
-                    court1 = apr_courtlist[((((int(day)-1)*24) + int(hour)) * 20)].get(1.0, END).split('\n')
-                    court2 = apr_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 2].get(1.0, END).split('\n')
-                    court3 = apr_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 3].get(1.0, END).split('\n')
-                    court4 = apr_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 4].get(1.0, END).split('\n')
-                    court5 = apr_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 5].get(1.0, END).split('\n')
-                    court6 = apr_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 6].get(1.0, END).split('\n')
-                    court7 = apr_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 7].get(1.0, END).split('\n')
-                    court8 = apr_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 8].get(1.0, END).split('\n')
-                    court9 = apr_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 9].get(1.0, END).split('\n')
-                    court10 = apr_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 10].get(1.0, END).split('\n')
-                    court11 = apr_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 11].get(1.0, END).split('\n')
-                    court12 = apr_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 12].get(1.0, END).split('\n')
-                    court13 = apr_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 13].get(1.0, END).split('\n')
-                    court14 = apr_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 14].get(1.0, END).split('\n')
-                    court15 = apr_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 15].get(1.0, END).split('\n')
-                    court16 = apr_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 16].get(1.0, END).split('\n')
-                    court17 = apr_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 17].get(1.0, END).split('\n')
-                    court18 = apr_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 18].get(1.0, END).split('\n')
-                    court19 = apr_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 19].get(1.0, END).split('\n')
-                    court20 = apr_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 20].get(1.0, END).split('\n')
+                for mth in list_of_months:
+                    if mth == list_of_months[int(month) - 1]:
+                        courtlist = month_courtlists[list_of_months.index(mth)]
+                        courts = []
 
-                    if court1 != ['','']:
-                        display_court1.delete(1.0, END)
-                        display_court1.insert(END, court1[0] + '\n')
-                        display_court1.insert(END, court1[2])
-                        display_court1.config(bg='#00688B', fg="white")
-                    else:
-                        display_court1.delete(1.0, END)
-                        display_court1.config(bg="#008B00")
-                        display_court1.image_create(END, image=court_bg)
-                    if court2 != ['','']:
-                        display_court2.delete(1.0, END)
-                        display_court2.insert(END, court2[0] + '\n')
-                        display_court2.insert(END, court2[2])
-                        display_court2.config(bg='#00688B', fg="white")
-                    else:
-                        display_court2.delete(1.0, END)
-                        display_court2.config(bg="#008B00")
-                        display_court2.image_create(END, image=court_bg)
-                    if court3 != ['','']:
-                        display_court3.delete(1.0, END)
-                        display_court3.insert(END, court3[0] + '\n')
-                        display_court3.insert(END, court3[2])
-                        display_court3.config(bg='#00688B', fg="white")
-                    else:
-                        display_court3.delete(1.0, END)
-                        display_court3.config(bg="#008B00")
-                        display_court3.image_create(END, image=court_bg)
-                    if court4 != ['','']:
-                        display_court4.delete(1.0, END)
-                        display_court4.insert(END, court4[0] + '\n')
-                        display_court4.insert(END, court4[2])
-                        display_court4.config(bg='#00688B', fg="white")
-                    else:
-                        display_court4.delete(1.0, END)
-                        display_court4.config(bg="#008B00")
-                        display_court4.image_create(END, image=court_bg)
-                    if court5 != ['','']:
-                        display_court5.delete(1.0, END)
-                        display_court5.insert(END, court5[0] + '\n')
-                        display_court5.insert(END, court5[2])
-                        display_court5.config(bg='#00688B', fg="white")
-                    else:
-                        display_court5.delete(1.0, END)
-                        display_court5.config(bg="#008B00")
-                        display_court5.image_create(END, image=court_bg)
-                    if court6 != ['','']:
-                        display_court6.delete(1.0, END)
-                        display_court6.insert(END, court6[0] + '\n')
-                        display_court6.insert(END, court6[2])
-                        display_court6.config(bg='#00688B', fg="white")
-                    else:
-                        display_court6.delete(1.0, END)
-                        display_court6.config(bg="#008B00")
-                        display_court6.image_create(END, image=court_bg)
-                    if court7 != ['','']:
-                        display_court7.delete(1.0, END)
-                        display_court7.insert(END, court7[0] + '\n')
-                        display_court7.insert(END, court7[2])
-                        display_court7.config(bg='#00688B', fg="white")
-                    else:
-                        display_court7.delete(1.0, END)
-                        display_court7.config(bg="#008B00")
-                        display_court7.image_create(END, image=court_bg)
-                    if court8 != ['','']:
-                        display_court8.delete(1.0, END)
-                        display_court8.insert(END, court8[0] + '\n')
-                        display_court8.insert(END, court8[2])
-                        display_court8.config(bg='#00688B', fg="white")
-                    else:
-                        display_court8.delete(1.0, END)
-                        display_court8.config(bg="#008B00")
-                        display_court8.image_create(END, image=court_bg)
-                    if court9 != ['','']:
-                        display_court9.delete(1.0, END)
-                        display_court9.insert(END, court9[0] + '\n')
-                        display_court9.insert(END, court9[2])
-                        display_court9.config(bg='#00688B', fg="white")
-                    else:
-                        display_court9.delete(1.0, END)
-                        display_court9.config(bg="#008B00")
-                        display_court9.image_create(END, image=court_bg)
-                    if court10 != ['','']:
-                        display_court10.delete(1.0, END)
-                        display_court10.insert(END, court10[0] + '\n')
-                        display_court10.insert(END, court10[2])
-                        display_court10.config(bg='#00688B', fg="white")
-                    else:
-                        display_court10.delete(1.0, END)
-                        display_court10.config(bg="#008B00")
-                        display_court10.image_create(END, image=court_bg)
-                    if court11 != ['','']:
-                        display_court11.delete(1.0, END)
-                        display_court11.insert(END, court11[0] + '\n')
-                        display_court11.insert(END, court11[2])
-                        display_court11.config(bg='#00688B', fg="white")
-                    else:
-                        display_court11.delete(1.0, END)
-                        display_court11.config(bg="#008B00")
-                        display_court11.image_create(END, image=court_bg)
-                    if court12 != ['','']:
-                        display_court12.delete(1.0, END)
-                        display_court12.insert(END, court12[0] + '\n')
-                        display_court12.insert(END, court12[2])
-                        display_court12.config(bg='#00688B', fg="white")
-                    else:
-                        display_court12.delete(1.0, END)
-                        display_court12.config(bg="#008B00")
-                        display_court12.image_create(END, image=court_bg)
-                    if court13 != ['','']:
-                        display_court13.delete(1.0, END)
-                        display_court13.insert(END, court13[0] + '\n')
-                        display_court13.insert(END, court13[2])
-                        display_court13.config(bg='#00688B', fg="white")
-                    else:
-                        display_court13.delete(1.0, END)
-                        display_court13.config(bg="#008B00")
-                        display_court13.image_create(END, image=court_bg)
-                    if court14 != ['','']:
-                        display_court14.delete(1.0, END)
-                        display_court14.insert(END, court14[0] + '\n')
-                        display_court14.insert(END, court14[2])
-                        display_court14.config(bg='#00688B', fg="white")
-                    else:
-                        display_court14.delete(1.0, END)
-                        display_court14.config(bg="#008B00")
-                        display_court14.image_create(END, image=court_bg)
-                    if court15 != ['','']:
-                        display_court15.delete(1.0, END)
-                        display_court15.insert(END, court15[0] + '\n')
-                        display_court15.insert(END, court15[2])
-                        display_court15.config(bg='#00688B', fg="white")
-                    else:
-                        display_court15.delete(1.0, END)
-                        display_court15.config(bg="#008B00")
-                        display_court15.image_create(END, image=court_bg)
-                    if court16 != ['','']:
-                        display_court16.delete(1.0, END)
-                        display_court16.insert(END, court16[0] + '\n')
-                        display_court16.insert(END, court16[2])
-                        display_court16.config(bg='#00688B', fg="white")
-                    else:
-                        display_court16.delete(1.0, END)
-                        display_court16.config(bg="#008B00")
-                        display_court16.image_create(END, image=court_bg)
-                    if court17 != ['','']:
-                        display_court17.delete(1.0, END)
-                        display_court17.insert(END, court17[0] + '\n')
-                        display_court17.insert(END, court17[2])
-                        display_court17.config(bg='#00688B', fg="white")
-                    else:
-                        display_court17.delete(1.0, END)
-                        display_court17.config(bg="#008B00")
-                        display_court17.image_create(END, image=court_bg)
-                    if court18 != ['','']:
-                        display_court18.delete(1.0, END)
-                        display_court18.insert(END, court18[0] + '\n')
-                        display_court18.insert(END, court18[2])
-                        display_court18.config(bg='#00688B', fg="white")
-                    else:
-                        display_court18.delete(1.0, END)
-                        display_court18.config(bg="008B00")
-                        display_court18.image_create(END, image=court_bg)
-                    if court19 != ['','']:
-                        display_court19.delete(1.0, END)
-                        display_court19.insert(END, court19[0] + '\n')
-                        display_court19.insert(END, court19[2])
-                        display_court19.config(bg='#00688B', fg="white")
-                    else:
-                        display_court19.delete(1.0, END)
-                        display_court19.config(bg="#008B00")
-                        display_court19.image_create(END, image=court_bg)
-                    if court20 != ['','']:
-                        display_court20.delete(1.0, END)
-                        display_court20.insert(END, court20[0] + '\n')
-                        display_court20.insert(END, court20[2])
-                        display_court20.config(bg='#00688B', fg="white")
-                    else:
-                        display_court20.delete(1.0, END)
-                        display_court20.config(bg="#008B00")
-                        display_court20.image_create(END, image=court_bg)
-                
-                elif list_of_months[int(month) - 1] == "May":
-                    court1 = may_courtlist[((((int(day)-1)*24) + int(hour)) * 20)].get(1.0, END).split('\n')
-                    court2 = may_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 2].get(1.0, END).split('\n')
-                    court3 = may_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 3].get(1.0, END).split('\n')
-                    court4 = may_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 4].get(1.0, END).split('\n')
-                    court5 = may_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 5].get(1.0, END).split('\n')
-                    court6 = may_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 6].get(1.0, END).split('\n')
-                    court7 = may_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 7].get(1.0, END).split('\n')
-                    court8 = may_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 8].get(1.0, END).split('\n')
-                    court9 = may_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 9].get(1.0, END).split('\n')
-                    court10 = may_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 10].get(1.0, END).split('\n')
-                    court11 = may_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 11].get(1.0, END).split('\n')
-                    court12 = may_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 12].get(1.0, END).split('\n')
-                    court13 = may_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 13].get(1.0, END).split('\n')
-                    court14 = may_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 14].get(1.0, END).split('\n')
-                    court15 = may_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 15].get(1.0, END).split('\n')
-                    court16 = may_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 16].get(1.0, END).split('\n')
-                    court17 = may_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 17].get(1.0, END).split('\n')
-                    court18 = may_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 18].get(1.0, END).split('\n')
-                    court19 = may_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 19].get(1.0, END).split('\n')
-                    court20 = may_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 20].get(1.0, END).split('\n')
-                    
-                    if court1 != ['','']:
-                        display_court1.delete(1.0, END)
-                        display_court1.insert(END, court1[0] + '\n')
-                        display_court1.insert(END, court1[2])
-                        display_court1.config(bg='#00688B', fg="white")
-                    else:
-                        display_court1.delete(1.0, END)
-                        display_court1.config(bg="#008B00")
-                        display_court1.image_create(END, image=court_bg)
-                    if court2 != ['','']:
-                        display_court2.delete(1.0, END)
-                        display_court2.insert(END, court2[0] + '\n')
-                        display_court2.insert(END, court2[2])
-                        display_court2.config(bg='#00688B', fg="white")
-                    else:
-                        display_court2.delete(1.0, END)
-                        display_court2.config(bg="#008B00")
-                        display_court2.image_create(END, image=court_bg)
-                    if court3 != ['','']:
-                        display_court3.delete(1.0, END)
-                        display_court3.insert(END, court3[0] + '\n')
-                        display_court3.insert(END, court3[2])
-                        display_court3.config(bg='#00688B', fg="white")
-                    else:
-                        display_court3.delete(1.0, END)
-                        display_court3.config(bg="#008B00")
-                        display_court3.image_create(END, image=court_bg)
-                    if court4 != ['','']:
-                        display_court4.delete(1.0, END)
-                        display_court4.insert(END, court4[0] + '\n')
-                        display_court4.insert(END, court4[2])
-                        display_court4.config(bg='#00688B', fg="white")
-                    else:
-                        display_court4.delete(1.0, END)
-                        display_court4.config(bg="#008B00")
-                        display_court4.image_create(END, image=court_bg)
-                    if court5 != ['','']:
-                        display_court5.delete(1.0, END)
-                        display_court5.insert(END, court5[0] + '\n')
-                        display_court5.insert(END, court5[2])
-                        display_court5.config(bg='#00688B', fg="white")
-                    else:
-                        display_court5.delete(1.0, END)
-                        display_court5.config(bg="#008B00")
-                        display_court5.image_create(END, image=court_bg)
-                    if court6 != ['','']:
-                        display_court6.delete(1.0, END)
-                        display_court6.insert(END, court6[0] + '\n')
-                        display_court6.insert(END, court6[2])
-                        display_court6.config(bg='#00688B', fg="white")
-                    else:
-                        display_court6.delete(1.0, END)
-                        display_court6.config(bg="#008B00")
-                        display_court6.image_create(END, image=court_bg)
-                    if court7 != ['','']:
-                        display_court7.delete(1.0, END)
-                        display_court7.insert(END, court7[0] + '\n')
-                        display_court7.insert(END, court7[2])
-                        display_court7.config(bg='#00688B', fg="white")
-                    else:
-                        display_court7.delete(1.0, END)
-                        display_court7.config(bg="#008B00")
-                        display_court7.image_create(END, image=court_bg)
-                    if court8 != ['','']:
-                        display_court8.delete(1.0, END)
-                        display_court8.insert(END, court8[0] + '\n')
-                        display_court8.insert(END, court8[2])
-                        display_court8.config(bg='#00688B', fg="white")
-                    else:
-                        display_court8.delete(1.0, END)
-                        display_court8.config(bg="#008B00")
-                        display_court8.image_create(END, image=court_bg)
-                    if court9 != ['','']:
-                        display_court9.delete(1.0, END)
-                        display_court9.insert(END, court9[0] + '\n')
-                        display_court9.insert(END, court9[2])
-                        display_court9.config(bg='#00688B', fg="white")
-                    else:
-                        display_court9.delete(1.0, END)
-                        display_court9.config(bg="#008B00")
-                        display_court9.image_create(END, image=court_bg)
-                    if court10 != ['','']:
-                        display_court10.delete(1.0, END)
-                        display_court10.insert(END, court10[0] + '\n')
-                        display_court10.insert(END, court10[2])
-                        display_court10.config(bg='#00688B', fg="white")
-                    else:
-                        display_court10.delete(1.0, END)
-                        display_court10.config(bg="#008B00")
-                        display_court10.image_create(END, image=court_bg)
-                    if court11 != ['','']:
-                        display_court11.delete(1.0, END)
-                        display_court11.insert(END, court11[0] + '\n')
-                        display_court11.insert(END, court11[2])
-                        display_court11.config(bg='#00688B', fg="white")
-                    else:
-                        display_court11.delete(1.0, END)
-                        display_court11.config(bg="#008B00")
-                        display_court11.image_create(END, image=court_bg)
-                    if court12 != ['','']:
-                        display_court12.delete(1.0, END)
-                        display_court12.insert(END, court12[0] + '\n')
-                        display_court12.insert(END, court12[2])
-                        display_court12.config(bg='#00688B', fg="white")
-                    else:
-                        display_court12.delete(1.0, END)
-                        display_court12.config(bg="#008B00")
-                        display_court12.image_create(END, image=court_bg)
-                    if court13 != ['','']:
-                        display_court13.delete(1.0, END)
-                        display_court13.insert(END, court13[0] + '\n')
-                        display_court13.insert(END, court13[2])
-                        display_court13.config(bg='#00688B', fg="white")
-                    else:
-                        display_court13.delete(1.0, END)
-                        display_court13.config(bg="#008B00")
-                        display_court13.image_create(END, image=court_bg)
-                    if court14 != ['','']:
-                        display_court14.delete(1.0, END)
-                        display_court14.insert(END, court14[0] + '\n')
-                        display_court14.insert(END, court14[2])
-                        display_court14.config(bg='#00688B', fg="white")
-                    else:
-                        display_court14.delete(1.0, END)
-                        display_court14.config(bg="#008B00")
-                        display_court14.image_create(END, image=court_bg)
-                    if court15 != ['','']:
-                        display_court15.delete(1.0, END)
-                        display_court15.insert(END, court15[0] + '\n')
-                        display_court15.insert(END, court15[2])
-                        display_court15.config(bg='#00688B', fg="white")
-                    else:
-                        display_court15.delete(1.0, END)
-                        display_court15.config(bg="#008B00")
-                        display_court15.image_create(END, image=court_bg)
-                    if court16 != ['','']:
-                        display_court16.delete(1.0, END)
-                        display_court16.insert(END, court16[0] + '\n')
-                        display_court16.insert(END, court16[2])
-                        display_court16.config(bg='#00688B', fg="white")
-                    else:
-                        display_court16.delete(1.0, END)
-                        display_court16.config(bg="#008B00")
-                        display_court16.image_create(END, image=court_bg)
-                    if court17 != ['','']:
-                        display_court17.delete(1.0, END)
-                        display_court17.insert(END, court17[0] + '\n')
-                        display_court17.insert(END, court17[2])
-                        display_court17.config(bg='#00688B', fg="white")
-                    else:
-                        display_court17.delete(1.0, END)
-                        display_court17.config(bg="#008B00")
-                        display_court17.image_create(END, image=court_bg)
-                    if court18 != ['','']:
-                        display_court18.delete(1.0, END)
-                        display_court18.insert(END, court18[0] + '\n')
-                        display_court18.insert(END, court18[2])
-                        display_court18.config(bg='#00688B', fg="white")
-                    else:
-                        display_court18.delete(1.0, END)
-                        display_court18.config(bg="008B00")
-                        display_court18.image_create(END, image=court_bg)
-                    if court19 != ['','']:
-                        display_court19.delete(1.0, END)
-                        display_court19.insert(END, court19[0] + '\n')
-                        display_court19.insert(END, court19[2])
-                        display_court19.config(bg='#00688B', fg="white")
-                    else:
-                        display_court19.delete(1.0, END)
-                        display_court19.config(bg="#008B00")
-                        display_court19.image_create(END, image=court_bg)
-                    if court20 != ['','']:
-                        display_court20.delete(1.0, END)
-                        display_court20.insert(END, court20[0] + '\n')
-                        display_court20.insert(END, court20[2])
-                        display_court20.config(bg='#00688B', fg="white")
-                    else:
-                        display_court20.delete(1.0, END)
-                        display_court20.config(bg="#008B00")
-                        display_court20.image_create(END, image=court_bg)
-
-                elif list_of_months[int(month) - 1] == "June":
-                    court1 = jun_courtlist[((((int(day)-1)*24) + int(hour)) * 20)].get(1.0, END).split('\n')
-                    court2 = jun_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 2].get(1.0, END).split('\n')
-                    court3 = jun_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 3].get(1.0, END).split('\n')
-                    court4 = jun_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 4].get(1.0, END).split('\n')
-                    court5 = jun_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 5].get(1.0, END).split('\n')
-                    court6 = jun_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 6].get(1.0, END).split('\n')
-                    court7 = jun_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 7].get(1.0, END).split('\n')
-                    court8 = jun_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 8].get(1.0, END).split('\n')
-                    court9 = jun_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 9].get(1.0, END).split('\n')
-                    court10 = jun_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 10].get(1.0, END).split('\n')
-                    court11 = jun_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 11].get(1.0, END).split('\n')
-                    court12 = jun_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 12].get(1.0, END).split('\n')
-                    court13 = jun_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 13].get(1.0, END).split('\n')
-                    court14 = jun_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 14].get(1.0, END).split('\n')
-                    court15 = jun_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 15].get(1.0, END).split('\n')
-                    court16 = jun_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 16].get(1.0, END).split('\n')
-                    court17 = jun_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 17].get(1.0, END).split('\n')
-                    court18 = jun_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 18].get(1.0, END).split('\n')
-                    court19 = jun_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 19].get(1.0, END).split('\n')
-                    court20 = jun_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 20].get(1.0, END).split('\n')
-
-                    if court1 != ['','']:
-                        display_court1.delete(1.0, END)
-                        display_court1.insert(END, court1[0] + '\n')
-                        display_court1.insert(END, court1[2])
-                        display_court1.config(bg='#00688B', fg="white")
-                    else:
-                        display_court1.delete(1.0, END)
-                        display_court1.config(bg="#008B00")
-                        display_court1.image_create(END, image=court_bg)
-                    if court2 != ['','']:
-                        display_court2.delete(1.0, END)
-                        display_court2.insert(END, court2[0] + '\n')
-                        display_court2.insert(END, court2[2])
-                        display_court2.config(bg='#00688B', fg="white")
-                    else:
-                        display_court2.delete(1.0, END)
-                        display_court2.config(bg="#008B00")
-                        display_court2.image_create(END, image=court_bg)
-                    if court3 != ['','']:
-                        display_court3.delete(1.0, END)
-                        display_court3.insert(END, court3[0] + '\n')
-                        display_court3.insert(END, court3[2])
-                        display_court3.config(bg='#00688B', fg="white")
-                    else:
-                        display_court3.delete(1.0, END)
-                        display_court3.config(bg="#008B00")
-                        display_court3.image_create(END, image=court_bg)
-                    if court4 != ['','']:
-                        display_court4.delete(1.0, END)
-                        display_court4.insert(END, court4[0] + '\n')
-                        display_court4.insert(END, court4[2])
-                        display_court4.config(bg='#00688B', fg="white")
-                    else:
-                        display_court4.delete(1.0, END)
-                        display_court4.config(bg="#008B00")
-                        display_court4.image_create(END, image=court_bg)
-                    if court5 != ['','']:
-                        display_court5.delete(1.0, END)
-                        display_court5.insert(END, court5[0] + '\n')
-                        display_court5.insert(END, court5[2])
-                        display_court5.config(bg='#00688B', fg="white")
-                    else:
-                        display_court5.delete(1.0, END)
-                        display_court5.config(bg="#008B00")
-                        display_court5.image_create(END, image=court_bg)
-                    if court6 != ['','']:
-                        display_court6.delete(1.0, END)
-                        display_court6.insert(END, court6[0] + '\n')
-                        display_court6.insert(END, court6[2])
-                        display_court6.config(bg='#00688B', fg="white")
-                    else:
-                        display_court6.delete(1.0, END)
-                        display_court6.config(bg="#008B00")
-                        display_court6.image_create(END, image=court_bg)
-                    if court7 != ['','']:
-                        display_court7.delete(1.0, END)
-                        display_court7.insert(END, court7[0] + '\n')
-                        display_court7.insert(END, court7[2])
-                        display_court7.config(bg='#00688B', fg="white")
-                    else:
-                        display_court7.delete(1.0, END)
-                        display_court7.config(bg="#008B00")
-                        display_court7.image_create(END, image=court_bg)
-                    if court8 != ['','']:
-                        display_court8.delete(1.0, END)
-                        display_court8.insert(END, court8[0] + '\n')
-                        display_court8.insert(END, court8[2])
-                        display_court8.config(bg='#00688B', fg="white")
-                    else:
-                        display_court8.delete(1.0, END)
-                        display_court8.config(bg="#008B00")
-                        display_court8.image_create(END, image=court_bg)
-                    if court9 != ['','']:
-                        display_court9.delete(1.0, END)
-                        display_court9.insert(END, court9[0] + '\n')
-                        display_court9.insert(END, court9[2])
-                        display_court9.config(bg='#00688B', fg="white")
-                    else:
-                        display_court9.delete(1.0, END)
-                        display_court9.config(bg="#008B00")
-                        display_court9.image_create(END, image=court_bg)
-                    if court10 != ['','']:
-                        display_court10.delete(1.0, END)
-                        display_court10.insert(END, court10[0] + '\n')
-                        display_court10.insert(END, court10[2])
-                        display_court10.config(bg='#00688B', fg="white")
-                    else:
-                        display_court10.delete(1.0, END)
-                        display_court10.config(bg="#008B00")
-                        display_court10.image_create(END, image=court_bg)
-                    if court11 != ['','']:
-                        display_court11.delete(1.0, END)
-                        display_court11.insert(END, court11[0] + '\n')
-                        display_court11.insert(END, court11[2])
-                        display_court11.config(bg='#00688B', fg="white")
-                    else:
-                        display_court11.delete(1.0, END)
-                        display_court11.config(bg="#008B00")
-                        display_court11.image_create(END, image=court_bg)
-                    if court12 != ['','']:
-                        display_court12.delete(1.0, END)
-                        display_court12.insert(END, court12[0] + '\n')
-                        display_court12.insert(END, court12[2])
-                        display_court12.config(bg='#00688B', fg="white")
-                    else:
-                        display_court12.delete(1.0, END)
-                        display_court12.config(bg="#008B00")
-                        display_court12.image_create(END, image=court_bg)
-                    if court13 != ['','']:
-                        display_court13.delete(1.0, END)
-                        display_court13.insert(END, court13[0] + '\n')
-                        display_court13.insert(END, court13[2])
-                        display_court13.config(bg='#00688B', fg="white")
-                    else:
-                        display_court13.delete(1.0, END)
-                        display_court13.config(bg="#008B00")
-                        display_court13.image_create(END, image=court_bg)
-                    if court14 != ['','']:
-                        display_court14.delete(1.0, END)
-                        display_court14.insert(END, court14[0] + '\n')
-                        display_court14.insert(END, court14[2])
-                        display_court14.config(bg='#00688B', fg="white")
-                    else:
-                        display_court14.delete(1.0, END)
-                        display_court14.config(bg="#008B00")
-                        display_court14.image_create(END, image=court_bg)
-                    if court15 != ['','']:
-                        display_court15.delete(1.0, END)
-                        display_court15.insert(END, court15[0] + '\n')
-                        display_court15.insert(END, court15[2])
-                        display_court15.config(bg='#00688B', fg="white")
-                    else:
-                        display_court15.delete(1.0, END)
-                        display_court15.config(bg="#008B00")
-                        display_court15.image_create(END, image=court_bg)
-                    if court16 != ['','']:
-                        display_court16.delete(1.0, END)
-                        display_court16.insert(END, court16[0] + '\n')
-                        display_court16.insert(END, court16[2])
-                        display_court16.config(bg='#00688B', fg="white")
-                    else:
-                        display_court16.delete(1.0, END)
-                        display_court16.config(bg="#008B00")
-                        display_court16.image_create(END, image=court_bg)
-                    if court17 != ['','']:
-                        display_court17.delete(1.0, END)
-                        display_court17.insert(END, court17[0] + '\n')
-                        display_court17.insert(END, court17[2])
-                        display_court17.config(bg='#00688B', fg="white")
-                    else:
-                        display_court17.delete(1.0, END)
-                        display_court17.config(bg="#008B00")
-                        display_court17.image_create(END, image=court_bg)
-                    if court18 != ['','']:
-                        display_court18.delete(1.0, END)
-                        display_court18.insert(END, court18[0] + '\n')
-                        display_court18.insert(END, court18[2])
-                        display_court18.config(bg='#00688B', fg="white")
-                    else:
-                        display_court18.delete(1.0, END)
-                        display_court18.config(bg="008B00")
-                        display_court18.image_create(END, image=court_bg)
-                    if court19 != ['','']:
-                        display_court19.delete(1.0, END)
-                        display_court19.insert(END, court19[0] + '\n')
-                        display_court19.insert(END, court19[2])
-                        display_court19.config(bg='#00688B', fg="white")
-                    else:
-                        display_court19.delete(1.0, END)
-                        display_court19.config(bg="#008B00")
-                        display_court19.image_create(END, image=court_bg)
-                    if court20 != ['','']:
-                        display_court20.delete(1.0, END)
-                        display_court20.insert(END, court20[0] + '\n')
-                        display_court20.insert(END, court20[2])
-                        display_court20.config(bg='#00688B', fg="white")
-                    else:
-                        display_court20.delete(1.0, END)
-                        display_court20.config(bg="#008B00")
-                        display_court20.image_create(END, image=court_bg)
-                
-                elif list_of_months[int(month) - 1] == "July":
-                    court1 = jul_courtlist[((((int(day)-1)*24) + int(hour)) * 20)].get(1.0, END).split('\n')
-                    court2 = jul_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 2].get(1.0, END).split('\n')
-                    court3 = jul_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 3].get(1.0, END).split('\n')
-                    court4 = jul_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 4].get(1.0, END).split('\n')
-                    court5 = jul_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 5].get(1.0, END).split('\n')
-                    court6 = jul_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 6].get(1.0, END).split('\n')
-                    court7 = jul_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 7].get(1.0, END).split('\n')
-                    court8 = jul_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 8].get(1.0, END).split('\n')
-                    court9 = jul_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 9].get(1.0, END).split('\n')
-                    court10 = jul_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 10].get(1.0, END).split('\n')
-                    court11 = jul_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 11].get(1.0, END).split('\n')
-                    court12 = jul_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 12].get(1.0, END).split('\n')
-                    court13 = jul_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 13].get(1.0, END).split('\n')
-                    court14 = jul_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 14].get(1.0, END).split('\n')
-                    court15 = jul_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 15].get(1.0, END).split('\n')
-                    court16 = jul_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 16].get(1.0, END).split('\n')
-                    court17 = jul_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 17].get(1.0, END).split('\n')
-                    court18 = jul_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 18].get(1.0, END).split('\n')
-                    court19 = jul_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 19].get(1.0, END).split('\n')
-                    court20 = jul_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 20].get(1.0, END).split('\n')
-
-                    if court1 != ['','']:
-                        display_court1.delete(1.0, END)
-                        display_court1.insert(END, court1[0] + '\n')
-                        display_court1.insert(END, court1[2])
-                        display_court1.config(bg='#00688B', fg="white")
-                    else:
-                        display_court1.delete(1.0, END)
-                        display_court1.config(bg="#008B00")
-                        display_court1.image_create(END, image=court_bg)
-                    if court2 != ['','']:
-                        display_court2.delete(1.0, END)
-                        display_court2.insert(END, court2[0] + '\n')
-                        display_court2.insert(END, court2[2])
-                        display_court2.config(bg='#00688B', fg="white")
-                    else:
-                        display_court2.delete(1.0, END)
-                        display_court2.config(bg="#008B00")
-                        display_court2.image_create(END, image=court_bg)
-                    if court3 != ['','']:
-                        display_court3.delete(1.0, END)
-                        display_court3.insert(END, court3[0] + '\n')
-                        display_court3.insert(END, court3[2])
-                        display_court3.config(bg='#00688B', fg="white")
-                    else:
-                        display_court3.delete(1.0, END)
-                        display_court3.config(bg="#008B00")
-                        display_court3.image_create(END, image=court_bg)
-                    if court4 != ['','']:
-                        display_court4.delete(1.0, END)
-                        display_court4.insert(END, court4[0] + '\n')
-                        display_court4.insert(END, court4[2])
-                        display_court4.config(bg='#00688B', fg="white")
-                    else:
-                        display_court4.delete(1.0, END)
-                        display_court4.config(bg="#008B00")
-                        display_court4.image_create(END, image=court_bg)
-                    if court5 != ['','']:
-                        display_court5.delete(1.0, END)
-                        display_court5.insert(END, court5[0] + '\n')
-                        display_court5.insert(END, court5[2])
-                        display_court5.config(bg='#00688B', fg="white")
-                    else:
-                        display_court5.delete(1.0, END)
-                        display_court5.config(bg="#008B00")
-                        display_court5.image_create(END, image=court_bg)
-                    if court6 != ['','']:
-                        display_court6.delete(1.0, END)
-                        display_court6.insert(END, court6[0] + '\n')
-                        display_court6.insert(END, court6[2])
-                        display_court6.config(bg='#00688B', fg="white")
-                    else:
-                        display_court6.delete(1.0, END)
-                        display_court6.config(bg="#008B00")
-                        display_court6.image_create(END, image=court_bg)
-                    if court7 != ['','']:
-                        display_court7.delete(1.0, END)
-                        display_court7.insert(END, court7[0] + '\n')
-                        display_court7.insert(END, court7[2])
-                        display_court7.config(bg='#00688B', fg="white")
-                    else:
-                        display_court7.delete(1.0, END)
-                        display_court7.config(bg="#008B00")
-                        display_court7.image_create(END, image=court_bg)
-                    if court8 != ['','']:
-                        display_court8.delete(1.0, END)
-                        display_court8.insert(END, court8[0] + '\n')
-                        display_court8.insert(END, court8[2])
-                        display_court8.config(bg='#00688B', fg="white")
-                    else:
-                        display_court8.delete(1.0, END)
-                        display_court8.config(bg="#008B00")
-                        display_court8.image_create(END, image=court_bg)
-                    if court9 != ['','']:
-                        display_court9.delete(1.0, END)
-                        display_court9.insert(END, court9[0] + '\n')
-                        display_court9.insert(END, court9[2])
-                        display_court9.config(bg='#00688B', fg="white")
-                    else:
-                        display_court9.delete(1.0, END)
-                        display_court9.config(bg="#008B00")
-                        display_court9.image_create(END, image=court_bg)
-                    if court10 != ['','']:
-                        display_court10.delete(1.0, END)
-                        display_court10.insert(END, court10[0] + '\n')
-                        display_court10.insert(END, court10[2])
-                        display_court10.config(bg='#00688B', fg="white")
-                    else:
-                        display_court10.delete(1.0, END)
-                        display_court10.config(bg="#008B00")
-                        display_court10.image_create(END, image=court_bg)
-                    if court11 != ['','']:
-                        display_court11.delete(1.0, END)
-                        display_court11.insert(END, court11[0] + '\n')
-                        display_court11.insert(END, court11[2])
-                        display_court11.config(bg='#00688B', fg="white")
-                    else:
-                        display_court11.delete(1.0, END)
-                        display_court11.config(bg="#008B00")
-                        display_court11.image_create(END, image=court_bg)
-                    if court12 != ['','']:
-                        display_court12.delete(1.0, END)
-                        display_court12.insert(END, court12[0] + '\n')
-                        display_court12.insert(END, court12[2])
-                        display_court12.config(bg='#00688B', fg="white")
-                    else:
-                        display_court12.delete(1.0, END)
-                        display_court12.config(bg="#008B00")
-                        display_court12.image_create(END, image=court_bg)
-                    if court13 != ['','']:
-                        display_court13.delete(1.0, END)
-                        display_court13.insert(END, court13[0] + '\n')
-                        display_court13.insert(END, court13[2])
-                        display_court13.config(bg='#00688B', fg="white")
-                    else:
-                        display_court13.delete(1.0, END)
-                        display_court13.config(bg="#008B00")
-                        display_court13.image_create(END, image=court_bg)
-                    if court14 != ['','']:
-                        display_court14.delete(1.0, END)
-                        display_court14.insert(END, court14[0] + '\n')
-                        display_court14.insert(END, court14[2])
-                        display_court14.config(bg='#00688B', fg="white")
-                    else:
-                        display_court14.delete(1.0, END)
-                        display_court14.config(bg="#008B00")
-                        display_court14.image_create(END, image=court_bg)
-                    if court15 != ['','']:
-                        display_court15.delete(1.0, END)
-                        display_court15.insert(END, court15[0] + '\n')
-                        display_court15.insert(END, court15[2])
-                        display_court15.config(bg='#00688B', fg="white")
-                    else:
-                        display_court15.delete(1.0, END)
-                        display_court15.config(bg="#008B00")
-                        display_court15.image_create(END, image=court_bg)
-                    if court16 != ['','']:
-                        display_court16.delete(1.0, END)
-                        display_court16.insert(END, court16[0] + '\n')
-                        display_court16.insert(END, court16[2])
-                        display_court16.config(bg='#00688B', fg="white")
-                    else:
-                        display_court16.delete(1.0, END)
-                        display_court16.config(bg="#008B00")
-                        display_court16.image_create(END, image=court_bg)
-                    if court17 != ['','']:
-                        display_court17.delete(1.0, END)
-                        display_court17.insert(END, court17[0] + '\n')
-                        display_court17.insert(END, court17[2])
-                        display_court17.config(bg='#00688B', fg="white")
-                    else:
-                        display_court17.delete(1.0, END)
-                        display_court17.config(bg="#008B00")
-                        display_court17.image_create(END, image=court_bg)
-                    if court18 != ['','']:
-                        display_court18.delete(1.0, END)
-                        display_court18.insert(END, court18[0] + '\n')
-                        display_court18.insert(END, court18[2])
-                        display_court18.config(bg='#00688B', fg="white")
-                    else:
-                        display_court18.delete(1.0, END)
-                        display_court18.config(bg="008B00")
-                        display_court18.image_create(END, image=court_bg)
-                    if court19 != ['','']:
-                        display_court19.delete(1.0, END)
-                        display_court19.insert(END, court19[0] + '\n')
-                        display_court19.insert(END, court19[2])
-                        display_court19.config(bg='#00688B', fg="white")
-                    else:
-                        display_court19.delete(1.0, END)
-                        display_court19.config(bg="#008B00")
-                        display_court19.image_create(END, image=court_bg)
-                    if court20 != ['','']:
-                        display_court20.delete(1.0, END)
-                        display_court20.insert(END, court20[0] + '\n')
-                        display_court20.insert(END, court20[2])
-                        display_court20.config(bg='#00688B', fg="white")
-                    else:
-                        display_court20.delete(1.0, END)
-                        display_court20.config(bg="#008B00")
-                        display_court20.image_create(END, image=court_bg)
-                
-                elif list_of_months[int(month) - 1] == "August":
-                    court1 = aug_courtlist[((((int(day)-1)*24) + int(hour)) * 20)].get(1.0, END).split('\n')
-                    court2 = aug_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 2].get(1.0, END).split('\n')
-                    court3 = aug_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 3].get(1.0, END).split('\n')
-                    court4 = aug_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 4].get(1.0, END).split('\n')
-                    court5 = aug_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 5].get(1.0, END).split('\n')
-                    court6 = aug_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 6].get(1.0, END).split('\n')
-                    court7 = aug_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 7].get(1.0, END).split('\n')
-                    court8 = aug_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 8].get(1.0, END).split('\n')
-                    court9 = aug_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 9].get(1.0, END).split('\n')
-                    court10 = aug_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 10].get(1.0, END).split('\n')
-                    court11 = aug_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 11].get(1.0, END).split('\n')
-                    court12 = aug_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 12].get(1.0, END).split('\n')
-                    court13 = aug_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 13].get(1.0, END).split('\n')
-                    court14 = aug_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 14].get(1.0, END).split('\n')
-                    court15 = aug_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 15].get(1.0, END).split('\n')
-                    court16 = aug_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 16].get(1.0, END).split('\n')
-                    court17 = aug_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 17].get(1.0, END).split('\n')
-                    court18 = aug_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 18].get(1.0, END).split('\n')
-                    court19 = aug_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 19].get(1.0, END).split('\n')
-                    court20 = aug_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 20].get(1.0, END).split('\n')
-
-                    if court1 != ['','']:
-                        display_court1.delete(1.0, END)
-                        display_court1.insert(END, court1[0] + '\n')
-                        display_court1.insert(END, court1[2])
-                        display_court1.config(bg='#00688B', fg="white")
-                    else:
-                        display_court1.delete(1.0, END)
-                        display_court1.config(bg="#008B00")
-                        display_court1.image_create(END, image=court_bg)
-                    if court2 != ['','']:
-                        display_court2.delete(1.0, END)
-                        display_court2.insert(END, court2[0] + '\n')
-                        display_court2.insert(END, court2[2])
-                        display_court2.config(bg='#00688B', fg="white")
-                    else:
-                        display_court2.delete(1.0, END)
-                        display_court2.config(bg="#008B00")
-                        display_court2.image_create(END, image=court_bg)
-                    if court3 != ['','']:
-                        display_court3.delete(1.0, END)
-                        display_court3.insert(END, court3[0] + '\n')
-                        display_court3.insert(END, court3[2])
-                        display_court3.config(bg='#00688B', fg="white")
-                    else:
-                        display_court3.delete(1.0, END)
-                        display_court3.config(bg="#008B00")
-                        display_court3.image_create(END, image=court_bg)
-                    if court4 != ['','']:
-                        display_court4.delete(1.0, END)
-                        display_court4.insert(END, court4[0] + '\n')
-                        display_court4.insert(END, court4[2])
-                        display_court4.config(bg='#00688B', fg="white")
-                    else:
-                        display_court4.delete(1.0, END)
-                        display_court4.config(bg="#008B00")
-                        display_court4.image_create(END, image=court_bg)
-                    if court5 != ['','']:
-                        display_court5.delete(1.0, END)
-                        display_court5.insert(END, court5[0] + '\n')
-                        display_court5.insert(END, court5[2])
-                        display_court5.config(bg='#00688B', fg="white")
-                    else:
-                        display_court5.delete(1.0, END)
-                        display_court5.config(bg="#008B00")
-                        display_court5.image_create(END, image=court_bg)
-                    if court6 != ['','']:
-                        display_court6.delete(1.0, END)
-                        display_court6.insert(END, court6[0] + '\n')
-                        display_court6.insert(END, court6[2])
-                        display_court6.config(bg='#00688B', fg="white")
-                    else:
-                        display_court6.delete(1.0, END)
-                        display_court6.config(bg="#008B00")
-                        display_court6.image_create(END, image=court_bg)
-                    if court7 != ['','']:
-                        display_court7.delete(1.0, END)
-                        display_court7.insert(END, court7[0] + '\n')
-                        display_court7.insert(END, court7[2])
-                        display_court7.config(bg='#00688B', fg="white")
-                    else:
-                        display_court7.delete(1.0, END)
-                        display_court7.config(bg="#008B00")
-                        display_court7.image_create(END, image=court_bg)
-                    if court8 != ['','']:
-                        display_court8.delete(1.0, END)
-                        display_court8.insert(END, court8[0] + '\n')
-                        display_court8.insert(END, court8[2])
-                        display_court8.config(bg='#00688B', fg="white")
-                    else:
-                        display_court8.delete(1.0, END)
-                        display_court8.config(bg="#008B00")
-                        display_court8.image_create(END, image=court_bg)
-                    if court9 != ['','']:
-                        display_court9.delete(1.0, END)
-                        display_court9.insert(END, court9[0] + '\n')
-                        display_court9.insert(END, court9[2])
-                        display_court9.config(bg='#00688B', fg="white")
-                    else:
-                        display_court9.delete(1.0, END)
-                        display_court9.config(bg="#008B00")
-                        display_court9.image_create(END, image=court_bg)
-                    if court10 != ['','']:
-                        display_court10.delete(1.0, END)
-                        display_court10.insert(END, court10[0] + '\n')
-                        display_court10.insert(END, court10[2])
-                        display_court10.config(bg='#00688B', fg="white")
-                    else:
-                        display_court10.delete(1.0, END)
-                        display_court10.config(bg="#008B00")
-                        display_court10.image_create(END, image=court_bg)
-                    if court11 != ['','']:
-                        display_court11.delete(1.0, END)
-                        display_court11.insert(END, court11[0] + '\n')
-                        display_court11.insert(END, court11[2])
-                        display_court11.config(bg='#00688B', fg="white")
-                    else:
-                        display_court11.delete(1.0, END)
-                        display_court11.config(bg="#008B00")
-                        display_court11.image_create(END, image=court_bg)
-                    if court12 != ['','']:
-                        display_court12.delete(1.0, END)
-                        display_court12.insert(END, court12[0] + '\n')
-                        display_court12.insert(END, court12[2])
-                        display_court12.config(bg='#00688B', fg="white")
-                    else:
-                        display_court12.delete(1.0, END)
-                        display_court12.config(bg="#008B00")
-                        display_court12.image_create(END, image=court_bg)
-                    if court13 != ['','']:
-                        display_court13.delete(1.0, END)
-                        display_court13.insert(END, court13[0] + '\n')
-                        display_court13.insert(END, court13[2])
-                        display_court13.config(bg='#00688B', fg="white")
-                    else:
-                        display_court13.delete(1.0, END)
-                        display_court13.config(bg="#008B00")
-                        display_court13.image_create(END, image=court_bg)
-                    if court14 != ['','']:
-                        display_court14.delete(1.0, END)
-                        display_court14.insert(END, court14[0] + '\n')
-                        display_court14.insert(END, court14[2])
-                        display_court14.config(bg='#00688B', fg="white")
-                    else:
-                        display_court14.delete(1.0, END)
-                        display_court14.config(bg="#008B00")
-                        display_court14.image_create(END, image=court_bg)
-                    if court15 != ['','']:
-                        display_court15.delete(1.0, END)
-                        display_court15.insert(END, court15[0] + '\n')
-                        display_court15.insert(END, court15[2])
-                        display_court15.config(bg='#00688B', fg="white")
-                    else:
-                        display_court15.delete(1.0, END)
-                        display_court15.config(bg="#008B00")
-                        display_court15.image_create(END, image=court_bg)
-                    if court16 != ['','']:
-                        display_court16.delete(1.0, END)
-                        display_court16.insert(END, court16[0] + '\n')
-                        display_court16.insert(END, court16[2])
-                        display_court16.config(bg='#00688B', fg="white")
-                    else:
-                        display_court16.delete(1.0, END)
-                        display_court16.config(bg="#008B00")
-                        display_court16.image_create(END, image=court_bg)
-                    if court17 != ['','']:
-                        display_court17.delete(1.0, END)
-                        display_court17.insert(END, court17[0] + '\n')
-                        display_court17.insert(END, court17[2])
-                        display_court17.config(bg='#00688B', fg="white")
-                    else:
-                        display_court17.delete(1.0, END)
-                        display_court17.config(bg="#008B00")
-                        display_court17.image_create(END, image=court_bg)
-                    if court18 != ['','']:
-                        display_court18.delete(1.0, END)
-                        display_court18.insert(END, court18[0] + '\n')
-                        display_court18.insert(END, court18[2])
-                        display_court18.config(bg='#00688B', fg="white")
-                    else:
-                        display_court18.delete(1.0, END)
-                        display_court18.config(bg="008B00")
-                        display_court18.image_create(END, image=court_bg)
-                    if court19 != ['','']:
-                        display_court19.delete(1.0, END)
-                        display_court19.insert(END, court19[0] + '\n')
-                        display_court19.insert(END, court19[2])
-                        display_court19.config(bg='#00688B', fg="white")
-                    else:
-                        display_court19.delete(1.0, END)
-                        display_court19.config(bg="#008B00")
-                        display_court19.image_create(END, image=court_bg)
-                    if court20 != ['','']:
-                        display_court20.delete(1.0, END)
-                        display_court20.insert(END, court20[0] + '\n')
-                        display_court20.insert(END, court20[2])
-                        display_court20.config(bg='#00688B', fg="white")
-                    else:
-                        display_court20.delete(1.0, END)
-                        display_court20.config(bg="#008B00")
-                        display_court20.image_create(END, image=court_bg)
-
-                elif list_of_months[int(month) - 1] == "September":
-                    court1 = sep_courtlist[((((int(day)-1)*24) + int(hour)) * 20)].get(1.0, END).split('\n')
-                    court2 = sep_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 2].get(1.0, END).split('\n')
-                    court3 = sep_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 3].get(1.0, END).split('\n')
-                    court4 = sep_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 4].get(1.0, END).split('\n')
-                    court5 = sep_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 5].get(1.0, END).split('\n')
-                    court6 = sep_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 6].get(1.0, END).split('\n')
-                    court7 = sep_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 7].get(1.0, END).split('\n')
-                    court8 = sep_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 8].get(1.0, END).split('\n')
-                    court9 = sep_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 9].get(1.0, END).split('\n')
-                    court10 = sep_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 10].get(1.0, END).split('\n')
-                    court11 = sep_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 11].get(1.0, END).split('\n')
-                    court12 = sep_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 12].get(1.0, END).split('\n')
-                    court13 = sep_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 13].get(1.0, END).split('\n')
-                    court14 = sep_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 14].get(1.0, END).split('\n')
-                    court15 = sep_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 15].get(1.0, END).split('\n')
-                    court16 = sep_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 16].get(1.0, END).split('\n')
-                    court17 = sep_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 17].get(1.0, END).split('\n')
-                    court18 = sep_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 18].get(1.0, END).split('\n')
-                    court19 = sep_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 19].get(1.0, END).split('\n')
-                    court20 = sep_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 20].get(1.0, END).split('\n')
-
-                    if court1 != ['','']:
-                        display_court1.delete(1.0, END)
-                        display_court1.insert(END, court1[0] + '\n')
-                        display_court1.insert(END, court1[2])
-                        display_court1.config(bg='#00688B', fg="white")
-                    else:
-                        display_court1.delete(1.0, END)
-                        display_court1.config(bg="#008B00")
-                        display_court1.image_create(END, image=court_bg)
-                    if court2 != ['','']:
-                        display_court2.delete(1.0, END)
-                        display_court2.insert(END, court2[0] + '\n')
-                        display_court2.insert(END, court2[2])
-                        display_court2.config(bg='#00688B', fg="white")
-                    else:
-                        display_court2.delete(1.0, END)
-                        display_court2.config(bg="#008B00")
-                        display_court2.image_create(END, image=court_bg)
-                    if court3 != ['','']:
-                        display_court3.delete(1.0, END)
-                        display_court3.insert(END, court3[0] + '\n')
-                        display_court3.insert(END, court3[2])
-                        display_court3.config(bg='#00688B', fg="white")
-                    else:
-                        display_court3.delete(1.0, END)
-                        display_court3.config(bg="#008B00")
-                        display_court3.image_create(END, image=court_bg)
-                    if court4 != ['','']:
-                        display_court4.delete(1.0, END)
-                        display_court4.insert(END, court4[0] + '\n')
-                        display_court4.insert(END, court4[2])
-                        display_court4.config(bg='#00688B', fg="white")
-                    else:
-                        display_court4.delete(1.0, END)
-                        display_court4.config(bg="#008B00")
-                        display_court4.image_create(END, image=court_bg)
-                    if court5 != ['','']:
-                        display_court5.delete(1.0, END)
-                        display_court5.insert(END, court5[0] + '\n')
-                        display_court5.insert(END, court5[2])
-                        display_court5.config(bg='#00688B', fg="white")
-                    else:
-                        display_court5.delete(1.0, END)
-                        display_court5.config(bg="#008B00")
-                        display_court5.image_create(END, image=court_bg)
-                    if court6 != ['','']:
-                        display_court6.delete(1.0, END)
-                        display_court6.insert(END, court6[0] + '\n')
-                        display_court6.insert(END, court6[2])
-                        display_court6.config(bg='#00688B', fg="white")
-                    else:
-                        display_court6.delete(1.0, END)
-                        display_court6.config(bg="#008B00")
-                        display_court6.image_create(END, image=court_bg)
-                    if court7 != ['','']:
-                        display_court7.delete(1.0, END)
-                        display_court7.insert(END, court7[0] + '\n')
-                        display_court7.insert(END, court7[2])
-                        display_court7.config(bg='#00688B', fg="white")
-                    else:
-                        display_court7.delete(1.0, END)
-                        display_court7.config(bg="#008B00")
-                        display_court7.image_create(END, image=court_bg)
-                    if court8 != ['','']:
-                        display_court8.delete(1.0, END)
-                        display_court8.insert(END, court8[0] + '\n')
-                        display_court8.insert(END, court8[2])
-                        display_court8.config(bg='#00688B', fg="white")
-                    else:
-                        display_court8.delete(1.0, END)
-                        display_court8.config(bg="#008B00")
-                        display_court8.image_create(END, image=court_bg)
-                    if court9 != ['','']:
-                        display_court9.delete(1.0, END)
-                        display_court9.insert(END, court9[0] + '\n')
-                        display_court9.insert(END, court9[2])
-                        display_court9.config(bg='#00688B', fg="white")
-                    else:
-                        display_court9.delete(1.0, END)
-                        display_court9.config(bg="#008B00")
-                        display_court9.image_create(END, image=court_bg)
-                    if court10 != ['','']:
-                        display_court10.delete(1.0, END)
-                        display_court10.insert(END, court10[0] + '\n')
-                        display_court10.insert(END, court10[2])
-                        display_court10.config(bg='#00688B', fg="white")
-                    else:
-                        display_court10.delete(1.0, END)
-                        display_court10.config(bg="#008B00")
-                        display_court10.image_create(END, image=court_bg)
-                    if court11 != ['','']:
-                        display_court11.delete(1.0, END)
-                        display_court11.insert(END, court11[0] + '\n')
-                        display_court11.insert(END, court11[2])
-                        display_court11.config(bg='#00688B', fg="white")
-                    else:
-                        display_court11.delete(1.0, END)
-                        display_court11.config(bg="#008B00")
-                        display_court11.image_create(END, image=court_bg)
-                    if court12 != ['','']:
-                        display_court12.delete(1.0, END)
-                        display_court12.insert(END, court12[0] + '\n')
-                        display_court12.insert(END, court12[2])
-                        display_court12.config(bg='#00688B', fg="white")
-                    else:
-                        display_court12.delete(1.0, END)
-                        display_court12.config(bg="#008B00")
-                        display_court12.image_create(END, image=court_bg)
-                    if court13 != ['','']:
-                        display_court13.delete(1.0, END)
-                        display_court13.insert(END, court13[0] + '\n')
-                        display_court13.insert(END, court13[2])
-                        display_court13.config(bg='#00688B', fg="white")
-                    else:
-                        display_court13.delete(1.0, END)
-                        display_court13.config(bg="#008B00")
-                        display_court13.image_create(END, image=court_bg)
-                    if court14 != ['','']:
-                        display_court14.delete(1.0, END)
-                        display_court14.insert(END, court14[0] + '\n')
-                        display_court14.insert(END, court14[2])
-                        display_court14.config(bg='#00688B', fg="white")
-                    else:
-                        display_court14.delete(1.0, END)
-                        display_court14.config(bg="#008B00")
-                        display_court14.image_create(END, image=court_bg)
-                    if court15 != ['','']:
-                        display_court15.delete(1.0, END)
-                        display_court15.insert(END, court15[0] + '\n')
-                        display_court15.insert(END, court15[2])
-                        display_court15.config(bg='#00688B', fg="white")
-                    else:
-                        display_court15.delete(1.0, END)
-                        display_court15.config(bg="#008B00")
-                        display_court15.image_create(END, image=court_bg)
-                    if court16 != ['','']:
-                        display_court16.delete(1.0, END)
-                        display_court16.insert(END, court16[0] + '\n')
-                        display_court16.insert(END, court16[2])
-                        display_court16.config(bg='#00688B', fg="white")
-                    else:
-                        display_court16.delete(1.0, END)
-                        display_court16.config(bg="#008B00")
-                        display_court16.image_create(END, image=court_bg)
-                    if court17 != ['','']:
-                        display_court17.delete(1.0, END)
-                        display_court17.insert(END, court17[0] + '\n')
-                        display_court17.insert(END, court17[2])
-                        display_court17.config(bg='#00688B', fg="white")
-                    else:
-                        display_court17.delete(1.0, END)
-                        display_court17.config(bg="#008B00")
-                        display_court17.image_create(END, image=court_bg)
-                    if court18 != ['','']:
-                        display_court18.delete(1.0, END)
-                        display_court18.insert(END, court18[0] + '\n')
-                        display_court18.insert(END, court18[2])
-                        display_court18.config(bg='#00688B', fg="white")
-                    else:
-                        display_court18.delete(1.0, END)
-                        display_court18.config(bg="008B00")
-                        display_court18.image_create(END, image=court_bg)
-                    if court19 != ['','']:
-                        display_court19.delete(1.0, END)
-                        display_court19.insert(END, court19[0] + '\n')
-                        display_court19.insert(END, court19[2])
-                        display_court19.config(bg='#00688B', fg="white")
-                    else:
-                        display_court19.delete(1.0, END)
-                        display_court19.config(bg="#008B00")
-                        display_court19.image_create(END, image=court_bg)
-                    if court20 != ['','']:
-                        display_court20.delete(1.0, END)
-                        display_court20.insert(END, court20[0] + '\n')
-                        display_court20.insert(END, court20[2])
-                        display_court20.config(bg='#00688B', fg="white")
-                    else:
-                        display_court20.delete(1.0, END)
-                        display_court20.config(bg="#008B00")
-                        display_court20.image_create(END, image=court_bg)
-                
-                elif list_of_months[int(month) - 1] == "October":
-                    court1 = oct_courtlist[((((int(day)-1)*24) + int(hour)) * 20)].get(1.0, END).split('\n')
-                    court2 = oct_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 2].get(1.0, END).split('\n')
-                    court3 = oct_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 3].get(1.0, END).split('\n')
-                    court4 = oct_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 4].get(1.0, END).split('\n')
-                    court5 = oct_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 5].get(1.0, END).split('\n')
-                    court6 = oct_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 6].get(1.0, END).split('\n')
-                    court7 = oct_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 7].get(1.0, END).split('\n')
-                    court8 = oct_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 8].get(1.0, END).split('\n')
-                    court9 = oct_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 9].get(1.0, END).split('\n')
-                    court10 = oct_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 10].get(1.0, END).split('\n')
-                    court11 = oct_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 11].get(1.0, END).split('\n')
-                    court12 = oct_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 12].get(1.0, END).split('\n')
-                    court13 = oct_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 13].get(1.0, END).split('\n')
-                    court14 = oct_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 14].get(1.0, END).split('\n')
-                    court15 = oct_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 15].get(1.0, END).split('\n')
-                    court16 = oct_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 16].get(1.0, END).split('\n')
-                    court17 = oct_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 17].get(1.0, END).split('\n')
-                    court18 = oct_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 18].get(1.0, END).split('\n')
-                    court19 = oct_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 19].get(1.0, END).split('\n')
-                    court20 = oct_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 20].get(1.0, END).split('\n')
-
-                    if court1 != ['','']:
-                        display_court1.delete(1.0, END)
-                        display_court1.insert(END, court1[0] + '\n')
-                        display_court1.insert(END, court1[2])
-                        display_court1.config(bg='#00688B', fg="white")
-                    else:
-                        display_court1.delete(1.0, END)
-                        display_court1.config(bg="#008B00")
-                        display_court1.image_create(END, image=court_bg)
-                    if court2 != ['','']:
-                        display_court2.delete(1.0, END)
-                        display_court2.insert(END, court2[0] + '\n')
-                        display_court2.insert(END, court2[2])
-                        display_court2.config(bg='#00688B', fg="white")
-                    else:
-                        display_court2.delete(1.0, END)
-                        display_court2.config(bg="#008B00")
-                        display_court2.image_create(END, image=court_bg)
-                    if court3 != ['','']:
-                        display_court3.delete(1.0, END)
-                        display_court3.insert(END, court3[0] + '\n')
-                        display_court3.insert(END, court3[2])
-                        display_court3.config(bg='#00688B', fg="white")
-                    else:
-                        display_court3.delete(1.0, END)
-                        display_court3.config(bg="#008B00")
-                        display_court3.image_create(END, image=court_bg)
-                    if court4 != ['','']:
-                        display_court4.delete(1.0, END)
-                        display_court4.insert(END, court4[0] + '\n')
-                        display_court4.insert(END, court4[2])
-                        display_court4.config(bg='#00688B', fg="white")
-                    else:
-                        display_court4.delete(1.0, END)
-                        display_court4.config(bg="#008B00")
-                        display_court4.image_create(END, image=court_bg)
-                    if court5 != ['','']:
-                        display_court5.delete(1.0, END)
-                        display_court5.insert(END, court5[0] + '\n')
-                        display_court5.insert(END, court5[2])
-                        display_court5.config(bg='#00688B', fg="white")
-                    else:
-                        display_court5.delete(1.0, END)
-                        display_court5.config(bg="#008B00")
-                        display_court5.image_create(END, image=court_bg)
-                    if court6 != ['','']:
-                        display_court6.delete(1.0, END)
-                        display_court6.insert(END, court6[0] + '\n')
-                        display_court6.insert(END, court6[2])
-                        display_court6.config(bg='#00688B', fg="white")
-                    else:
-                        display_court6.delete(1.0, END)
-                        display_court6.config(bg="#008B00")
-                        display_court6.image_create(END, image=court_bg)
-                    if court7 != ['','']:
-                        display_court7.delete(1.0, END)
-                        display_court7.insert(END, court7[0] + '\n')
-                        display_court7.insert(END, court7[2])
-                        display_court7.config(bg='#00688B', fg="white")
-                    else:
-                        display_court7.delete(1.0, END)
-                        display_court7.config(bg="#008B00")
-                        display_court7.image_create(END, image=court_bg)
-                    if court8 != ['','']:
-                        display_court8.delete(1.0, END)
-                        display_court8.insert(END, court8[0] + '\n')
-                        display_court8.insert(END, court8[2])
-                        display_court8.config(bg='#00688B', fg="white")
-                    else:
-                        display_court8.delete(1.0, END)
-                        display_court8.config(bg="#008B00")
-                        display_court8.image_create(END, image=court_bg)
-                    if court9 != ['','']:
-                        display_court9.delete(1.0, END)
-                        display_court9.insert(END, court9[0] + '\n')
-                        display_court9.insert(END, court9[2])
-                        display_court9.config(bg='#00688B', fg="white")
-                    else:
-                        display_court9.delete(1.0, END)
-                        display_court9.config(bg="#008B00")
-                        display_court9.image_create(END, image=court_bg)
-                    if court10 != ['','']:
-                        display_court10.delete(1.0, END)
-                        display_court10.insert(END, court10[0] + '\n')
-                        display_court10.insert(END, court10[2])
-                        display_court10.config(bg='#00688B', fg="white")
-                    else:
-                        display_court10.delete(1.0, END)
-                        display_court10.config(bg="#008B00")
-                        display_court10.image_create(END, image=court_bg)
-                    if court11 != ['','']:
-                        display_court11.delete(1.0, END)
-                        display_court11.insert(END, court11[0] + '\n')
-                        display_court11.insert(END, court11[2])
-                        display_court11.config(bg='#00688B', fg="white")
-                    else:
-                        display_court11.delete(1.0, END)
-                        display_court11.config(bg="#008B00")
-                        display_court11.image_create(END, image=court_bg)
-                    if court12 != ['','']:
-                        display_court12.delete(1.0, END)
-                        display_court12.insert(END, court12[0] + '\n')
-                        display_court12.insert(END, court12[2])
-                        display_court12.config(bg='#00688B', fg="white")
-                    else:
-                        display_court12.delete(1.0, END)
-                        display_court12.config(bg="#008B00")
-                        display_court12.image_create(END, image=court_bg)
-                    if court13 != ['','']:
-                        display_court13.delete(1.0, END)
-                        display_court13.insert(END, court13[0] + '\n')
-                        display_court13.insert(END, court13[2])
-                        display_court13.config(bg='#00688B', fg="white")
-                    else:
-                        display_court13.delete(1.0, END)
-                        display_court13.config(bg="#008B00")
-                        display_court13.image_create(END, image=court_bg)
-                    if court14 != ['','']:
-                        display_court14.delete(1.0, END)
-                        display_court14.insert(END, court14[0] + '\n')
-                        display_court14.insert(END, court14[2])
-                        display_court14.config(bg='#00688B', fg="white")
-                    else:
-                        display_court14.delete(1.0, END)
-                        display_court14.config(bg="#008B00")
-                        display_court14.image_create(END, image=court_bg)
-                    if court15 != ['','']:
-                        display_court15.delete(1.0, END)
-                        display_court15.insert(END, court15[0] + '\n')
-                        display_court15.insert(END, court15[2])
-                        display_court15.config(bg='#00688B', fg="white")
-                    else:
-                        display_court15.delete(1.0, END)
-                        display_court15.config(bg="#008B00")
-                        display_court15.image_create(END, image=court_bg)
-                    if court16 != ['','']:
-                        display_court16.delete(1.0, END)
-                        display_court16.insert(END, court16[0] + '\n')
-                        display_court16.insert(END, court16[2])
-                        display_court16.config(bg='#00688B', fg="white")
-                    else:
-                        display_court16.delete(1.0, END)
-                        display_court16.config(bg="#008B00")
-                        display_court16.image_create(END, image=court_bg)
-                    if court17 != ['','']:
-                        display_court17.delete(1.0, END)
-                        display_court17.insert(END, court17[0] + '\n')
-                        display_court17.insert(END, court17[2])
-                        display_court17.config(bg='#00688B', fg="white")
-                    else:
-                        display_court17.delete(1.0, END)
-                        display_court17.config(bg="#008B00")
-                        display_court17.image_create(END, image=court_bg)
-                    if court18 != ['','']:
-                        display_court18.delete(1.0, END)
-                        display_court18.insert(END, court18[0] + '\n')
-                        display_court18.insert(END, court18[2])
-                        display_court18.config(bg='#00688B', fg="white")
-                    else:
-                        display_court18.delete(1.0, END)
-                        display_court18.config(bg="008B00")
-                        display_court18.image_create(END, image=court_bg)
-                    if court19 != ['','']:
-                        display_court19.delete(1.0, END)
-                        display_court19.insert(END, court19[0] + '\n')
-                        display_court19.insert(END, court19[2])
-                        display_court19.config(bg='#00688B', fg="white")
-                    else:
-                        display_court19.delete(1.0, END)
-                        display_court19.config(bg="#008B00")
-                        display_court19.image_create(END, image=court_bg)
-                    if court20 != ['','']:
-                        display_court20.delete(1.0, END)
-                        display_court20.insert(END, court20[0] + '\n')
-                        display_court20.insert(END, court20[2])
-                        display_court20.config(bg='#00688B', fg="white")
-                    else:
-                        display_court20.delete(1.0, END)
-                        display_court20.config(bg="#008B00")
-                        display_court20.image_create(END, image=court_bg)
-
-                elif list_of_months[int(month) - 1] == "November":
-                    court1 = nov_courtlist[((((int(day)-1)*24) + int(hour)) * 20)].get(1.0, END).split('\n')
-                    court2 = nov_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 2].get(1.0, END).split('\n')
-                    court3 = nov_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 3].get(1.0, END).split('\n')
-                    court4 = nov_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 4].get(1.0, END).split('\n')
-                    court5 = nov_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 5].get(1.0, END).split('\n')
-                    court6 = nov_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 6].get(1.0, END).split('\n')
-                    court7 = nov_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 7].get(1.0, END).split('\n')
-                    court8 = nov_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 8].get(1.0, END).split('\n')
-                    court9 = nov_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 9].get(1.0, END).split('\n')
-                    court10 = nov_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 10].get(1.0, END).split('\n')
-                    court11 = nov_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 11].get(1.0, END).split('\n')
-                    court12 = nov_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 12].get(1.0, END).split('\n')
-                    court13 = nov_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 13].get(1.0, END).split('\n')
-                    court14 = nov_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 14].get(1.0, END).split('\n')
-                    court15 = nov_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 15].get(1.0, END).split('\n')
-                    court16 = nov_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 16].get(1.0, END).split('\n')
-                    court17 = nov_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 17].get(1.0, END).split('\n')
-                    court18 = nov_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 18].get(1.0, END).split('\n')
-                    court19 = nov_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 19].get(1.0, END).split('\n')
-                    court20 = nov_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 20].get(1.0, END).split('\n')
-
-                    if court1 != ['','']:
-                        display_court1.delete(1.0, END)
-                        display_court1.insert(END, court1[0] + '\n')
-                        display_court1.insert(END, court1[2])
-                        display_court1.config(bg='#00688B', fg="white")
-                    else:
-                        display_court1.delete(1.0, END)
-                        display_court1.config(bg="#008B00")
-                        display_court1.image_create(END, image=court_bg)
-                    if court2 != ['','']:
-                        display_court2.delete(1.0, END)
-                        display_court2.insert(END, court2[0] + '\n')
-                        display_court2.insert(END, court2[2])
-                        display_court2.config(bg='#00688B', fg="white")
-                    else:
-                        display_court2.delete(1.0, END)
-                        display_court2.config(bg="#008B00")
-                        display_court2.image_create(END, image=court_bg)
-                    if court3 != ['','']:
-                        display_court3.delete(1.0, END)
-                        display_court3.insert(END, court3[0] + '\n')
-                        display_court3.insert(END, court3[2])
-                        display_court3.config(bg='#00688B', fg="white")
-                    else:
-                        display_court3.delete(1.0, END)
-                        display_court3.config(bg="#008B00")
-                        display_court3.image_create(END, image=court_bg)
-                    if court4 != ['','']:
-                        display_court4.delete(1.0, END)
-                        display_court4.insert(END, court4[0] + '\n')
-                        display_court4.insert(END, court4[2])
-                        display_court4.config(bg='#00688B', fg="white")
-                    else:
-                        display_court4.delete(1.0, END)
-                        display_court4.config(bg="#008B00")
-                        display_court4.image_create(END, image=court_bg)
-                    if court5 != ['','']:
-                        display_court5.delete(1.0, END)
-                        display_court5.insert(END, court5[0] + '\n')
-                        display_court5.insert(END, court5[2])
-                        display_court5.config(bg='#00688B', fg="white")
-                    else:
-                        display_court5.delete(1.0, END)
-                        display_court5.config(bg="#008B00")
-                        display_court5.image_create(END, image=court_bg)
-                    if court6 != ['','']:
-                        display_court6.delete(1.0, END)
-                        display_court6.insert(END, court6[0] + '\n')
-                        display_court6.insert(END, court6[2])
-                        display_court6.config(bg='#00688B', fg="white")
-                    else:
-                        display_court6.delete(1.0, END)
-                        display_court6.config(bg="#008B00")
-                        display_court6.image_create(END, image=court_bg)
-                    if court7 != ['','']:
-                        display_court7.delete(1.0, END)
-                        display_court7.insert(END, court7[0] + '\n')
-                        display_court7.insert(END, court7[2])
-                        display_court7.config(bg='#00688B', fg="white")
-                    else:
-                        display_court7.delete(1.0, END)
-                        display_court7.config(bg="#008B00")
-                        display_court7.image_create(END, image=court_bg)
-                    if court8 != ['','']:
-                        display_court8.delete(1.0, END)
-                        display_court8.insert(END, court8[0] + '\n')
-                        display_court8.insert(END, court8[2])
-                        display_court8.config(bg='#00688B', fg="white")
-                    else:
-                        display_court8.delete(1.0, END)
-                        display_court8.config(bg="#008B00")
-                        display_court8.image_create(END, image=court_bg)
-                    if court9 != ['','']:
-                        display_court9.delete(1.0, END)
-                        display_court9.insert(END, court9[0] + '\n')
-                        display_court9.insert(END, court9[2])
-                        display_court9.config(bg='#00688B', fg="white")
-                    else:
-                        display_court9.delete(1.0, END)
-                        display_court9.config(bg="#008B00")
-                        display_court9.image_create(END, image=court_bg)
-                    if court10 != ['','']:
-                        display_court10.delete(1.0, END)
-                        display_court10.insert(END, court10[0] + '\n')
-                        display_court10.insert(END, court10[2])
-                        display_court10.config(bg='#00688B', fg="white")
-                    else:
-                        display_court10.delete(1.0, END)
-                        display_court10.config(bg="#008B00")
-                        display_court10.image_create(END, image=court_bg)
-                    if court11 != ['','']:
-                        display_court11.delete(1.0, END)
-                        display_court11.insert(END, court11[0] + '\n')
-                        display_court11.insert(END, court11[2])
-                        display_court11.config(bg='#00688B', fg="white")
-                    else:
-                        display_court11.delete(1.0, END)
-                        display_court11.config(bg="#008B00")
-                        display_court11.image_create(END, image=court_bg)
-                    if court12 != ['','']:
-                        display_court12.delete(1.0, END)
-                        display_court12.insert(END, court12[0] + '\n')
-                        display_court12.insert(END, court12[2])
-                        display_court12.config(bg='#00688B', fg="white")
-                    else:
-                        display_court12.delete(1.0, END)
-                        display_court12.config(bg="#008B00")
-                        display_court12.image_create(END, image=court_bg)
-                    if court13 != ['','']:
-                        display_court13.delete(1.0, END)
-                        display_court13.insert(END, court13[0] + '\n')
-                        display_court13.insert(END, court13[2])
-                        display_court13.config(bg='#00688B', fg="white")
-                    else:
-                        display_court13.delete(1.0, END)
-                        display_court13.config(bg="#008B00")
-                        display_court13.image_create(END, image=court_bg)
-                    if court14 != ['','']:
-                        display_court14.delete(1.0, END)
-                        display_court14.insert(END, court14[0] + '\n')
-                        display_court14.insert(END, court14[2])
-                        display_court14.config(bg='#00688B', fg="white")
-                    else:
-                        display_court14.delete(1.0, END)
-                        display_court14.config(bg="#008B00")
-                        display_court14.image_create(END, image=court_bg)
-                    if court15 != ['','']:
-                        display_court15.delete(1.0, END)
-                        display_court15.insert(END, court15[0] + '\n')
-                        display_court15.insert(END, court15[2])
-                        display_court15.config(bg='#00688B', fg="white")
-                    else:
-                        display_court15.delete(1.0, END)
-                        display_court15.config(bg="#008B00")
-                        display_court15.image_create(END, image=court_bg)
-                    if court16 != ['','']:
-                        display_court16.delete(1.0, END)
-                        display_court16.insert(END, court16[0] + '\n')
-                        display_court16.insert(END, court16[2])
-                        display_court16.config(bg='#00688B', fg="white")
-                    else:
-                        display_court16.delete(1.0, END)
-                        display_court16.config(bg="#008B00")
-                        display_court16.image_create(END, image=court_bg)
-                    if court17 != ['','']:
-                        display_court17.delete(1.0, END)
-                        display_court17.insert(END, court17[0] + '\n')
-                        display_court17.insert(END, court17[2])
-                        display_court17.config(bg='#00688B', fg="white")
-                    else:
-                        display_court17.delete(1.0, END)
-                        display_court17.config(bg="#008B00")
-                        display_court17.image_create(END, image=court_bg)
-                    if court18 != ['','']:
-                        display_court18.delete(1.0, END)
-                        display_court18.insert(END, court18[0] + '\n')
-                        display_court18.insert(END, court18[2])
-                        display_court18.config(bg='#00688B', fg="white")
-                    else:
-                        display_court18.delete(1.0, END)
-                        display_court18.config(bg="008B00")
-                        display_court18.image_create(END, image=court_bg)
-                    if court19 != ['','']:
-                        display_court19.delete(1.0, END)
-                        display_court19.insert(END, court19[0] + '\n')
-                        display_court19.insert(END, court19[2])
-                        display_court19.config(bg='#00688B', fg="white")
-                    else:
-                        display_court19.delete(1.0, END)
-                        display_court19.config(bg="#008B00")
-                        display_court19.image_create(END, image=court_bg)
-                    if court20 != ['','']:
-                        display_court20.delete(1.0, END)
-                        display_court20.insert(END, court20[0] + '\n')
-                        display_court20.insert(END, court20[2])
-                        display_court20.config(bg='#00688B', fg="white")
-                    else:
-                        display_court20.delete(1.0, END)
-                        display_court20.config(bg="#008B00")
-                        display_court20.image_create(END, image=court_bg)
-
-                elif list_of_months[int(month) - 1] == "December":
-                    court1 = dec_courtlist[((((int(day)-1)*24) + int(hour)) * 20)].get(1.0, END).split('\n')
-                    court2 = dec_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 2].get(1.0, END).split('\n')
-                    court3 = dec_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 3].get(1.0, END).split('\n')
-                    court4 = dec_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 4].get(1.0, END).split('\n')
-                    court5 = dec_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 5].get(1.0, END).split('\n')
-                    court6 = dec_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 6].get(1.0, END).split('\n')
-                    court7 = dec_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 7].get(1.0, END).split('\n')
-                    court8 = dec_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 8].get(1.0, END).split('\n')
-                    court9 = dec_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 9].get(1.0, END).split('\n')
-                    court10 = dec_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 10].get(1.0, END).split('\n')
-                    court11 = dec_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 11].get(1.0, END).split('\n')
-                    court12 = dec_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 12].get(1.0, END).split('\n')
-                    court13 = dec_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 13].get(1.0, END).split('\n')
-                    court14 = dec_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 14].get(1.0, END).split('\n')
-                    court15 = dec_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 15].get(1.0, END).split('\n')
-                    court16 = dec_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 16].get(1.0, END).split('\n')
-                    court17 = dec_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 17].get(1.0, END).split('\n')
-                    court18 = dec_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 18].get(1.0, END).split('\n')
-                    court19 = dec_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 19].get(1.0, END).split('\n')
-                    court20 = dec_courtlist[((((int(day)-1)*24) + int(hour)) * 20) + 20].get(1.0, END).split('\n')
-
-                    if court1 != ['','']:
-                        display_court1.delete(1.0, END)
-                        display_court1.insert(END, court1[0] + '\n')
-                        display_court1.insert(END, court1[2])
-                        display_court1.config(bg='#00688B', fg="white")
-                    else:
-                        display_court1.delete(1.0, END)
-                        display_court1.config(bg="#008B00")
-                        display_court1.image_create(END, image=court_bg)
-                    if court2 != ['','']:
-                        display_court2.delete(1.0, END)
-                        display_court2.insert(END, court2[0] + '\n')
-                        display_court2.insert(END, court2[2])
-                        display_court2.config(bg='#00688B', fg="white")
-                    else:
-                        display_court2.delete(1.0, END)
-                        display_court2.config(bg="#008B00")
-                        display_court2.image_create(END, image=court_bg)
-                    if court3 != ['','']:
-                        display_court3.delete(1.0, END)
-                        display_court3.insert(END, court3[0] + '\n')
-                        display_court3.insert(END, court3[2])
-                        display_court3.config(bg='#00688B', fg="white")
-                    else:
-                        display_court3.delete(1.0, END)
-                        display_court3.config(bg="#008B00")
-                        display_court3.image_create(END, image=court_bg)
-                    if court4 != ['','']:
-                        display_court4.delete(1.0, END)
-                        display_court4.insert(END, court4[0] + '\n')
-                        display_court4.insert(END, court4[2])
-                        display_court4.config(bg='#00688B', fg="white")
-                    else:
-                        display_court4.delete(1.0, END)
-                        display_court4.config(bg="#008B00")
-                        display_court4.image_create(END, image=court_bg)
-                    if court5 != ['','']:
-                        display_court5.delete(1.0, END)
-                        display_court5.insert(END, court5[0] + '\n')
-                        display_court5.insert(END, court5[2])
-                        display_court5.config(bg='#00688B', fg="white")
-                    else:
-                        display_court5.delete(1.0, END)
-                        display_court5.config(bg="#008B00")
-                        display_court5.image_create(END, image=court_bg)
-                    if court6 != ['','']:
-                        display_court6.delete(1.0, END)
-                        display_court6.insert(END, court6[0] + '\n')
-                        display_court6.insert(END, court6[2])
-                        display_court6.config(bg='#00688B', fg="white")
-                    else:
-                        display_court6.delete(1.0, END)
-                        display_court6.config(bg="#008B00")
-                        display_court6.image_create(END, image=court_bg)
-                    if court7 != ['','']:
-                        display_court7.delete(1.0, END)
-                        display_court7.insert(END, court7[0] + '\n')
-                        display_court7.insert(END, court7[2])
-                        display_court7.config(bg='#00688B', fg="white")
-                    else:
-                        display_court7.delete(1.0, END)
-                        display_court7.config(bg="#008B00")
-                        display_court7.image_create(END, image=court_bg)
-                    if court8 != ['','']:
-                        display_court8.delete(1.0, END)
-                        display_court8.insert(END, court8[0] + '\n')
-                        display_court8.insert(END, court8[2])
-                        display_court8.config(bg='#00688B', fg="white")
-                    else:
-                        display_court8.delete(1.0, END)
-                        display_court8.config(bg="#008B00")
-                        display_court8.image_create(END, image=court_bg)
-                    if court9 != ['','']:
-                        display_court9.delete(1.0, END)
-                        display_court9.insert(END, court9[0] + '\n')
-                        display_court9.insert(END, court9[2])
-                        display_court9.config(bg='#00688B', fg="white")
-                    else:
-                        display_court9.delete(1.0, END)
-                        display_court9.config(bg="#008B00")
-                        display_court9.image_create(END, image=court_bg)
-                    if court10 != ['','']:
-                        display_court10.delete(1.0, END)
-                        display_court10.insert(END, court10[0] + '\n')
-                        display_court10.insert(END, court10[2])
-                        display_court10.config(bg='#00688B', fg="white")
-                    else:
-                        display_court10.delete(1.0, END)
-                        display_court10.config(bg="#008B00")
-                        display_court10.image_create(END, image=court_bg)
-                    if court11 != ['','']:
-                        display_court11.delete(1.0, END)
-                        display_court11.insert(END, court11[0] + '\n')
-                        display_court11.insert(END, court11[2])
-                        display_court11.config(bg='#00688B', fg="white")
-                    else:
-                        display_court11.delete(1.0, END)
-                        display_court11.config(bg="#008B00")
-                        display_court11.image_create(END, image=court_bg)
-                    if court12 != ['','']:
-                        display_court12.delete(1.0, END)
-                        display_court12.insert(END, court12[0] + '\n')
-                        display_court12.insert(END, court12[2])
-                        display_court12.config(bg='#00688B', fg="white")
-                    else:
-                        display_court12.delete(1.0, END)
-                        display_court12.config(bg="#008B00")
-                        display_court12.image_create(END, image=court_bg)
-                    if court13 != ['','']:
-                        display_court13.delete(1.0, END)
-                        display_court13.insert(END, court13[0] + '\n')
-                        display_court13.insert(END, court13[2])
-                        display_court13.config(bg='#00688B', fg="white")
-                    else:
-                        display_court13.delete(1.0, END)
-                        display_court13.config(bg="#008B00")
-                        display_court13.image_create(END, image=court_bg)
-                    if court14 != ['','']:
-                        display_court14.delete(1.0, END)
-                        display_court14.insert(END, court14[0] + '\n')
-                        display_court14.insert(END, court14[2])
-                        display_court14.config(bg='#00688B', fg="white")
-                    else:
-                        display_court14.delete(1.0, END)
-                        display_court14.config(bg="#008B00")
-                        display_court14.image_create(END, image=court_bg)
-                    if court15 != ['','']:
-                        display_court15.delete(1.0, END)
-                        display_court15.insert(END, court15[0] + '\n')
-                        display_court15.insert(END, court15[2])
-                        display_court15.config(bg='#00688B', fg="white")
-                    else:
-                        display_court15.delete(1.0, END)
-                        display_court15.config(bg="#008B00")
-                        display_court15.image_create(END, image=court_bg)
-                    if court16 != ['','']:
-                        display_court16.delete(1.0, END)
-                        display_court16.insert(END, court16[0] + '\n')
-                        display_court16.insert(END, court16[2])
-                        display_court16.config(bg='#00688B', fg="white")
-                    else:
-                        display_court16.delete(1.0, END)
-                        display_court16.config(bg="#008B00")
-                        display_court16.image_create(END, image=court_bg)
-                    if court17 != ['','']:
-                        display_court17.delete(1.0, END)
-                        display_court17.insert(END, court17[0] + '\n')
-                        display_court17.insert(END, court17[2])
-                        display_court17.config(bg='#00688B', fg="white")
-                    else:
-                        display_court17.delete(1.0, END)
-                        display_court17.config(bg="#008B00")
-                        display_court17.image_create(END, image=court_bg)
-                    if court18 != ['','']:
-                        display_court18.delete(1.0, END)
-                        display_court18.insert(END, court18[0] + '\n')
-                        display_court18.insert(END, court18[2])
-                        display_court18.config(bg='#00688B', fg="white")
-                    else:
-                        display_court18.delete(1.0, END)
-                        display_court18.config(bg="008B00")
-                        display_court18.image_create(END, image=court_bg)
-                    if court19 != ['','']:
-                        display_court19.delete(1.0, END)
-                        display_court19.insert(END, court19[0] + '\n')
-                        display_court19.insert(END, court19[2])
-                        display_court19.config(bg='#00688B', fg="white")
-                    else:
-                        display_court19.delete(1.0, END)
-                        display_court19.config(bg="#008B00")
-                        display_court19.image_create(END, image=court_bg)
-                    if court20 != ['','']:
-                        display_court20.delete(1.0, END)
-                        display_court20.insert(END, court20[0] + '\n')
-                        display_court20.insert(END, court20[2])
-                        display_court20.config(bg='#00688B', fg="white")
-                    else:
-                        display_court20.delete(1.0, END)
-                        display_court20.config(bg="#008B00")
-                        display_court20.image_create(END, image=court_bg)
-                
+                        for x in range(20):
+                            court = courtlist[((((int(day)-1)*24) + int(hour)) * 20) + x].get(1.0, END).split('\n')
+                            courts.append(court)
+                        
+                        for court in courts:
+                            if court != ['','']:
+                                displaycourt_list[courts.index(court)].delete(1.0, END)
+                                displaycourt_list[courts.index(court)].insert(END, court[0] + '\n')
+                                displaycourt_list[courts.index(court)].insert(END, court[2])
+                                displaycourt_list[courts.index(court)].config(bg='#00688B', fg="white")
+                            else:
+                                displaycourt_list[courts.index(court)].delete(1.0, END)
+                                displaycourt_list[courts.index(court)].config(bg="#008B00")
+                                displaycourt_list[courts.index(court)].image_create(END, image=court_bg)
                 break
             root.after((time_delay * 1000), updater)  
         updater()
@@ -2975,9 +295,10 @@ def customer_display(): #Live customer display that updates automatically every 
     
     
 
-def start_up(): #The start-up function automatically re-inserts all bookings.
+def start_up(): #The start-up function automatically re-inserts all booking.
 
     months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    court_functions = [january_courts, february_courts, march_courts, april_courts, may_courts, june_courts, july_courts, august_courts, september_courts, october_courts, november_courts, december_courts]
 
     '''Window Settings'''
     startup_window = Toplevel()
@@ -2986,7 +307,7 @@ def start_up(): #The start-up function automatically re-inserts all bookings.
     startup_window.configure(bg='lightblue')
 
     '''Logo Image'''
-    img = Image.open(INSERT COMPANY LOGO IMAGE HERE)
+    img = Image.open('hymussportslogo.png')
     resized_img = img.resize((400, 200), Image.ANTIALIAS)
     logo = ImageTk.PhotoImage(resized_img)
     logo_label = Label(startup_window, image=logo).pack()
@@ -3006,11 +327,30 @@ def start_up(): #The start-up function automatically re-inserts all bookings.
         month = booking_month.get()
         line_list = []
 
-        with open('bookingDataStorage.txt', 'r') as f:    
+        with open("bookingDataStorage.txt", 'r') as f:    
             for line in f:
                 line_list.append(line.strip('\n'))
 
         f.close()
+
+        months_not_added = []
+
+        for x in range(4, len(line_list), 6):
+            if month not in line_list[x]:
+                if month not in months_not_added:
+                    months_not_added.append(month)
+            elif month in line_list[x]:
+                if month in months_not_added:
+                    months_not_added.remove(month)
+                break
+                    
+        if len(months_not_added) != 0:
+            error_window = Toplevel()
+            error_window.geometry("300x85")
+            error_message = Label(error_window, text = 'ERROR:', fg="red", font=16).pack()
+            help_message = Label(error_window, text = 'There are no bookings to load.', fg="black", font=16).pack()
+            exit_button = Button(error_window, text= "OK", command=error_window.destroy, fg="white", bg="#008B00", font=16).pack()
+            error_window.mainloop()
 
         if line_list == []:
             error_window = Toplevel()
@@ -3040,91 +380,15 @@ def start_up(): #The start-up function automatically re-inserts all bookings.
                     
                     ending_index = starting_index + length
                     time_info = [time_choice_list[starting_index], time_choice_list[ending_index]]
-                
-                    if (month == "January") and ("January" in date):
-                        if "January" not in activated_list:
-                            january_courts()
-                            startup_insertion(name, num, code, month, time_info)
-                            activated_list.append("January")
-                        else:
-                            startup_insertion(name, num, code, month, time_info) 
-                    elif (month == "February") and ("February" in date):
-                        if "February" not in activated_list:
-                            february_courts()
-                            startup_insertion(name, num, code, month, time_info)
-                            activated_list.append("February")
-                        else:
-                            startup_insertion(name, num, code, month, time_info)
-                    elif (month == "March") and ("March" in date):
-                        if "March" not in activated_list:
-                            march_courts()
-                            startup_insertion(name, num, code, month, time_info)
-                            activated_list.append("March")
-                        else:
-                            startup_insertion(name, num, code, month, time_info)
-                    elif (month == "April") and ("April" in date):
-                        if "April" not in activated_list:
-                            april_courts()
-                            startup_insertion(name, num, code, month, time_info)
-                            activated_list.append("April")
-                        else:
-                            startup_insertion(name, num, code, month, time_info)
-                    elif (month == "May") and ("May" in date):
-                        if "May" not in activated_list:
-                            may_courts()
-                            startup_insertion(name, num, code, month, time_info)
-                            activated_list.append("May")
-                        else:
-                            startup_insertion(name, num, code, month, time_info)
-                    elif (month == "June") and ("June" in date):
-                        if "June" not in activated_list:
-                            june_courts()
-                            startup_insertion(name, num, code, month, time_info)
-                            activated_list.append("June")
-                        else:
-                            startup_insertion(name, num, code, month, time_info)
-                    elif (month == "July") and ("July" in date):
-                        if "July" not in activated_list:
-                            july_courts()
-                            startup_insertion(name, num, code, month, time_info)
-                            activated_list.append("July")
-                        else:
-                            startup_insertion(name, num, code, month, time_info)
-                    elif (month == "August") and ("August" in date):
-                        if "August" not in activated_list:
-                            august_courts()
-                            startup_insertion(name, num, code, month, time_info)
-                            activated_list.append("August")
-                        else:
-                            startup_insertion(name, num, code, month, time_info) 
-                    elif (month == "September") and ("September" in date):
-                        if "September" not in activated_list:
-                            september_courts()
-                            startup_insertion(name, num, code, month, time_info)
-                            activated_list.append("September")
-                        else:
-                            startup_insertion(name, num, code, month, time_info)
-                    elif (month == "October") and ("October" in date):
-                        if "October" not in activated_list:
-                            october_courts()
-                            startup_insertion(name, num, code, month, time_info)
-                            activated_list.append("October")
-                        else:
-                            startup_insertion(name, num, code, month, time_info)
-                    elif (month == "November") and ("November" in date):
-                        if "November" not in activated_list:
-                            november_courts()
-                            startup_insertion(name, num, code, month, time_info)
-                            activated_list.append("November")
-                        else:
-                            startup_insertion(name, num, code, month, time_info)
-                    elif (month == "December") and ("December" in date):
-                        if "December" not in activated_list:
-                            december_courts()
-                            startup_insertion(name, num, code, month, time_info)
-                            activated_list.append("December")
-                        else:
-                            startup_insertion(name, num, code, month, time_info)
+
+                    for mth in months:
+                        if month == mth and mth in date:
+                            if month not in activated_list:
+                                court_functions[months.index(mth)]()
+                                startup_insertion(name, num, code, month, time_info)
+                                activated_list.append(mth)
+                            else:
+                                startup_insertion(name, num, code, month, time_info)
                     x += 6
 
                 startup_window.destroy() 
@@ -3153,7 +417,7 @@ def booking_info(): #Creates bookings for given user inputs.
     info_window.configure(bg='lightblue')
 
     '''Logo Image'''
-    img = Image.open(INSERT COMPANY LOGO IMAGE HERE)
+    img = Image.open('hymussportslogo.png')
     resized_img = img.resize((400, 200), Image.ANTIALIAS)
     logo = ImageTk.PhotoImage(resized_img)
     logo_label = Label(info_window, image=logo).pack()
@@ -3254,6 +518,7 @@ def booking_info(): #Creates bookings for given user inputs.
             court_num_list = court_nums.get().split(',')
             first_hour = time_choice_list.index(starttime.get())
             duplicate_checker = []
+            court_functions = [january_courts, february_courts, march_courts, april_courts, may_courts, june_courts, july_courts, august_courts, september_courts, october_courts, november_courts, december_courts]
             
             for x in court_num_list:
                 if x not in duplicate_checker:
@@ -3306,162 +571,20 @@ def booking_info(): #Creates bookings for given user inputs.
             length_num = hour_num.get()
             
             '''Court Activator'''
-            if input_month == "January":
-                if "January" not in activated_list:
-                    january_courts()
-                    for times in list_of_time_slots:
-                        for court in court_num_list:
-                            input_courtnum = int(court)
-                            booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-                    activated_list.append("January")
-                else:
-                    for times in list_of_time_slots:
-                        for court in court_num_list:
-                            input_courtnum = int(court)
-                            booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-            elif input_month ==  "February":
-                if "February" not in activated_list:
-                    february_courts()
-                    for times in list_of_time_slots:
-                        for court in court_num_list:
-                            input_courtnum = int(court)
-                            booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-                    activated_list.append("February")
-                else:
-                    for times in list_of_time_slots:
-                        for court in court_num_list:
-                            input_courtnum = int(court)
-                            booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-            elif input_month ==  "March":
-                if "March" not in activated_list:
-                    march_courts()
-                    for times in list_of_time_slots:
-                        for court in court_num_list:
-                            input_courtnum = int(court)
-                            booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-                    activated_list.append("March")
-                else:
-                    for times in list_of_time_slots:
-                        for court in court_num_list:
-                            input_courtnum = int(court)
-                            booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-            elif input_month == "April":
-                if "April" not in activated_list:
-                    april_courts()
-                    for times in list_of_time_slots:
-                        for court in court_num_list:
-                            input_courtnum = int(court)
-                            booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-                    activated_list.append("April")
-                else:
-                    for times in list_of_time_slots:
-                        for court in court_num_list:
-                            input_courtnum = int(court)
-                            booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-            elif input_month == "May":
-                if "May" not in activated_list:
-                    may_courts()
-                    for times in list_of_time_slots:
-                        for court in court_num_list:
-                            input_courtnum = int(court)
-                            booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-                    activated_list.append("May")
-                else:
-                    for times in list_of_time_slots:
-                        for court in court_num_list:
-                            input_courtnum = int(court)
-                            booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-            elif input_month ==  "June":
-                if "June" not in activated_list:
-                    june_courts()
-                    for times in list_of_time_slots:
-                        for court in court_num_list:
-                            input_courtnum = int(court)
-                            booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-                    activated_list.append("June")
-                else:
-                    for times in list_of_time_slots:
-                        for court in court_num_list:
-                            input_courtnum = int(court)
-                            booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-            elif input_month ==  "July":
-                if "July" not in activated_list:
-                    july_courts()
-                    for times in list_of_time_slots:
-                        for court in court_num_list:
-                            input_courtnum = int(court)
-                            booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-                    activated_list.append("July")
-                else:
-                    for times in list_of_time_slots:
-                        for court in court_num_list:
-                            input_courtnum = int(court)
-                            booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-            elif input_month ==  "August":
-                if "August" not in activated_list:
-                    august_courts()
-                    for times in list_of_time_slots:
-                        for court in court_num_list:
-                            input_courtnum = int(court)
-                            booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-                    activated_list.append("August")
-                else:
-                    for times in list_of_time_slots:
-                        for court in court_num_list:
-                            input_courtnum = int(court)
-                            booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-            elif input_month ==  "September":
-                if "September" not in activated_list:
-                    september_courts()
-                    for times in list_of_time_slots:
-                        for court in court_num_list:
-                            input_courtnum = int(court)
-                            booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-                    activated_list.append("September")
-                else:
-                    for times in list_of_time_slots:
-                        for court in court_num_list:
-                            input_courtnum = int(court)
-                            booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-            elif input_month ==  "October":
-                if "October" not in activated_list:
-                    october_courts()
-                    for times in list_of_time_slots:
-                        for court in court_num_list:
-                            input_courtnum = int(court)
-                            booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-                    activated_list.append("October")
-                else:
-                    for times in list_of_time_slots:
-                        for court in court_num_list:
-                            input_courtnum = int(court)
-                            booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-            elif input_month ==  "November":
-                if "November" not in activated_list:
-                    november_courts()
-                    for times in list_of_time_slots:
-                        for court in court_num_list:
-                            input_courtnum = int(court)
-                            booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-                    activated_list.append("November")
-                else:
-                    for times in list_of_time_slots:
-                        for court in court_num_list:
-                            input_courtnum = int(court)
-                            booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-            elif input_month ==  "December":
-                if "December" not in activated_list:
-                    december_courts()
-                    for times in list_of_time_slots:
-                        for court in court_num_list:
-                            input_courtnum = int(court)
-                            booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
-                    activated_list.append("December")
-                else:
-                    for times in list_of_time_slots:
-                        for court in court_num_list:
-                            input_courtnum = int(court)
-                            booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
+            for mth in months:
+                if mth == input_month:
+                    if input_month not in activated_list:
+                        court_functions[months.index(mth)]()
+                        for times in list_of_time_slots:
+                            for court in court_num_list:
+                                input_courtnum = int(court)
+                                booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
+                        activated_list.append(mth)
+                    else:
+                        for times in list_of_time_slots:
+                            for court in court_num_list:
+                                input_courtnum = int(court)
+                                booking_insertion(input_name, input_num, input_month, input_day, times, input_courtnum, time_range, length_num)
 
             info_window.destroy()
         
@@ -3480,7 +603,7 @@ def cancellation_info(): #Cancels bookings using booking IDs.
     cancellation_window.configure(bg='lightblue')
 
     '''Logo Image'''
-    img = Image.open(INSERT COMPANY LOGO IMAGE HERE)
+    img = Image.open('hymussportslogo.png')
     resized_img = img.resize((400, 200), Image.ANTIALIAS)
     logo = ImageTk.PhotoImage(resized_img)
     logo_label = Label(cancellation_window, image=logo).pack()
@@ -3643,1147 +766,245 @@ dec_courtlist = []
 
 def january_courts():
     for x in court_times[0:744]:
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=0)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=2)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=4)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=6)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=8)
+        for a in range(0,9,2):
+            column_placeholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=a)
 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 3, column=1)
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 6, column=1) 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 9, column=1) 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 12, column=1)
-        court_number = Label(x, text="Court 1", bg= "lightblue", font=16).grid(row = 1, column=1)
-        court_number = Label(x, text="Court 2", bg= "lightblue", font=16).grid(row = 4, column=1) 
-        court_number = Label(x, text="Court 3", bg= "lightblue", font=16).grid(row = 7, column=1) 
-        court_number = Label(x, text="Court 4", bg= "lightblue", font=16).grid(row = 10, column=1)
-        court_number = Label(x, text="Court 5", bg= "lightblue", font=16).grid(row = 1, column=3)
-        court_number = Label(x, text="Court 6", bg= "lightblue", font=16).grid(row = 4, column=3) 
-        court_number = Label(x, text="Court 7", bg= "lightblue", font=16).grid(row = 7, column=3) 
-        court_number = Label(x, text="Court 8", bg= "lightblue", font=16).grid(row = 10, column=3)
-        court_number = Label(x, text="Court 9", bg= "lightblue", font=16).grid(row = 1, column=5)
-        court_number = Label(x, text="Court 10", bg= "lightblue", font=16).grid(row = 4, column=5) 
-        court_number = Label(x, text="Court 11", bg= "lightblue", font=16).grid(row = 7, column=5) 
-        court_number = Label(x, text="Court 12", bg= "lightblue", font=16).grid(row = 10, column=5)
-        court_number = Label(x, text="Court 13", bg= "lightblue", font=16).grid(row = 1, column=7)
-        court_number = Label(x, text="Court 14", bg= "lightblue", font=16).grid(row = 4, column=7) 
-        court_number = Label(x, text="Court 15", bg= "lightblue", font=16).grid(row = 7, column=7) 
-        court_number = Label(x, text="Court 16", bg= "lightblue", font=16).grid(row = 10, column=7)
-        court_number = Label(x, text="Court 17", bg= "lightblue", font=16).grid(row = 1, column=9)
-        court_number = Label(x, text="Court 18", bg= "lightblue", font=16).grid(row = 4, column=9) 
-        court_number = Label(x, text="Court 19", bg= "lightblue", font=16).grid(row = 7, column=9) 
-        court_number = Label(x, text="Court 20", bg= "lightblue", font=16).grid(row = 10, column=9)
+        for a in range(3,13,3):
+            row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = a, column=1)
 
-        court1 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court1.grid(row = 2, column=1)
-        court2 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court2.grid(row = 5, column=1)
-        court3 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court3.grid(row = 8, column=1)
-        court4 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court4.grid(row = 11, column=1)
-        court5 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court5.grid(row = 2, column=3)
-        court6 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court6.grid(row = 5, column=3)
-        court7 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court7.grid(row = 8, column=3)
-        court8 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court8.grid(row = 11, column=3)
-        court9 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court9.grid(row = 2, column=5)
-        court10 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court10.grid(row = 5, column=5)
-        court11 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court11.grid(row = 8, column=5)
-        court12 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court12.grid(row = 11, column=5)
-        court13 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court13.grid(row = 2, column=7)
-        court14 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court14.grid(row = 5, column=7)
-        court15 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court15.grid(row = 8, column=7)
-        court16 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court16.grid(row = 11, column=7)
-        court17 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court17.grid(row = 2, column=9)
-        court18 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court18.grid(row = 5, column=9)
-        court19 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court19.grid(row = 8, column=9)
-        court20 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court20.grid(row = 11, column=9)
-
-        jan_courtlist.append(court1)
-        jan_courtlist.append(court2)
-        jan_courtlist.append(court3)
-        jan_courtlist.append(court4)
-        jan_courtlist.append(court5)
-        jan_courtlist.append(court6)
-        jan_courtlist.append(court7)
-        jan_courtlist.append(court8)
-        jan_courtlist.append(court9)
-        jan_courtlist.append(court10)
-        jan_courtlist.append(court11)
-        jan_courtlist.append(court12)
-        jan_courtlist.append(court13)
-        jan_courtlist.append(court14)
-        jan_courtlist.append(court15)
-        jan_courtlist.append(court16)
-        jan_courtlist.append(court17)
-        jan_courtlist.append(court18)
-        jan_courtlist.append(court19)
-        jan_courtlist.append(court20)
+        court_num = 1
+        for a in range(1,10,2):
+            for b in range(1,11,3):
+                court_number = Label(x, text=f"Court {court_num}", bg= "lightblue", font=16).grid(row=b, column=a)
+                court_num += 1
+        
+        for a in range(1,10,2):
+            for b in range(2,12,3):
+                court_text = Text(x, width=15, height=10, font=16, bg = "#008B00")
+                court_text.grid(row=b, column=a)
+                jan_courtlist.append(court_text)
 
 def february_courts():
     for x in court_times[744:1440]:
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=0)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=2)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=4)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=6)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=8)
+        for a in range(0,9,2):
+            column_placeholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=a)
 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 3, column=1)
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 6, column=1) 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 9, column=1) 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 12, column=1)
-        court_number = Label(x, text="Court 1", bg= "lightblue", font=16).grid(row = 1, column=1)
-        court_number = Label(x, text="Court 2", bg= "lightblue", font=16).grid(row = 4, column=1) 
-        court_number = Label(x, text="Court 3", bg= "lightblue", font=16).grid(row = 7, column=1) 
-        court_number = Label(x, text="Court 4", bg= "lightblue", font=16).grid(row = 10, column=1)
-        court_number = Label(x, text="Court 5", bg= "lightblue", font=16).grid(row = 1, column=3)
-        court_number = Label(x, text="Court 6", bg= "lightblue", font=16).grid(row = 4, column=3) 
-        court_number = Label(x, text="Court 7", bg= "lightblue", font=16).grid(row = 7, column=3) 
-        court_number = Label(x, text="Court 8", bg= "lightblue", font=16).grid(row = 10, column=3)
-        court_number = Label(x, text="Court 9", bg= "lightblue", font=16).grid(row = 1, column=5)
-        court_number = Label(x, text="Court 10", bg= "lightblue", font=16).grid(row = 4, column=5) 
-        court_number = Label(x, text="Court 11", bg= "lightblue", font=16).grid(row = 7, column=5) 
-        court_number = Label(x, text="Court 12", bg= "lightblue", font=16).grid(row = 10, column=5)
-        court_number = Label(x, text="Court 13", bg= "lightblue", font=16).grid(row = 1, column=7)
-        court_number = Label(x, text="Court 14", bg= "lightblue", font=16).grid(row = 4, column=7) 
-        court_number = Label(x, text="Court 15", bg= "lightblue", font=16).grid(row = 7, column=7) 
-        court_number = Label(x, text="Court 16", bg= "lightblue", font=16).grid(row = 10, column=7)
-        court_number = Label(x, text="Court 17", bg= "lightblue", font=16).grid(row = 1, column=9)
-        court_number = Label(x, text="Court 18", bg= "lightblue", font=16).grid(row = 4, column=9) 
-        court_number = Label(x, text="Court 19", bg= "lightblue", font=16).grid(row = 7, column=9) 
-        court_number = Label(x, text="Court 20", bg= "lightblue", font=16).grid(row = 10, column=9)
+        for a in range(3,13,3):
+            row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = a, column=1)
+
+        court_num = 1
+        for a in range(1,10,2):
+            for b in range(1,11,3):
+                court_number = Label(x, text=f"Court {court_num}", bg= "lightblue", font=16).grid(row=b, column=a)
+                court_num += 1
         
-        court1 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court1.grid(row = 2, column=1)
-        court2 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court2.grid(row = 5, column=1)
-        court3 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court3.grid(row = 8, column=1)
-        court4 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court4.grid(row = 11, column=1)
-        court5 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court5.grid(row = 2, column=3)
-        court6 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court6.grid(row = 5, column=3)
-        court7 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court7.grid(row = 8, column=3)
-        court8 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court8.grid(row = 11, column=3)
-        court9 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court9.grid(row = 2, column=5)
-        court10 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court10.grid(row = 5, column=5)
-        court11 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court11.grid(row = 8, column=5)
-        court12 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court12.grid(row = 11, column=5)
-        court13 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court13.grid(row = 2, column=7)
-        court14 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court14.grid(row = 5, column=7)
-        court15 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court15.grid(row = 8, column=7)
-        court16 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court16.grid(row = 11, column=7)
-        court17 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court17.grid(row = 2, column=9)
-        court18 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court18.grid(row = 5, column=9)
-        court19 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court19.grid(row = 8, column=9)
-        court20 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court20.grid(row = 11, column=9)
-
-        feb_courtlist.append(court1)
-        feb_courtlist.append(court2)
-        feb_courtlist.append(court3)
-        feb_courtlist.append(court4)
-        feb_courtlist.append(court5)
-        feb_courtlist.append(court6)
-        feb_courtlist.append(court7)
-        feb_courtlist.append(court8)
-        feb_courtlist.append(court9)
-        feb_courtlist.append(court10)
-        feb_courtlist.append(court11)
-        feb_courtlist.append(court12)
-        feb_courtlist.append(court13)
-        feb_courtlist.append(court14)
-        feb_courtlist.append(court15)
-        feb_courtlist.append(court16)
-        feb_courtlist.append(court17)
-        feb_courtlist.append(court18)
-        feb_courtlist.append(court19)
-        feb_courtlist.append(court20)
+        for a in range(1,10,2):
+            for b in range(2,12,3):
+                court_text = Text(x, width=15, height=10, font=16, bg = "#008B00")
+                court_text.grid(row=b, column=a)
+                feb_courtlist.append(court_text)
 
 def march_courts():
     for x in court_times[1440:2184]:
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=0)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=2)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=4)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=6)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=8)
+        for a in range(0,9,2):
+            column_placeholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=a)
 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 3, column=1)
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 6, column=1) 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 9, column=1) 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 12, column=1)
-        court_number = Label(x, text="Court 1", bg= "lightblue", font=16).grid(row = 1, column=1)
-        court_number = Label(x, text="Court 2", bg= "lightblue", font=16).grid(row = 4, column=1) 
-        court_number = Label(x, text="Court 3", bg= "lightblue", font=16).grid(row = 7, column=1) 
-        court_number = Label(x, text="Court 4", bg= "lightblue", font=16).grid(row = 10, column=1)
-        court_number = Label(x, text="Court 5", bg= "lightblue", font=16).grid(row = 1, column=3)
-        court_number = Label(x, text="Court 6", bg= "lightblue", font=16).grid(row = 4, column=3) 
-        court_number = Label(x, text="Court 7", bg= "lightblue", font=16).grid(row = 7, column=3) 
-        court_number = Label(x, text="Court 8", bg= "lightblue", font=16).grid(row = 10, column=3)
-        court_number = Label(x, text="Court 9", bg= "lightblue", font=16).grid(row = 1, column=5)
-        court_number = Label(x, text="Court 10", bg= "lightblue", font=16).grid(row = 4, column=5) 
-        court_number = Label(x, text="Court 11", bg= "lightblue", font=16).grid(row = 7, column=5) 
-        court_number = Label(x, text="Court 12", bg= "lightblue", font=16).grid(row = 10, column=5)
-        court_number = Label(x, text="Court 13", bg= "lightblue", font=16).grid(row = 1, column=7)
-        court_number = Label(x, text="Court 14", bg= "lightblue", font=16).grid(row = 4, column=7) 
-        court_number = Label(x, text="Court 15", bg= "lightblue", font=16).grid(row = 7, column=7) 
-        court_number = Label(x, text="Court 16", bg= "lightblue", font=16).grid(row = 10, column=7)
-        court_number = Label(x, text="Court 17", bg= "lightblue", font=16).grid(row = 1, column=9)
-        court_number = Label(x, text="Court 18", bg= "lightblue", font=16).grid(row = 4, column=9) 
-        court_number = Label(x, text="Court 19", bg= "lightblue", font=16).grid(row = 7, column=9) 
-        court_number = Label(x, text="Court 20", bg= "lightblue", font=16).grid(row = 10, column=9)
+        for a in range(3,13,3):
+            row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = a, column=1)
+
+        court_num = 1
+        for a in range(1,10,2):
+            for b in range(1,11,3):
+                court_number = Label(x, text=f"Court {court_num}", bg= "lightblue", font=16).grid(row=b, column=a)
+                court_num += 1
         
-        court1 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court1.grid(row = 2, column=1)
-        court2 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court2.grid(row = 5, column=1)
-        court3 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court3.grid(row = 8, column=1)
-        court4 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court4.grid(row = 11, column=1)
-        court5 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court5.grid(row = 2, column=3)
-        court6 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court6.grid(row = 5, column=3)
-        court7 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court7.grid(row = 8, column=3)
-        court8 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court8.grid(row = 11, column=3)
-        court9 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court9.grid(row = 2, column=5)
-        court10 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court10.grid(row = 5, column=5)
-        court11 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court11.grid(row = 8, column=5)
-        court12 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court12.grid(row = 11, column=5)
-        court13 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court13.grid(row = 2, column=7)
-        court14 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court14.grid(row = 5, column=7)
-        court15 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court15.grid(row = 8, column=7)
-        court16 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court16.grid(row = 11, column=7)
-        court17 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court17.grid(row = 2, column=9)
-        court18 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court18.grid(row = 5, column=9)
-        court19 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court19.grid(row = 8, column=9)
-        court20 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court20.grid(row = 11, column=9)
-
-        mar_courtlist.append(court1)
-        mar_courtlist.append(court2)
-        mar_courtlist.append(court3)
-        mar_courtlist.append(court4)
-        mar_courtlist.append(court5)
-        mar_courtlist.append(court6)
-        mar_courtlist.append(court7)
-        mar_courtlist.append(court8)
-        mar_courtlist.append(court9)
-        mar_courtlist.append(court10)
-        mar_courtlist.append(court11)
-        mar_courtlist.append(court12)
-        mar_courtlist.append(court13)
-        mar_courtlist.append(court14)
-        mar_courtlist.append(court15)
-        mar_courtlist.append(court16)
-        mar_courtlist.append(court17)
-        mar_courtlist.append(court18)
-        mar_courtlist.append(court19)
-        mar_courtlist.append(court20)
+        for a in range(1,10,2):
+            for b in range(2,12,3):
+                court_text = Text(x, width=15, height=10, font=16, bg = "#008B00")
+                court_text.grid(row=b, column=a)
+                mar_courtlist.append(court_text)
 
 def april_courts():
     for x in court_times[2184:2904]:
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=0)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=2)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=4)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=6)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=8)
+        for a in range(0,9,2):
+            column_placeholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=a)
 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 3, column=1)
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 6, column=1) 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 9, column=1) 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 12, column=1)
-        court_number = Label(x, text="Court 1", bg= "lightblue", font=16).grid(row = 1, column=1)
-        court_number = Label(x, text="Court 2", bg= "lightblue", font=16).grid(row = 4, column=1) 
-        court_number = Label(x, text="Court 3", bg= "lightblue", font=16).grid(row = 7, column=1) 
-        court_number = Label(x, text="Court 4", bg= "lightblue", font=16).grid(row = 10, column=1)
-        court_number = Label(x, text="Court 5", bg= "lightblue", font=16).grid(row = 1, column=3)
-        court_number = Label(x, text="Court 6", bg= "lightblue", font=16).grid(row = 4, column=3) 
-        court_number = Label(x, text="Court 7", bg= "lightblue", font=16).grid(row = 7, column=3) 
-        court_number = Label(x, text="Court 8", bg= "lightblue", font=16).grid(row = 10, column=3)
-        court_number = Label(x, text="Court 9", bg= "lightblue", font=16).grid(row = 1, column=5)
-        court_number = Label(x, text="Court 10", bg= "lightblue", font=16).grid(row = 4, column=5) 
-        court_number = Label(x, text="Court 11", bg= "lightblue", font=16).grid(row = 7, column=5) 
-        court_number = Label(x, text="Court 12", bg= "lightblue", font=16).grid(row = 10, column=5)
-        court_number = Label(x, text="Court 13", bg= "lightblue", font=16).grid(row = 1, column=7)
-        court_number = Label(x, text="Court 14", bg= "lightblue", font=16).grid(row = 4, column=7) 
-        court_number = Label(x, text="Court 15", bg= "lightblue", font=16).grid(row = 7, column=7) 
-        court_number = Label(x, text="Court 16", bg= "lightblue", font=16).grid(row = 10, column=7)
-        court_number = Label(x, text="Court 17", bg= "lightblue", font=16).grid(row = 1, column=9)
-        court_number = Label(x, text="Court 18", bg= "lightblue", font=16).grid(row = 4, column=9) 
-        court_number = Label(x, text="Court 19", bg= "lightblue", font=16).grid(row = 7, column=9) 
-        court_number = Label(x, text="Court 20", bg= "lightblue", font=16).grid(row = 10, column=9)
+        for a in range(3,13,3):
+            row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = a, column=1)
+
+        court_num = 1
+        for a in range(1,10,2):
+            for b in range(1,11,3):
+                court_number = Label(x, text=f"Court {court_num}", bg= "lightblue", font=16).grid(row=b, column=a)
+                court_num += 1
         
-        court1 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court1.grid(row = 2, column=1)
-        court2 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court2.grid(row = 5, column=1)
-        court3 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court3.grid(row = 8, column=1)
-        court4 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court4.grid(row = 11, column=1)
-        court5 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court5.grid(row = 2, column=3)
-        court6 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court6.grid(row = 5, column=3)
-        court7 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court7.grid(row = 8, column=3)
-        court8 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court8.grid(row = 11, column=3)
-        court9 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court9.grid(row = 2, column=5)
-        court10 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court10.grid(row = 5, column=5)
-        court11 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court11.grid(row = 8, column=5)
-        court12 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court12.grid(row = 11, column=5)
-        court13 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court13.grid(row = 2, column=7)
-        court14 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court14.grid(row = 5, column=7)
-        court15 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court15.grid(row = 8, column=7)
-        court16 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court16.grid(row = 11, column=7)
-        court17 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court17.grid(row = 2, column=9)
-        court18 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court18.grid(row = 5, column=9)
-        court19 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court19.grid(row = 8, column=9)
-        court20 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court20.grid(row = 11, column=9)
-
-        apr_courtlist.append(court1)
-        apr_courtlist.append(court2)
-        apr_courtlist.append(court3)
-        apr_courtlist.append(court4)
-        apr_courtlist.append(court5)
-        apr_courtlist.append(court6)
-        apr_courtlist.append(court7)
-        apr_courtlist.append(court8)
-        apr_courtlist.append(court9)
-        apr_courtlist.append(court10)
-        apr_courtlist.append(court11)
-        apr_courtlist.append(court12)
-        apr_courtlist.append(court13)
-        apr_courtlist.append(court14)
-        apr_courtlist.append(court15)
-        apr_courtlist.append(court16)
-        apr_courtlist.append(court17)
-        apr_courtlist.append(court18)
-        apr_courtlist.append(court19)
-        apr_courtlist.append(court20)
+        for a in range(1,10,2):
+            for b in range(2,12,3):
+                court_text = Text(x, width=15, height=10, font=16, bg = "#008B00")
+                court_text.grid(row=b, column=a)
+                apr_courtlist.append(court_text)
 
 
 def may_courts():
     for x in court_times[2904:3648]:
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=0)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=2)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=4)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=6)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=8)
+        for a in range(0,9,2):
+            column_placeholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=a)
 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 3, column=1)
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 6, column=1) 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 9, column=1) 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 12, column=1)
-        court_number = Label(x, text="Court 1", bg= "lightblue", font=16).grid(row = 1, column=1)
-        court_number = Label(x, text="Court 2", bg= "lightblue", font=16).grid(row = 4, column=1) 
-        court_number = Label(x, text="Court 3", bg= "lightblue", font=16).grid(row = 7, column=1) 
-        court_number = Label(x, text="Court 4", bg= "lightblue", font=16).grid(row = 10, column=1)
-        court_number = Label(x, text="Court 5", bg= "lightblue", font=16).grid(row = 1, column=3)
-        court_number = Label(x, text="Court 6", bg= "lightblue", font=16).grid(row = 4, column=3) 
-        court_number = Label(x, text="Court 7", bg= "lightblue", font=16).grid(row = 7, column=3) 
-        court_number = Label(x, text="Court 8", bg= "lightblue", font=16).grid(row = 10, column=3)
-        court_number = Label(x, text="Court 9", bg= "lightblue", font=16).grid(row = 1, column=5)
-        court_number = Label(x, text="Court 10", bg= "lightblue", font=16).grid(row = 4, column=5) 
-        court_number = Label(x, text="Court 11", bg= "lightblue", font=16).grid(row = 7, column=5) 
-        court_number = Label(x, text="Court 12", bg= "lightblue", font=16).grid(row = 10, column=5)
-        court_number = Label(x, text="Court 13", bg= "lightblue", font=16).grid(row = 1, column=7)
-        court_number = Label(x, text="Court 14", bg= "lightblue", font=16).grid(row = 4, column=7) 
-        court_number = Label(x, text="Court 15", bg= "lightblue", font=16).grid(row = 7, column=7) 
-        court_number = Label(x, text="Court 16", bg= "lightblue", font=16).grid(row = 10, column=7)
-        court_number = Label(x, text="Court 17", bg= "lightblue", font=16).grid(row = 1, column=9)
-        court_number = Label(x, text="Court 18", bg= "lightblue", font=16).grid(row = 4, column=9) 
-        court_number = Label(x, text="Court 19", bg= "lightblue", font=16).grid(row = 7, column=9) 
-        court_number = Label(x, text="Court 20", bg= "lightblue", font=16).grid(row = 10, column=9)
+        for a in range(3,13,3):
+            row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = a, column=1)
+
+        court_num = 1
+        for a in range(1,10,2):
+            for b in range(1,11,3):
+                court_number = Label(x, text=f"Court {court_num}", bg= "lightblue", font=16).grid(row=b, column=a)
+                court_num += 1
         
-        court1 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court1.grid(row = 2, column=1)
-        court2 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court2.grid(row = 5, column=1)
-        court3 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court3.grid(row = 8, column=1)
-        court4 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court4.grid(row = 11, column=1)
-        court5 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court5.grid(row = 2, column=3)
-        court6 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court6.grid(row = 5, column=3)
-        court7 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court7.grid(row = 8, column=3)
-        court8 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court8.grid(row = 11, column=3)
-        court9 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court9.grid(row = 2, column=5)
-        court10 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court10.grid(row = 5, column=5)
-        court11 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court11.grid(row = 8, column=5)
-        court12 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court12.grid(row = 11, column=5)
-        court13 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court13.grid(row = 2, column=7)
-        court14 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court14.grid(row = 5, column=7)
-        court15 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court15.grid(row = 8, column=7)
-        court16 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court16.grid(row = 11, column=7)
-        court17 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court17.grid(row = 2, column=9)
-        court18 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court18.grid(row = 5, column=9)
-        court19 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court19.grid(row = 8, column=9)
-        court20 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court20.grid(row = 11, column=9)
-
-        may_courtlist.append(court1)
-        may_courtlist.append(court2)
-        may_courtlist.append(court3)
-        may_courtlist.append(court4)
-        may_courtlist.append(court5)
-        may_courtlist.append(court6)
-        may_courtlist.append(court7)
-        may_courtlist.append(court8)
-        may_courtlist.append(court9)
-        may_courtlist.append(court10)
-        may_courtlist.append(court11)
-        may_courtlist.append(court12)
-        may_courtlist.append(court13)
-        may_courtlist.append(court14)
-        may_courtlist.append(court15)
-        may_courtlist.append(court16)
-        may_courtlist.append(court17)
-        may_courtlist.append(court18)
-        may_courtlist.append(court19)
-        may_courtlist.append(court20)
-
+        for a in range(1,10,2):
+            for b in range(2,12,3):
+                court_text = Text(x, width=15, height=10, font=16, bg = "#008B00")
+                court_text.grid(row=b, column=a)
+                may_courtlist.append(court_text)
 
 
 def june_courts():
     for x in court_times[3648:4368]:
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=0)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=2)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=4)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=6)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=8)
+        for a in range(0,9,2):
+            column_placeholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=a)
 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 3, column=1)
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 6, column=1) 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 9, column=1) 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 12, column=1)
-        court_number = Label(x, text="Court 1", bg= "lightblue", font=16).grid(row = 1, column=1)
-        court_number = Label(x, text="Court 2", bg= "lightblue", font=16).grid(row = 4, column=1) 
-        court_number = Label(x, text="Court 3", bg= "lightblue", font=16).grid(row = 7, column=1) 
-        court_number = Label(x, text="Court 4", bg= "lightblue", font=16).grid(row = 10, column=1)
-        court_number = Label(x, text="Court 5", bg= "lightblue", font=16).grid(row = 1, column=3)
-        court_number = Label(x, text="Court 6", bg= "lightblue", font=16).grid(row = 4, column=3) 
-        court_number = Label(x, text="Court 7", bg= "lightblue", font=16).grid(row = 7, column=3) 
-        court_number = Label(x, text="Court 8", bg= "lightblue", font=16).grid(row = 10, column=3)
-        court_number = Label(x, text="Court 9", bg= "lightblue", font=16).grid(row = 1, column=5)
-        court_number = Label(x, text="Court 10", bg= "lightblue", font=16).grid(row = 4, column=5) 
-        court_number = Label(x, text="Court 11", bg= "lightblue", font=16).grid(row = 7, column=5) 
-        court_number = Label(x, text="Court 12", bg= "lightblue", font=16).grid(row = 10, column=5)
-        court_number = Label(x, text="Court 13", bg= "lightblue", font=16).grid(row = 1, column=7)
-        court_number = Label(x, text="Court 14", bg= "lightblue", font=16).grid(row = 4, column=7) 
-        court_number = Label(x, text="Court 15", bg= "lightblue", font=16).grid(row = 7, column=7) 
-        court_number = Label(x, text="Court 16", bg= "lightblue", font=16).grid(row = 10, column=7)
-        court_number = Label(x, text="Court 17", bg= "lightblue", font=16).grid(row = 1, column=9)
-        court_number = Label(x, text="Court 18", bg= "lightblue", font=16).grid(row = 4, column=9) 
-        court_number = Label(x, text="Court 19", bg= "lightblue", font=16).grid(row = 7, column=9) 
-        court_number = Label(x, text="Court 20", bg= "lightblue", font=16).grid(row = 10, column=9)
+        for a in range(3,13,3):
+            row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = a, column=1)
+
+        court_num = 1
+        for a in range(1,10,2):
+            for b in range(1,11,3):
+                court_number = Label(x, text=f"Court {court_num}", bg= "lightblue", font=16).grid(row=b, column=a)
+                court_num += 1
         
-        court1 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court1.grid(row = 2, column=1)
-        court2 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court2.grid(row = 5, column=1)
-        court3 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court3.grid(row = 8, column=1)
-        court4 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court4.grid(row = 11, column=1)
-        court5 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court5.grid(row = 2, column=3)
-        court6 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court6.grid(row = 5, column=3)
-        court7 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court7.grid(row = 8, column=3)
-        court8 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court8.grid(row = 11, column=3)
-        court9 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court9.grid(row = 2, column=5)
-        court10 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court10.grid(row = 5, column=5)
-        court11 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court11.grid(row = 8, column=5)
-        court12 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court12.grid(row = 11, column=5)
-        court13 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court13.grid(row = 2, column=7)
-        court14 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court14.grid(row = 5, column=7)
-        court15 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court15.grid(row = 8, column=7)
-        court16 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court16.grid(row = 11, column=7)
-        court17 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court17.grid(row = 2, column=9)
-        court18 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court18.grid(row = 5, column=9)
-        court19 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court19.grid(row = 8, column=9)
-        court20 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court20.grid(row = 11, column=9)
-
-        jun_courtlist.append(court1)
-        jun_courtlist.append(court2)
-        jun_courtlist.append(court3)
-        jun_courtlist.append(court4)
-        jun_courtlist.append(court5)
-        jun_courtlist.append(court6)
-        jun_courtlist.append(court7)
-        jun_courtlist.append(court8)
-        jun_courtlist.append(court9)
-        jun_courtlist.append(court10)
-        jun_courtlist.append(court11)
-        jun_courtlist.append(court12)
-        jun_courtlist.append(court13)
-        jun_courtlist.append(court14)
-        jun_courtlist.append(court15)
-        jun_courtlist.append(court16)
-        jun_courtlist.append(court17)
-        jun_courtlist.append(court18)
-        jun_courtlist.append(court19)
-        jun_courtlist.append(court20)
-
+        for a in range(1,10,2):
+            for b in range(2,12,3):
+                court_text = Text(x, width=15, height=10, font=16, bg = "#008B00")
+                court_text.grid(row=b, column=a)
+                jun_courtlist.append(court_text)
 
 def july_courts():
     for x in court_times[4368:5112]:
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=0)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=2)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=4)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=6)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=8)
+        for a in range(0,9,2):
+            column_placeholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=a)
 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 3, column=1)
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 6, column=1) 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 9, column=1) 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 12, column=1)
-        court_number = Label(x, text="Court 1", bg= "lightblue", font=16).grid(row = 1, column=1)
-        court_number = Label(x, text="Court 2", bg= "lightblue", font=16).grid(row = 4, column=1) 
-        court_number = Label(x, text="Court 3", bg= "lightblue", font=16).grid(row = 7, column=1) 
-        court_number = Label(x, text="Court 4", bg= "lightblue", font=16).grid(row = 10, column=1)
-        court_number = Label(x, text="Court 5", bg= "lightblue", font=16).grid(row = 1, column=3)
-        court_number = Label(x, text="Court 6", bg= "lightblue", font=16).grid(row = 4, column=3) 
-        court_number = Label(x, text="Court 7", bg= "lightblue", font=16).grid(row = 7, column=3) 
-        court_number = Label(x, text="Court 8", bg= "lightblue", font=16).grid(row = 10, column=3)
-        court_number = Label(x, text="Court 9", bg= "lightblue", font=16).grid(row = 1, column=5)
-        court_number = Label(x, text="Court 10", bg= "lightblue", font=16).grid(row = 4, column=5) 
-        court_number = Label(x, text="Court 11", bg= "lightblue", font=16).grid(row = 7, column=5) 
-        court_number = Label(x, text="Court 12", bg= "lightblue", font=16).grid(row = 10, column=5)
-        court_number = Label(x, text="Court 13", bg= "lightblue", font=16).grid(row = 1, column=7)
-        court_number = Label(x, text="Court 14", bg= "lightblue", font=16).grid(row = 4, column=7) 
-        court_number = Label(x, text="Court 15", bg= "lightblue", font=16).grid(row = 7, column=7) 
-        court_number = Label(x, text="Court 16", bg= "lightblue", font=16).grid(row = 10, column=7)
-        court_number = Label(x, text="Court 17", bg= "lightblue", font=16).grid(row = 1, column=9)
-        court_number = Label(x, text="Court 18", bg= "lightblue", font=16).grid(row = 4, column=9) 
-        court_number = Label(x, text="Court 19", bg= "lightblue", font=16).grid(row = 7, column=9) 
-        court_number = Label(x, text="Court 20", bg= "lightblue", font=16).grid(row = 10, column=9)
+        for a in range(3,13,3):
+            row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = a, column=1)
+
+        court_num = 1
+        for a in range(1,10,2):
+            for b in range(1,11,3):
+                court_number = Label(x, text=f"Court {court_num}", bg= "lightblue", font=16).grid(row=b, column=a)
+                court_num += 1
         
-        court1 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court1.grid(row = 2, column=1)
-        court2 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court2.grid(row = 5, column=1)
-        court3 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court3.grid(row = 8, column=1)
-        court4 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court4.grid(row = 11, column=1)
-        court5 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court5.grid(row = 2, column=3)
-        court6 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court6.grid(row = 5, column=3)
-        court7 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court7.grid(row = 8, column=3)
-        court8 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court8.grid(row = 11, column=3)
-        court9 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court9.grid(row = 2, column=5)
-        court10 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court10.grid(row = 5, column=5)
-        court11 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court11.grid(row = 8, column=5)
-        court12 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court12.grid(row = 11, column=5)
-        court13 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court13.grid(row = 2, column=7)
-        court14 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court14.grid(row = 5, column=7)
-        court15 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court15.grid(row = 8, column=7)
-        court16 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court16.grid(row = 11, column=7)
-        court17 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court17.grid(row = 2, column=9)
-        court18 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court18.grid(row = 5, column=9)
-        court19 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court19.grid(row = 8, column=9)
-        court20 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court20.grid(row = 11, column=9)
-
-        jul_courtlist.append(court1)
-        jul_courtlist.append(court2)
-        jul_courtlist.append(court3)
-        jul_courtlist.append(court4)
-        jul_courtlist.append(court5)
-        jul_courtlist.append(court6)
-        jul_courtlist.append(court7)
-        jul_courtlist.append(court8)
-        jul_courtlist.append(court9)
-        jul_courtlist.append(court10)
-        jul_courtlist.append(court11)
-        jul_courtlist.append(court12)
-        jul_courtlist.append(court13)
-        jul_courtlist.append(court14)
-        jul_courtlist.append(court15)
-        jul_courtlist.append(court16)
-        jul_courtlist.append(court17)
-        jul_courtlist.append(court18)
-        jul_courtlist.append(court19)
-        jul_courtlist.append(court20)
+        for a in range(1,10,2):
+            for b in range(2,12,3):
+                court_text = Text(x, width=15, height=10, font=16, bg = "#008B00")
+                court_text.grid(row=b, column=a)
+                jul_courtlist.append(court_text)
 
 def august_courts():
     for x in court_times[5112:5856]:
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=0)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=2)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=4)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=6)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=8)
+        for a in range(0,9,2):
+            column_placeholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=a)
 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 3, column=1)
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 6, column=1) 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 9, column=1) 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 12, column=1)
-        court_number = Label(x, text="Court 1", bg= "lightblue", font=16).grid(row = 1, column=1)
-        court_number = Label(x, text="Court 2", bg= "lightblue", font=16).grid(row = 4, column=1) 
-        court_number = Label(x, text="Court 3", bg= "lightblue", font=16).grid(row = 7, column=1) 
-        court_number = Label(x, text="Court 4", bg= "lightblue", font=16).grid(row = 10, column=1)
-        court_number = Label(x, text="Court 5", bg= "lightblue", font=16).grid(row = 1, column=3)
-        court_number = Label(x, text="Court 6", bg= "lightblue", font=16).grid(row = 4, column=3) 
-        court_number = Label(x, text="Court 7", bg= "lightblue", font=16).grid(row = 7, column=3) 
-        court_number = Label(x, text="Court 8", bg= "lightblue", font=16).grid(row = 10, column=3)
-        court_number = Label(x, text="Court 9", bg= "lightblue", font=16).grid(row = 1, column=5)
-        court_number = Label(x, text="Court 10", bg= "lightblue", font=16).grid(row = 4, column=5) 
-        court_number = Label(x, text="Court 11", bg= "lightblue", font=16).grid(row = 7, column=5) 
-        court_number = Label(x, text="Court 12", bg= "lightblue", font=16).grid(row = 10, column=5)
-        court_number = Label(x, text="Court 13", bg= "lightblue", font=16).grid(row = 1, column=7)
-        court_number = Label(x, text="Court 14", bg= "lightblue", font=16).grid(row = 4, column=7) 
-        court_number = Label(x, text="Court 15", bg= "lightblue", font=16).grid(row = 7, column=7) 
-        court_number = Label(x, text="Court 16", bg= "lightblue", font=16).grid(row = 10, column=7)
-        court_number = Label(x, text="Court 17", bg= "lightblue", font=16).grid(row = 1, column=9)
-        court_number = Label(x, text="Court 18", bg= "lightblue", font=16).grid(row = 4, column=9) 
-        court_number = Label(x, text="Court 19", bg= "lightblue", font=16).grid(row = 7, column=9) 
-        court_number = Label(x, text="Court 20", bg= "lightblue", font=16).grid(row = 10, column=9)
+        for a in range(3,13,3):
+            row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = a, column=1)
+
+        court_num = 1
+        for a in range(1,10,2):
+            for b in range(1,11,3):
+                court_number = Label(x, text=f"Court {court_num}", bg= "lightblue", font=16).grid(row=b, column=a)
+                court_num += 1
         
-        court1 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court1.grid(row = 2, column=1)
-        court2 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court2.grid(row = 5, column=1)
-        court3 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court3.grid(row = 8, column=1)
-        court4 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court4.grid(row = 11, column=1)
-        court5 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court5.grid(row = 2, column=3)
-        court6 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court6.grid(row = 5, column=3)
-        court7 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court7.grid(row = 8, column=3)
-        court8 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court8.grid(row = 11, column=3)
-        court9 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court9.grid(row = 2, column=5)
-        court10 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court10.grid(row = 5, column=5)
-        court11 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court11.grid(row = 8, column=5)
-        court12 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court12.grid(row = 11, column=5)
-        court13 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court13.grid(row = 2, column=7)
-        court14 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court14.grid(row = 5, column=7)
-        court15 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court15.grid(row = 8, column=7)
-        court16 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court16.grid(row = 11, column=7)
-        court17 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court17.grid(row = 2, column=9)
-        court18 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court18.grid(row = 5, column=9)
-        court19 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court19.grid(row = 8, column=9)
-        court20 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court20.grid(row = 11, column=9)
-
-        aug_courtlist.append(court1)
-        aug_courtlist.append(court2)
-        aug_courtlist.append(court3)
-        aug_courtlist.append(court4)
-        aug_courtlist.append(court5)
-        aug_courtlist.append(court6)
-        aug_courtlist.append(court7)
-        aug_courtlist.append(court8)
-        aug_courtlist.append(court9)
-        aug_courtlist.append(court10)
-        aug_courtlist.append(court11)
-        aug_courtlist.append(court12)
-        aug_courtlist.append(court13)
-        aug_courtlist.append(court14)
-        aug_courtlist.append(court15)
-        aug_courtlist.append(court16)
-        aug_courtlist.append(court17)
-        aug_courtlist.append(court18)
-        aug_courtlist.append(court19)
-        aug_courtlist.append(court20)
+        for a in range(1,10,2):
+            for b in range(2,12,3):
+                court_text = Text(x, width=15, height=10, font=16, bg = "#008B00")
+                court_text.grid(row=b, column=a)
+                aug_courtlist.append(court_text)
 
 def september_courts():
     for x in court_times[5856:6576]:
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=0)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=2)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=4)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=6)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=8)
+        for a in range(0,9,2):
+            column_placeholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=a)
 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 3, column=1)
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 6, column=1) 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 9, column=1) 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 12, column=1)
-        court_number = Label(x, text="Court 1", bg= "lightblue", font=16).grid(row = 1, column=1)
-        court_number = Label(x, text="Court 2", bg= "lightblue", font=16).grid(row = 4, column=1) 
-        court_number = Label(x, text="Court 3", bg= "lightblue", font=16).grid(row = 7, column=1) 
-        court_number = Label(x, text="Court 4", bg= "lightblue", font=16).grid(row = 10, column=1)
-        court_number = Label(x, text="Court 5", bg= "lightblue", font=16).grid(row = 1, column=3)
-        court_number = Label(x, text="Court 6", bg= "lightblue", font=16).grid(row = 4, column=3) 
-        court_number = Label(x, text="Court 7", bg= "lightblue", font=16).grid(row = 7, column=3) 
-        court_number = Label(x, text="Court 8", bg= "lightblue", font=16).grid(row = 10, column=3)
-        court_number = Label(x, text="Court 9", bg= "lightblue", font=16).grid(row = 1, column=5)
-        court_number = Label(x, text="Court 10", bg= "lightblue", font=16).grid(row = 4, column=5) 
-        court_number = Label(x, text="Court 11", bg= "lightblue", font=16).grid(row = 7, column=5) 
-        court_number = Label(x, text="Court 12", bg= "lightblue", font=16).grid(row = 10, column=5)
-        court_number = Label(x, text="Court 13", bg= "lightblue", font=16).grid(row = 1, column=7)
-        court_number = Label(x, text="Court 14", bg= "lightblue", font=16).grid(row = 4, column=7) 
-        court_number = Label(x, text="Court 15", bg= "lightblue", font=16).grid(row = 7, column=7) 
-        court_number = Label(x, text="Court 16", bg= "lightblue", font=16).grid(row = 10, column=7)
-        court_number = Label(x, text="Court 17", bg= "lightblue", font=16).grid(row = 1, column=9)
-        court_number = Label(x, text="Court 18", bg= "lightblue", font=16).grid(row = 4, column=9) 
-        court_number = Label(x, text="Court 19", bg= "lightblue", font=16).grid(row = 7, column=9) 
-        court_number = Label(x, text="Court 20", bg= "lightblue", font=16).grid(row = 10, column=9)
+        for a in range(3,13,3):
+            row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = a, column=1)
+
+        court_num = 1
+        for a in range(1,10,2):
+            for b in range(1,11,3):
+                court_number = Label(x, text=f"Court {court_num}", bg= "lightblue", font=16).grid(row=b, column=a)
+                court_num += 1
         
-        court1 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court1.grid(row = 2, column=1)
-        court2 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court2.grid(row = 5, column=1)
-        court3 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court3.grid(row = 8, column=1)
-        court4 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court4.grid(row = 11, column=1)
-        court5 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court5.grid(row = 2, column=3)
-        court6 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court6.grid(row = 5, column=3)
-        court7 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court7.grid(row = 8, column=3)
-        court8 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court8.grid(row = 11, column=3)
-        court9 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court9.grid(row = 2, column=5)
-        court10 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court10.grid(row = 5, column=5)
-        court11 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court11.grid(row = 8, column=5)
-        court12 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court12.grid(row = 11, column=5)
-        court13 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court13.grid(row = 2, column=7)
-        court14 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court14.grid(row = 5, column=7)
-        court15 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court15.grid(row = 8, column=7)
-        court16 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court16.grid(row = 11, column=7)
-        court17 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court17.grid(row = 2, column=9)
-        court18 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court18.grid(row = 5, column=9)
-        court19 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court19.grid(row = 8, column=9)
-        court20 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court20.grid(row = 11, column=9)
-
-        sep_courtlist.append(court1)
-        sep_courtlist.append(court2)
-        sep_courtlist.append(court3)
-        sep_courtlist.append(court4)
-        sep_courtlist.append(court5)
-        sep_courtlist.append(court6)
-        sep_courtlist.append(court7)
-        sep_courtlist.append(court8)
-        sep_courtlist.append(court9)
-        sep_courtlist.append(court10)
-        sep_courtlist.append(court11)
-        sep_courtlist.append(court12)
-        sep_courtlist.append(court13)
-        sep_courtlist.append(court14)
-        sep_courtlist.append(court15)
-        sep_courtlist.append(court16)
-        sep_courtlist.append(court17)
-        sep_courtlist.append(court18)
-        sep_courtlist.append(court19)
-        sep_courtlist.append(court20)
+        for a in range(1,10,2):
+            for b in range(2,12,3):
+                court_text = Text(x, width=15, height=10, font=16, bg = "#008B00")
+                court_text.grid(row=b, column=a)
+                sep_courtlist.append(court_text)
 
 def october_courts():
     for x in court_times[6576:7320]:
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=0)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=2)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=4)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=6)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=8)
+        for a in range(0,9,2):
+            column_placeholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=a)
 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 3, column=1)
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 6, column=1) 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 9, column=1) 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 12, column=1)
-        court_number = Label(x, text="Court 1", bg= "lightblue", font=16).grid(row = 1, column=1)
-        court_number = Label(x, text="Court 2", bg= "lightblue", font=16).grid(row = 4, column=1) 
-        court_number = Label(x, text="Court 3", bg= "lightblue", font=16).grid(row = 7, column=1) 
-        court_number = Label(x, text="Court 4", bg= "lightblue", font=16).grid(row = 10, column=1)
-        court_number = Label(x, text="Court 5", bg= "lightblue", font=16).grid(row = 1, column=3)
-        court_number = Label(x, text="Court 6", bg= "lightblue", font=16).grid(row = 4, column=3) 
-        court_number = Label(x, text="Court 7", bg= "lightblue", font=16).grid(row = 7, column=3) 
-        court_number = Label(x, text="Court 8", bg= "lightblue", font=16).grid(row = 10, column=3)
-        court_number = Label(x, text="Court 9", bg= "lightblue", font=16).grid(row = 1, column=5)
-        court_number = Label(x, text="Court 10", bg= "lightblue", font=16).grid(row = 4, column=5) 
-        court_number = Label(x, text="Court 11", bg= "lightblue", font=16).grid(row = 7, column=5) 
-        court_number = Label(x, text="Court 12", bg= "lightblue", font=16).grid(row = 10, column=5)
-        court_number = Label(x, text="Court 13", bg= "lightblue", font=16).grid(row = 1, column=7)
-        court_number = Label(x, text="Court 14", bg= "lightblue", font=16).grid(row = 4, column=7) 
-        court_number = Label(x, text="Court 15", bg= "lightblue", font=16).grid(row = 7, column=7) 
-        court_number = Label(x, text="Court 16", bg= "lightblue", font=16).grid(row = 10, column=7)
-        court_number = Label(x, text="Court 17", bg= "lightblue", font=16).grid(row = 1, column=9)
-        court_number = Label(x, text="Court 18", bg= "lightblue", font=16).grid(row = 4, column=9) 
-        court_number = Label(x, text="Court 19", bg= "lightblue", font=16).grid(row = 7, column=9) 
-        court_number = Label(x, text="Court 20", bg= "lightblue", font=16).grid(row = 10, column=9)
+        for a in range(3,13,3):
+            row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = a, column=1)
+
+        court_num = 1
+        for a in range(1,10,2):
+            for b in range(1,11,3):
+                court_number = Label(x, text=f"Court {court_num}", bg= "lightblue", font=16).grid(row=b, column=a)
+                court_num += 1
         
-        court1 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court1.grid(row = 2, column=1)
-        court2 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court2.grid(row = 5, column=1)
-        court3 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court3.grid(row = 8, column=1)
-        court4 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court4.grid(row = 11, column=1)
-        court5 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court5.grid(row = 2, column=3)
-        court6 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court6.grid(row = 5, column=3)
-        court7 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court7.grid(row = 8, column=3)
-        court8 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court8.grid(row = 11, column=3)
-        court9 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court9.grid(row = 2, column=5)
-        court10 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court10.grid(row = 5, column=5)
-        court11 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court11.grid(row = 8, column=5)
-        court12 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court12.grid(row = 11, column=5)
-        court13 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court13.grid(row = 2, column=7)
-        court14 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court14.grid(row = 5, column=7)
-        court15 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court15.grid(row = 8, column=7)
-        court16 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court16.grid(row = 11, column=7)
-        court17 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court17.grid(row = 2, column=9)
-        court18 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court18.grid(row = 5, column=9)
-        court19 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court19.grid(row = 8, column=9)
-        court20 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court20.grid(row = 11, column=9)
-
-        oct_courtlist.append(court1)
-        oct_courtlist.append(court2)
-        oct_courtlist.append(court3)
-        oct_courtlist.append(court4)
-        oct_courtlist.append(court5)
-        oct_courtlist.append(court6)
-        oct_courtlist.append(court7)
-        oct_courtlist.append(court8)
-        oct_courtlist.append(court9)
-        oct_courtlist.append(court10)
-        oct_courtlist.append(court11)
-        oct_courtlist.append(court12)
-        oct_courtlist.append(court13)
-        oct_courtlist.append(court14)
-        oct_courtlist.append(court15)
-        oct_courtlist.append(court16)
-        oct_courtlist.append(court17)
-        oct_courtlist.append(court18)
-        oct_courtlist.append(court19)
-        oct_courtlist.append(court20)
+        for a in range(1,10,2):
+            for b in range(2,12,3):
+                court_text = Text(x, width=15, height=10, font=16, bg = "#008B00")
+                court_text.grid(row=b, column=a)
+                oct_courtlist.append(court_text)
 
 def november_courts():
     for x in court_times[7320:8040]:
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=0)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=2)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=4)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=6)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=8)
+        for a in range(0,9,2):
+            column_placeholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=a)
 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 3, column=1)
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 6, column=1) 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 9, column=1) 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 12, column=1)
-        court_number = Label(x, text="Court 1", bg= "lightblue", font=16).grid(row = 1, column=1)
-        court_number = Label(x, text="Court 2", bg= "lightblue", font=16).grid(row = 4, column=1) 
-        court_number = Label(x, text="Court 3", bg= "lightblue", font=16).grid(row = 7, column=1) 
-        court_number = Label(x, text="Court 4", bg= "lightblue", font=16).grid(row = 10, column=1)
-        court_number = Label(x, text="Court 5", bg= "lightblue", font=16).grid(row = 1, column=3)
-        court_number = Label(x, text="Court 6", bg= "lightblue", font=16).grid(row = 4, column=3) 
-        court_number = Label(x, text="Court 7", bg= "lightblue", font=16).grid(row = 7, column=3) 
-        court_number = Label(x, text="Court 8", bg= "lightblue", font=16).grid(row = 10, column=3)
-        court_number = Label(x, text="Court 9", bg= "lightblue", font=16).grid(row = 1, column=5)
-        court_number = Label(x, text="Court 10", bg= "lightblue", font=16).grid(row = 4, column=5) 
-        court_number = Label(x, text="Court 11", bg= "lightblue", font=16).grid(row = 7, column=5) 
-        court_number = Label(x, text="Court 12", bg= "lightblue", font=16).grid(row = 10, column=5)
-        court_number = Label(x, text="Court 13", bg= "lightblue", font=16).grid(row = 1, column=7)
-        court_number = Label(x, text="Court 14", bg= "lightblue", font=16).grid(row = 4, column=7) 
-        court_number = Label(x, text="Court 15", bg= "lightblue", font=16).grid(row = 7, column=7) 
-        court_number = Label(x, text="Court 16", bg= "lightblue", font=16).grid(row = 10, column=7)
-        court_number = Label(x, text="Court 17", bg= "lightblue", font=16).grid(row = 1, column=9)
-        court_number = Label(x, text="Court 18", bg= "lightblue", font=16).grid(row = 4, column=9) 
-        court_number = Label(x, text="Court 19", bg= "lightblue", font=16).grid(row = 7, column=9) 
-        court_number = Label(x, text="Court 20", bg= "lightblue", font=16).grid(row = 10, column=9)
+        for a in range(3,13,3):
+            row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = a, column=1)
+
+        court_num = 1
+        for a in range(1,10,2):
+            for b in range(1,11,3):
+                court_number = Label(x, text=f"Court {court_num}", bg= "lightblue", font=16).grid(row=b, column=a)
+                court_num += 1
         
-        court1 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court1.grid(row = 2, column=1)
-        court2 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court2.grid(row = 5, column=1)
-        court3 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court3.grid(row = 8, column=1)
-        court4 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court4.grid(row = 11, column=1)
-        court5 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court5.grid(row = 2, column=3)
-        court6 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court6.grid(row = 5, column=3)
-        court7 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court7.grid(row = 8, column=3)
-        court8 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court8.grid(row = 11, column=3)
-        court9 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court9.grid(row = 2, column=5)
-        court10 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court10.grid(row = 5, column=5)
-        court11 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court11.grid(row = 8, column=5)
-        court12 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court12.grid(row = 11, column=5)
-        court13 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court13.grid(row = 2, column=7)
-        court14 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court14.grid(row = 5, column=7)
-        court15 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court15.grid(row = 8, column=7)
-        court16 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court16.grid(row = 11, column=7)
-        court17 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court17.grid(row = 2, column=9)
-        court18 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court18.grid(row = 5, column=9)
-        court19 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court19.grid(row = 8, column=9)
-        court20 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court20.grid(row = 11, column=9)
-
-        nov_courtlist.append(court1)
-        nov_courtlist.append(court2)
-        nov_courtlist.append(court3)
-        nov_courtlist.append(court4)
-        nov_courtlist.append(court5)
-        nov_courtlist.append(court6)
-        nov_courtlist.append(court7)
-        nov_courtlist.append(court8)
-        nov_courtlist.append(court9)
-        nov_courtlist.append(court10)
-        nov_courtlist.append(court11)
-        nov_courtlist.append(court12)
-        nov_courtlist.append(court13)
-        nov_courtlist.append(court14)
-        nov_courtlist.append(court15)
-        nov_courtlist.append(court16)
-        nov_courtlist.append(court17)
-        nov_courtlist.append(court18)
-        nov_courtlist.append(court19)
-        nov_courtlist.append(court20)
+        for a in range(1,10,2):
+            for b in range(2,12,3):
+                court_text = Text(x, width=15, height=10, font=16, bg = "#008B00")
+                court_text.grid(row=b, column=a)
+                nov_courtlist.append(court_text)
 
 def december_courts():
     for x in court_times[8040:8784]:
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=0)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=2)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=4)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=6)
-        columnplaceholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=8)
+        for a in range(0,9,2):
+            column_placeholder = Label(x, text="                                                               ", bg= "lightblue").grid(row = 0, column=a)
 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 3, column=1)
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 6, column=1) 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 9, column=1) 
-        row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = 12, column=1)
-        court_number = Label(x, text="Court 1", bg= "lightblue", font=16).grid(row = 1, column=1)
-        court_number = Label(x, text="Court 2", bg= "lightblue", font=16).grid(row = 4, column=1) 
-        court_number = Label(x, text="Court 3", bg= "lightblue", font=16).grid(row = 7, column=1) 
-        court_number = Label(x, text="Court 4", bg= "lightblue", font=16).grid(row = 10, column=1)
-        court_number = Label(x, text="Court 5", bg= "lightblue", font=16).grid(row = 1, column=3)
-        court_number = Label(x, text="Court 6", bg= "lightblue", font=16).grid(row = 4, column=3) 
-        court_number = Label(x, text="Court 7", bg= "lightblue", font=16).grid(row = 7, column=3) 
-        court_number = Label(x, text="Court 8", bg= "lightblue", font=16).grid(row = 10, column=3)
-        court_number = Label(x, text="Court 9", bg= "lightblue", font=16).grid(row = 1, column=5)
-        court_number = Label(x, text="Court 10", bg= "lightblue", font=16).grid(row = 4, column=5) 
-        court_number = Label(x, text="Court 11", bg= "lightblue", font=16).grid(row = 7, column=5) 
-        court_number = Label(x, text="Court 12", bg= "lightblue", font=16).grid(row = 10, column=5)
-        court_number = Label(x, text="Court 13", bg= "lightblue", font=16).grid(row = 1, column=7)
-        court_number = Label(x, text="Court 14", bg= "lightblue", font=16).grid(row = 4, column=7) 
-        court_number = Label(x, text="Court 15", bg= "lightblue", font=16).grid(row = 7, column=7) 
-        court_number = Label(x, text="Court 16", bg= "lightblue", font=16).grid(row = 10, column=7)
-        court_number = Label(x, text="Court 17", bg= "lightblue", font=16).grid(row = 1, column=9)
-        court_number = Label(x, text="Court 18", bg= "lightblue", font=16).grid(row = 4, column=9) 
-        court_number = Label(x, text="Court 19", bg= "lightblue", font=16).grid(row = 7, column=9) 
-        court_number = Label(x, text="Court 20", bg= "lightblue", font=16).grid(row = 10, column=9)
+        for a in range(3,13,3):
+            row_placeholder = Label(x, text=" ", bg= "lightblue").grid(row = a, column=1)
+
+        court_num = 1
+        for a in range(1,10,2):
+            for b in range(1,11,3):
+                court_number = Label(x, text=f"Court {court_num}", bg= "lightblue", font=16).grid(row=b, column=a)
+                court_num += 1
         
-        court1 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court1.grid(row = 2, column=1)
-        court2 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court2.grid(row = 5, column=1)
-        court3 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court3.grid(row = 8, column=1)
-        court4 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court4.grid(row = 11, column=1)
-        court5 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court5.grid(row = 2, column=3)
-        court6 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court6.grid(row = 5, column=3)
-        court7 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court7.grid(row = 8, column=3)
-        court8 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court8.grid(row = 11, column=3)
-        court9 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court9.grid(row = 2, column=5)
-        court10 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court10.grid(row = 5, column=5)
-        court11 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court11.grid(row = 8, column=5)
-        court12 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court12.grid(row = 11, column=5)
-        court13 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court13.grid(row = 2, column=7)
-        court14 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court14.grid(row = 5, column=7)
-        court15 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court15.grid(row = 8, column=7)
-        court16 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court16.grid(row = 11, column=7)
-        court17 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court17.grid(row = 2, column=9)
-        court18 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court18.grid(row = 5, column=9)
-        court19 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court19.grid(row = 8, column=9)
-        court20 = Text(x, width=15, height=10, font=16, bg = "#008B00")
-        court20.grid(row = 11, column=9)
-
-        dec_courtlist.append(court1)
-        dec_courtlist.append(court2)
-        dec_courtlist.append(court3)
-        dec_courtlist.append(court4)
-        dec_courtlist.append(court5)
-        dec_courtlist.append(court6)
-        dec_courtlist.append(court7)
-        dec_courtlist.append(court8)
-        dec_courtlist.append(court9)
-        dec_courtlist.append(court10)
-        dec_courtlist.append(court11)
-        dec_courtlist.append(court12)
-        dec_courtlist.append(court13)
-        dec_courtlist.append(court14)
-        dec_courtlist.append(court15)
-        dec_courtlist.append(court16)
-        dec_courtlist.append(court17)
-        dec_courtlist.append(court18)
-        dec_courtlist.append(court19)
-        dec_courtlist.append(court20)
+        for a in range(1,10,2):
+            for b in range(2,12,3):
+                court_text = Text(x, width=15, height=10, font=16, bg = "#008B00")
+                court_text.grid(row=b, column=a)
+                dec_courtlist.append(court_text)
 
 '''Booking Creator'''
 def booking_insertion(name, number, month, day, timeslot, court_num, time_stamp, length_input): #Enters booking information into the employee display.
@@ -4794,577 +1015,75 @@ def booking_insertion(name, number, month, day, timeslot, court_num, time_stamp,
         if x == timeslot:
             timeslot_index = time_slots.index(x)
     
-    if month == "January":
-        location = ((((day - 1) * 24) + timeslot_index) * 20) + (court_num - 1)
-        if jan_courtlist[location].get(1.0, END) == "\n":
-            jan_courtlist[location].insert(END, name + '\n')
-            jan_courtlist[location].insert(END, number + '\n')
-            jan_courtlist[location].insert(END, time_stamp[0] + " - " + time_stamp[1] + '\n')
-            jan_courtlist[location].insert(END, "Booking ID: " + str(location) + '\n')
-            jan_courtlist[location].config(bg="#00688B", fg="white")
-            with open("bookingDataStorage.txt", "a") as f:
-                f.write(name)
-                f.write("\n")
-                f.write(number)
-                f.write("\n")
-                f.write(time_stamp[0])
-                f.write("\n")
-                f.write(str(length_input))
-                f.write("\n")
-                f.write(month + " " + str(day))
-                f.write("\n")
-                f.write('Location Code: ' + str(location))
-                f.write("\n")
-            f.close()
-        else:
-            error_window = Toplevel()
-            error_window.geometry("260x85")
-            error_message = Label(error_window, text = 'ERROR:', fg="red", font=16).pack()
-            help_message = Label(error_window, text = 'OVERBOOKING WARNING', fg="black", font=16).pack()
-            exit_button = Button(error_window, text= "OK", command=error_window.destroy, fg="white", bg="#008B00", font=16).pack()
-            error_window.mainloop()
-    elif month ==  "February":
-        location = ((((day - 1) * 24) + timeslot_index) * 20) + (court_num - 1)
-        if feb_courtlist[location].get(1.0, END) == "\n":
-            feb_courtlist[location].insert(END, name + '\n')
-            feb_courtlist[location].insert(END, number + '\n')
-            feb_courtlist[location].insert(END, time_stamp[0] + " - " + time_stamp[1] + '\n')
-            feb_courtlist[location].insert(END, "Booking ID: " + str(location) + '\n')
-            feb_courtlist[location].config(bg="#00688B", fg="white")
-            with open("bookingDataStorage.txt", "a") as f:
-                f.write(name)
-                f.write("\n")
-                f.write(number)
-                f.write("\n")
-                f.write(time_stamp[0])
-                f.write("\n")
-                f.write(str(length_input))
-                f.write("\n")
-                f.write(month + " " + str(day))
-                f.write("\n")
-                f.write('Location Code: ' + str(location))
-                f.write("\n")
-            f.close()
-        else:
-            error_window = Toplevel()
-            error_window.geometry("260x85")
-            error_message = Label(error_window, text = 'ERROR:', fg="red", font=16).pack()
-            help_message = Label(error_window, text = 'OVERBOOKING WARNING', fg="black", font=16).pack()
-            exit_button = Button(error_window, text= "OK", command=error_window.destroy, fg="white", bg="#008B00", font=16).pack()
-            error_window.mainloop()
-    elif month ==  "March":
-        location = ((((day - 1) * 24) + timeslot_index) * 20) + (court_num - 1)
-        if mar_courtlist[location].get(1.0, END) == "\n":
-            mar_courtlist[location].insert(END, name + '\n')
-            mar_courtlist[location].insert(END, number + '\n')
-            mar_courtlist[location].insert(END, time_stamp[0] + " - " + time_stamp[1] + '\n')
-            mar_courtlist[location].insert(END, "Booking ID: " + str(location) + '\n')
-            mar_courtlist[location].config(bg="#00688B", fg="white")
-            with open("bookingDataStorage.txt", "a") as f:
-                f.write(name)
-                f.write("\n")
-                f.write(number)
-                f.write("\n")
-                f.write(time_stamp[0])
-                f.write("\n")
-                f.write(str(length_input))
-                f.write("\n")
-                f.write(month + " " + str(day))
-                f.write("\n")
-                f.write('Location Code: ' + str(location))
-                f.write("\n")
-            f.close()
-        else:
-            error_window = Toplevel()
-            error_window.geometry("260x85")
-            error_message = Label(error_window, text = 'ERROR:', fg="red", font=16).pack()
-            help_message = Label(error_window, text = 'OVERBOOKING WARNING', fg="black", font=16).pack()
-            exit_button = Button(error_window, text= "OK", command=error_window.destroy, fg="white", bg="#008B00", font=16).pack()
-            error_window.mainloop()
-    elif month == "April":
-        location = ((((day - 1) * 24) + timeslot_index) * 20) + (court_num - 1)
-        if apr_courtlist[location].get(1.0, END) == "\n":
-            apr_courtlist[location].insert(END, name + '\n')
-            apr_courtlist[location].insert(END, number + '\n')
-            apr_courtlist[location].insert(END, time_stamp[0] + " - " + time_stamp[1] + '\n')
-            apr_courtlist[location].insert(END, "Booking ID: " + str(location) + '\n')
-            apr_courtlist[location].config(bg="#00688B", fg="white")
-            with open("bookingDataStorage.txt", "a") as f:
-                f.write(name)
-                f.write("\n")
-                f.write(number)
-                f.write("\n")
-                f.write(time_stamp[0])
-                f.write("\n")
-                f.write(str(length_input))
-                f.write("\n")
-                f.write(month + " " + str(day))
-                f.write("\n")
-                f.write('Location Code: ' + str(location))
-                f.write("\n")
-            f.close()
-        else:
-            error_window = Toplevel()
-            error_window.geometry("260x85")
-            error_message = Label(error_window, text = 'ERROR:', fg="red", font=16).pack()
-            help_message = Label(error_window, text = 'OVERBOOKING WARNING', fg="black", font=16).pack()
-            exit_button = Button(error_window, text= "OK", command=error_window.destroy, fg="white", bg="#008B00", font=16).pack()
-            error_window.mainloop()
-    elif month == "May":
-        location = ((((day - 1) * 24) + timeslot_index) * 20) + (court_num - 1)
-        if may_courtlist[location].get(1.0, END) == "\n":
-            may_courtlist[location].insert(END, name + '\n')
-            may_courtlist[location].insert(END, number + '\n')
-            may_courtlist[location].insert(END, time_stamp[0] + " - " + time_stamp[1] + '\n')
-            may_courtlist[location].insert(END, "Booking ID: " + str(location) + '\n')
-            may_courtlist[location].config(bg="#00688B", fg="white")
-            with open("bookingDataStorage.txt", "a") as f:
-                f.write(name)
-                f.write("\n")
-                f.write(number)
-                f.write("\n")
-                f.write(time_stamp[0])
-                f.write("\n")
-                f.write(str(length_input))
-                f.write("\n")
-                f.write(month + " " + str(day))
-                f.write("\n")
-                f.write('Location Code: ' + str(location))
-                f.write("\n")
-            f.close()
-        else:
-            error_window = Toplevel()
-            error_window.geometry("260x85")
-            error_message = Label(error_window, text = 'ERROR:', fg="red", font=16).pack()
-            help_message = Label(error_window, text = 'OVERBOOKING WARNING', fg="black", font=16).pack()
-            exit_button = Button(error_window, text= "OK", command=error_window.destroy, fg="white", bg="#008B00", font=16).pack()
-            error_window.mainloop()
-    elif month ==  "June":
-        location = ((((day - 1) * 24) + timeslot_index) * 20) + (court_num - 1)
-        if jun_courtlist[location].get(1.0, END) == "\n":
-            jun_courtlist[location].insert(END, name + '\n')
-            jun_courtlist[location].insert(END, number + '\n')
-            jun_courtlist[location].insert(END, time_stamp[0] + " - " + time_stamp[1] + '\n')
-            jun_courtlist[location].insert(END, "Booking ID: " + str(location) + '\n')
-            jun_courtlist[location].config(bg="#00688B", fg="white")
-            with open("bookingDataStorage.txt", "a") as f:
-                f.write(name)
-                f.write("\n")
-                f.write(number)
-                f.write("\n")
-                f.write(time_stamp[0])
-                f.write("\n")
-                f.write(str(length_input))
-                f.write("\n")
-                f.write(month + " " + str(day))
-                f.write("\n")
-                f.write('Location Code: ' + str(location))
-                f.write("\n")
-            f.close()
-        else:
-            error_window = Toplevel()
-            error_window.geometry("260x85")
-            error_message = Label(error_window, text = 'ERROR:', fg="red", font=16).pack()
-            help_message = Label(error_window, text = 'OVERBOOKING WARNING', fg="black", font=16).pack()
-            exit_button = Button(error_window, text= "OK", command=error_window.destroy, fg="white", bg="#008B00", font=16).pack()
-            error_window.mainloop()
-    elif month ==  "July":
-        location = ((((day - 1) * 24) + timeslot_index) * 20) + (court_num - 1)
-        if jul_courtlist[location].get(1.0, END) == "\n":
-            jul_courtlist[location].insert(END, name + '\n')
-            jul_courtlist[location].insert(END, number + '\n')
-            jul_courtlist[location].insert(END, time_stamp[0] + " - " + time_stamp[1] + '\n')
-            jul_courtlist[location].insert(END, "Booking ID: " + str(location) + '\n')
-            jul_courtlist[location].config(bg="#00688B", fg="white")
-            with open("bookingDataStorage.txt", "a") as f:
-                f.write(name)
-                f.write("\n")
-                f.write(number)
-                f.write("\n")
-                f.write(time_stamp[0])
-                f.write("\n")
-                f.write(str(length_input))
-                f.write("\n")
-                f.write(month + " " + str(day))
-                f.write("\n")
-                f.write('Location Code: ' + str(location))
-                f.write("\n")
-            f.close()
-        else:
-            error_window = Toplevel()
-            error_window.geometry("260x85")
-            error_message = Label(error_window, text = 'ERROR:', fg="red", font=16).pack()
-            help_message = Label(error_window, text = 'OVERBOOKING WARNING', fg="black", font=16).pack()
-            exit_button = Button(error_window, text= "OK", command=error_window.destroy, fg="white", bg="#008B00", font=16).pack()
-            error_window.mainloop()
-    elif month ==  "August":
-        location = ((((day - 1) * 24) + timeslot_index) * 20) + (court_num - 1)
-        if aug_courtlist[location].get(1.0, END) == "\n":
-            aug_courtlist[location].insert(END, name + '\n')
-            aug_courtlist[location].insert(END, number + '\n')
-            aug_courtlist[location].insert(END, time_stamp[0] + " - " + time_stamp[1] + '\n')
-            aug_courtlist[location].insert(END, "Booking ID: " + str(location) + '\n')
-            aug_courtlist[location].config(bg="#00688B", fg="white")
-            with open("bookingDataStorage.txt", "a") as f:
-                f.write(name)
-                f.write("\n")
-                f.write(number)
-                f.write("\n")
-                f.write(time_stamp[0])
-                f.write("\n")
-                f.write(str(length_input))
-                f.write("\n")
-                f.write(month + " " + str(day))
-                f.write("\n")
-                f.write('Location Code: ' + str(location))
-                f.write("\n")
-            f.close()
-        else:
-            error_window = Toplevel()
-            error_window.geometry("260x85")
-            error_message = Label(error_window, text = 'ERROR:', fg="red", font=16).pack()
-            help_message = Label(error_window, text = 'OVERBOOKING WARNING', fg="black", font=16).pack()
-            exit_button = Button(error_window, text= "OK", command=error_window.destroy, fg="white", bg="#008B00", font=16).pack()
-            error_window.mainloop()
-    elif month ==  "September":
-        location = ((((day - 1) * 24) + timeslot_index) * 20) + (court_num - 1)
-        if sep_courtlist[location].get(1.0, END) == "\n":
-            sep_courtlist[location].insert(END, name + '\n')
-            sep_courtlist[location].insert(END, number + '\n')
-            sep_courtlist[location].insert(END, time_stamp[0] + " - " + time_stamp[1] + '\n')
-            sep_courtlist[location].insert(END, "Booking ID: " + str(location) + '\n')
-            sep_courtlist[location].config(bg="#00688B", fg="white")
-            with open("bookingDataStorage.txt", "a") as f:
-                f.write(name)
-                f.write("\n")
-                f.write(number)
-                f.write("\n")
-                f.write(time_stamp[0])
-                f.write("\n")
-                f.write(str(length_input))
-                f.write("\n")
-                f.write(month + " " + str(day))
-                f.write("\n")
-                f.write('Location Code: ' + str(location))
-                f.write("\n")
-            f.close()
-        else:
-            error_window = Toplevel()
-            error_window.geometry("260x85")
-            error_message = Label(error_window, text = 'ERROR:', fg="red", font=16).pack()
-            help_message = Label(error_window, text = 'OVERBOOKING WARNING', fg="black", font=16).pack()
-            exit_button = Button(error_window, text= "OK", command=error_window.destroy, fg="white", bg="#008B00", font=16).pack()
-            error_window.mainloop()
-    elif month ==  "October":
-        location = ((((day - 1) * 24) + timeslot_index) * 20) + (court_num - 1)
-        if oct_courtlist[location].get(1.0, END) == "\n":
-            oct_courtlist[location].insert(END, name + '\n')
-            oct_courtlist[location].insert(END, number + '\n')
-            oct_courtlist[location].insert(END, time_stamp[0] + " - " + time_stamp[1] + '\n')
-            oct_courtlist[location].insert(END, "Booking ID: " + str(location) + '\n')
-            oct_courtlist[location].config(bg="#00688B", fg="white")
-            with open("bookingDataStorage.txt", "a") as f:
-                f.write(name)
-                f.write("\n")
-                f.write(number)
-                f.write("\n")
-                f.write(time_stamp[0])
-                f.write("\n")
-                f.write(str(length_input))
-                f.write("\n")
-                f.write(month + " " + str(day))
-                f.write("\n")
-                f.write('Location Code: ' + str(location))
-                f.write("\n")
-            f.close()
-        else:
-            error_window = Toplevel()
-            error_window.geometry("260x85")
-            error_message = Label(error_window, text = 'ERROR:', fg="red", font=16).pack()
-            help_message = Label(error_window, text = 'OVERBOOKING WARNING', fg="black", font=16).pack()
-            exit_button = Button(error_window, text= "OK", command=error_window.destroy, fg="white", bg="#008B00", font=16).pack()
-            error_window.mainloop()
-    elif month ==  "November":
-        location = ((((day - 1) * 24) + timeslot_index) * 20) + (court_num - 1)
-        if nov_courtlist[location].get(1.0, END) == "\n":
-            nov_courtlist[location].insert(END, name + '\n')
-            nov_courtlist[location].insert(END, number + '\n')
-            nov_courtlist[location].insert(END, time_stamp[0] + " - " + time_stamp[1] + '\n')
-            nov_courtlist[location].insert(END, "Booking ID: " + str(location) + '\n')
-            nov_courtlist[location].config(bg="#00688B", fg="white")
-            with open("bookingDataStorage.txt", "a") as f:
-                f.write(name)
-                f.write("\n")
-                f.write(number)
-                f.write("\n")
-                f.write(time_stamp[0])
-                f.write("\n")
-                f.write(str(length_input))
-                f.write("\n")
-                f.write(month + " " + str(day))
-                f.write("\n")
-                f.write('Location Code: ' + str(location))
-                f.write("\n")
-            f.close()
-        else:
-            error_window = Toplevel()
-            error_window.geometry("260x85")
-            error_message = Label(error_window, text = 'ERROR:', fg="red", font=16).pack()
-            help_message = Label(error_window, text = 'OVERBOOKING WARNING', fg="black", font=16).pack()
-            exit_button = Button(error_window, text= "OK", command=error_window.destroy, fg="white", bg="#008B00", font=16).pack()
-            error_window.mainloop()
-    elif month ==  "December":
-        location = ((((day - 1) * 24) + timeslot_index) * 20) + (court_num - 1)
-        if dec_courtlist[location].get(1.0, END) == "\n":
-            dec_courtlist[location].insert(END, name + '\n')
-            dec_courtlist[location].insert(END, number + '\n')
-            dec_courtlist[location].insert(END, time_stamp[0] + " - " + time_stamp[1] + '\n')
-            dec_courtlist[location].insert(END, "Booking ID: " + str(location) + '\n')
-            dec_courtlist[location].config(bg="#00688B", fg="white")
-            with open("bookingDataStorage.txt", "a") as f:
-                f.write(name)
-                f.write("\n")
-                f.write(number)
-                f.write("\n")
-                f.write(time_stamp[0])
-                f.write("\n")
-                f.write(str(length_input))
-                f.write("\n")
-                f.write(month + " " + str(day))
-                f.write("\n")
-                f.write('Location Code: ' + str(location))
-                f.write("\n")
-            f.close()
-        else:
-            error_window = Toplevel()
-            error_window.geometry("260x85")
-            error_message = Label(error_window, text = 'ERROR:', fg="red", font=16).pack()
-            help_message = Label(error_window, text = 'OVERBOOKING WARNING', fg="black", font=16).pack()
-            exit_button = Button(error_window, text= "OK", command=error_window.destroy, fg="white", bg="#008B00", font=16).pack()
-            error_window.mainloop()
+    months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    month_courtlists = [jan_courtlist, feb_courtlist, mar_courtlist, apr_courtlist, may_courtlist, jun_courtlist, jul_courtlist, aug_courtlist, sep_courtlist, oct_courtlist, nov_courtlist, dec_courtlist]
+
+    for mth in months:
+        if mth == month:
+            courtlist = month_courtlists[months.index(mth)]
+            location = ((((day - 1) * 24) + timeslot_index) * 20) + (court_num - 1)
+            if courtlist[location].get(1.0, END) == "\n":
+                courtlist[location].insert(END, name + '\n')
+                courtlist[location].insert(END, number + '\n')
+                courtlist[location].insert(END, time_stamp[0] + " - " + time_stamp[1] + '\n')
+                courtlist[location].insert(END, "Booking ID: " + str(location) + '\n')
+                courtlist[location].config(bg="#00688B", fg="white")
+                with open("bookingDataStorage.txt", "a") as f:
+                    f.write(name)
+                    f.write("\n")
+                    f.write(number)
+                    f.write("\n")
+                    f.write(time_stamp[0])
+                    f.write("\n")
+                    f.write(str(length_input))
+                    f.write("\n")
+                    f.write(month + " " + str(day))
+                    f.write("\n")
+                    f.write('Location Code: ' + str(location))
+                    f.write("\n")
+                f.close()
+            else:
+                error_window = Toplevel()
+                error_window.geometry("260x85")
+                error_message = Label(error_window, text = 'ERROR:', fg="red", font=16).pack()
+                help_message = Label(error_window, text = 'OVERBOOKING WARNING', fg="black", font=16).pack()
+                exit_button = Button(error_window, text= "OK", command=error_window.destroy, fg="white", bg="#008B00", font=16).pack()
+                error_window.mainloop()
 
 '''Cancellation Function'''
 def booking_canceller(month, location): #Cancels bookings and removes them from the employee display.
-    if month == "January":
-        if jan_courtlist[location].get(1.0, END) != "\n":
-            jan_courtlist[location].delete(1.0, END)
-            jan_courtlist[location].config(bg="#008B00")
-        else:
-            error_window = Toplevel()
-            error_window.geometry("260x85")
-            error_message = Label(error_window, text = 'ERROR:', fg="red", font=16).pack()
-            help_message = Label(error_window, text = 'There is no booking to cancel.', fg="black", font=16).pack()
-            exit_button = Button(error_window, text= "OK", command=error_window.destroy, fg="white", bg="#008B00", font=16).pack()
-            jan_courtlist[location].config(bg="#008B00")
-            error_window.mainloop()
-    elif month ==  "February":
-        if feb_courtlist[location].get(1.0, END) != "\n":
-            feb_courtlist[location].delete(1.0, END)
-            feb_courtlist[location].config(bg="#008B00")
-        else:
-            error_window = Toplevel()
-            error_window.geometry("260x85")
-            error_message = Label(error_window, text = 'ERROR:', fg="red", font=16).pack()
-            help_message = Label(error_window, text = 'There is no booking to cancel.', fg="black", font=16).pack()
-            exit_button = Button(error_window, text= "OK", command=error_window.destroy, fg="white", bg="#008B00", font=16).pack()
-            feb_courtlist[location].config(bg="#008B00")
-            error_window.mainloop()
-    elif month == "March":
-        if mar_courtlist[location].get(1.0, END) != "\n":
-            mar_courtlist[location].delete(1.0, END)
-            mar_courtlist[location].config(bg="#008B00")
-        else:
-            error_window = Toplevel()
-            error_window.geometry("260x85")
-            error_message = Label(error_window, text = 'ERROR:', fg="red", font=16).pack()
-            help_message = Label(error_window, text = 'There is no booking to cancel.', fg="black", font=16).pack()
-            exit_button = Button(error_window, text= "OK", command=error_window.destroy, fg="white", bg="#008B00", font=16).pack()
-            mar_courtlist[location].config(bg="#008B00")
-            error_window.mainloop()
-    elif month == "April":
-        if apr_courtlist[location].get(1.0, END) != "\n":
-            apr_courtlist[location].delete(1.0, END)
-            apr_courtlist[location].config(bg="#008B00")
-        else:
-            error_window = Toplevel()
-            error_window.geometry("260x85")
-            error_message = Label(error_window, text = 'ERROR:', fg="red", font=16).pack()
-            help_message = Label(error_window, text = 'There is no booking to cancel.', fg="black", font=16).pack()
-            exit_button = Button(error_window, text= "OK", command=error_window.destroy, fg="white", bg="#008B00", font=16).pack()
-            apr_courtlist[location].config(bg="#008B00")
-            error_window.mainloop()
-    elif month == "May":
-        if may_courtlist[location].get(1.0, END) != "\n":
-            may_courtlist[location].delete(1.0, END)
-            may_courtlist[location].config(bg="#008B00")
-        else:
-            error_window = Toplevel()
-            error_window.geometry("260x85")
-            error_message = Label(error_window, text = 'ERROR:', fg="red", font=16).pack()
-            help_message = Label(error_window, text = 'There is no booking to cancel.', fg="black", font=16).pack()
-            exit_button = Button(error_window, text= "OK", command=error_window.destroy, fg="white", bg="#008B00", font=16).pack()
-            may_courtlist[location].config(bg="#008B00")
-            error_window.mainloop()
-    elif month ==  "June":
-        if jun_courtlist[location].get(1.0, END) != "\n":
-            jun_courtlist[location].delete(1.0, END)
-            jun_courtlist[location].config(bg="#008B00")
-        else:
-            error_window = Toplevel()
-            error_window.geometry("260x85")
-            error_message = Label(error_window, text = 'ERROR:', fg="red", font=16).pack()
-            help_message = Label(error_window, text = 'There is no booking to cancel.', fg="black", font=16).pack()
-            exit_button = Button(error_window, text= "OK", command=error_window.destroy, fg="white", bg="#008B00", font=16).pack()
-            jun_courtlist[location].config(bg="#008B00")
-            error_window.mainloop()
-    elif month ==  "July":
-        if jul_courtlist[location].get(1.0, END) != "\n":
-            jul_courtlist[location].delete(1.0, END)
-            jul_courtlist[location].config(bg="#008B00")
-        else:
-            error_window = Toplevel()
-            error_window.geometry("260x85")
-            error_message = Label(error_window, text = 'ERROR:', fg="red", font=16).pack()
-            help_message = Label(error_window, text = 'There is no booking to cancel.', fg="black", font=16).pack()
-            exit_button = Button(error_window, text= "OK", command=error_window.destroy, fg="white", bg="#008B00", font=16).pack()
-            jul_courtlist[location].config(bg="#008B00")
-            error_window.mainloop()
-    elif month ==  "August":
-        if aug_courtlist[location].get(1.0, END) != "\n":
-            aug_courtlist[location].delete(1.0, END)
-            aug_courtlist[location].config(bg="#008B00")
-        else:
-            error_window = Toplevel()
-            error_window.geometry("260x85")
-            error_message = Label(error_window, text = 'ERROR:', fg="red", font=16).pack()
-            help_message = Label(error_window, text = 'There is no booking to cancel.', fg="black", font=16).pack()
-            exit_button = Button(error_window, text= "OK", command=error_window.destroy, fg="white", bg="#008B00", font=16).pack()
-            aug_courtlist[location].config(bg="#008B00")
-            error_window.mainloop()
-    elif month ==  "September":
-        if sep_courtlist[location].get(1.0, END) != "\n":
-            sep_courtlist[location].delete(1.0, END)
-            sep_courtlist[location].config(bg="#008B00")
-        else:
-            error_window = Toplevel()
-            error_window.geometry("260x85")
-            error_message = Label(error_window, text = 'ERROR:', fg="red", font=16).pack()
-            help_message = Label(error_window, text = 'There is no booking to cancel.', fg="black", font=16).pack()
-            exit_button = Button(error_window, text= "OK", command=error_window.destroy, fg="white", bg="#008B00", font=16).pack()
-            sep_courtlist[location].config(bg="#008B00")
-            error_window.mainloop()
-    elif month ==  "October":
-        if oct_courtlist[location].get(1.0, END) != "\n":
-            oct_courtlist[location].delete(1.0, END)
-            oct_courtlist[location].config(bg="#008B00")
-        else:
-            error_window = Toplevel()
-            error_window.geometry("260x85")
-            error_message = Label(error_window, text = 'ERROR:', fg="red", font=16).pack()
-            help_message = Label(error_window, text = 'There is no booking to cancel.', fg="black", font=16).pack()
-            exit_button = Button(error_window, text= "OK", command=error_window.destroy, fg="white", bg="#008B00", font=16).pack()
-            oct_courtlist[location].config(bg="#008B00")
-            error_window.mainloop()
-    elif month ==  "November":
-        if nov_courtlist[location].get(1.0, END) != "\n":
-            nov_courtlist[location].delete(1.0, END)
-            nov_courtlist[location].config(bg="#008B00")
-        else:
-            error_window = Toplevel()
-            error_window.geometry("260x85")
-            error_message = Label(error_window, text = 'ERROR:', fg="red", font=16).pack()
-            help_message = Label(error_window, text = 'There is no booking to cancel.', fg="black", font=16).pack()
-            exit_button = Button(error_window, text= "OK", command=error_window.destroy, fg="white", bg="#008B00", font=16).pack()
-            nov_courtlist[location].config(bg="#008B00")
-            error_window.mainloop()
-    elif month ==  "December":
-        if dec_courtlist[location].get(1.0, END) != "\n":
-            dec_courtlist[location].delete(1.0, END)
-            dec_courtlist[location].config(bg="#008B00")
-        else:
-            error_window = Toplevel()
-            error_window.geometry("260x85")
-            error_message = Label(error_window, text = 'ERROR:', fg="red", font=16).pack()
-            help_message = Label(error_window, text = 'There is no booking to cancel.', fg="black", font=16).pack()
-            exit_button = Button(error_window, text= "OK", command=error_window.destroy, fg="white", bg="#008B00", font=16).pack()
-            dec_courtlist[location].config(bg="#008B00")
-            error_window.mainloop() 
+    months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    month_courtlists = [jan_courtlist, feb_courtlist, mar_courtlist, apr_courtlist, may_courtlist, jun_courtlist, jul_courtlist, aug_courtlist, sep_courtlist, oct_courtlist, nov_courtlist, dec_courtlist]
+    
+    for mth in months:
+        if mth == month:
+            courtlist = month_courtlists[months.index(mth)]
+            if courtlist[location].get(1.0, END) != "\n":
+                courtlist[location].delete(1.0, END)
+                courtlist[location].config(bg="#008B00")
+            else:
+                error_window = Toplevel()
+                error_window.geometry("260x85")
+                error_message = Label(error_window, text = 'ERROR:', fg="red", font=16).pack()
+                help_message = Label(error_window, text = 'There is no booking to cancel.', fg="black", font=16).pack()
+                exit_button = Button(error_window, text= "OK", command=error_window.destroy, fg="white", bg="#008B00", font=16).pack()
+                courtlist[location].config(bg="#008B00")
+                error_window.mainloop()
 
 '''Start-up Booking Loader'''
 def startup_insertion(input_name, input_num, location_code, input_month, timings): #Inserts bookings at startup to employee display. 
     code_num = int(location_code.strip('Location Code: '))
+    months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    month_courtlists = [jan_courtlist, feb_courtlist, mar_courtlist, apr_courtlist, may_courtlist, jun_courtlist, jul_courtlist, aug_courtlist, sep_courtlist, oct_courtlist, nov_courtlist, dec_courtlist]
 
-    if input_month == "January":
-        jan_courtlist[code_num].insert(END, input_name + '\n')
-        jan_courtlist[code_num].insert(END, input_num + '\n')
-        jan_courtlist[code_num].insert(END, timings[0] + ' - ' + timings[1] + '\n')
-        jan_courtlist[code_num].insert(END, "Booking ID: " + location_code.strip('Location Code: ') + '\n')
-        jan_courtlist[code_num].config(bg="#00688B", fg="white")
-    elif input_month == "February":
-        feb_courtlist[code_num].insert(END, input_name + '\n')
-        feb_courtlist[code_num].insert(END, input_num + '\n')
-        feb_courtlist[code_num].insert(END, timings[0] + ' - ' + timings[1] + '\n')
-        feb_courtlist[code_num].insert(END, "Booking ID: " + location_code.strip('Location Code: ') + '\n')
-        feb_courtlist[code_num].config(bg="#00688B", fg="white")
-    elif input_month == "March":
-        mar_courtlist[code_num].insert(END, input_name + '\n')
-        mar_courtlist[code_num].insert(END, input_num + '\n')
-        mar_courtlist[code_num].insert(END, timings[0] + ' - ' + timings[1] + '\n')
-        mar_courtlist[code_num].insert(END, "Booking ID: " + location_code.strip('Location Code: ') + '\n')
-        mar_courtlist[code_num].config(bg="#00688B", fg="white")
-    elif input_month == "April":
-        apr_courtlist[code_num].insert(END, input_name + '\n')
-        apr_courtlist[code_num].insert(END, input_num + '\n')
-        apr_courtlist[code_num].insert(END, timings[0] + ' - ' + timings[1] + '\n')
-        apr_courtlist[code_num].insert(END, "Booking ID: " + location_code.strip('Location Code: ') + '\n')
-        apr_courtlist[code_num].config(bg="#00688B", fg="white")
-    elif input_month == "May":
-        may_courtlist[code_num].insert(END, input_name + '\n')
-        may_courtlist[code_num].insert(END, input_num + '\n')
-        may_courtlist[code_num].insert(END, timings[0] + ' - ' + timings[1] + '\n')
-        may_courtlist[code_num].insert(END, "Booking ID: " + location_code.strip('Location Code: ') + '\n')
-        may_courtlist[code_num].config(bg="#00688B", fg="white")
-    elif input_month == "June":
-        jun_courtlist[code_num].insert(END, input_name + '\n')
-        jun_courtlist[code_num].insert(END, input_num + '\n')
-        jun_courtlist[code_num].insert(END, timings[0] + ' - ' + timings[1] + '\n')
-        jun_courtlist[code_num].insert(END, "Booking ID: " + location_code.strip('Location Code: ') + '\n')
-        jun_courtlist[code_num].config(bg="#00688B", fg="white")
-    elif input_month == "July":
-        jul_courtlist[code_num].insert(END, input_name + '\n')
-        jul_courtlist[code_num].insert(END, input_num + '\n')
-        jul_courtlist[code_num].insert(END, timings[0] + ' - ' + timings[1] + '\n')
-        jul_courtlist[code_num].insert(END, "Booking ID: " + location_code.strip('Location Code: ') + '\n')
-        jul_courtlist[code_num].config(bg="#00688B", fg="white")
-    elif input_month == "August":
-        aug_courtlist[code_num].insert(END, input_name + '\n')
-        aug_courtlist[code_num].insert(END, input_num + '\n')
-        aug_courtlist[code_num].insert(END, timings[0] + ' - ' + timings[1] + '\n')
-        aug_courtlist[code_num].insert(END, "Booking ID: " + location_code.strip('Location Code: ') + '\n')
-        aug_courtlist[code_num].config(bg="#00688B", fg="white")
-    elif input_month == "September":
-        sep_courtlist[code_num].insert(END, input_name + '\n')
-        sep_courtlist[code_num].insert(END, input_num + '\n')
-        sep_courtlist[code_num].insert(END, timings[0] + ' - ' + timings[1] + '\n')
-        sep_courtlist[code_num].insert(END, "Booking ID: " + location_code.strip('Location Code: ') + '\n')
-        sep_courtlist[code_num].config(bg="#00688B", fg="white")
-    elif input_month == "October":
-        oct_courtlist[code_num].insert(END, input_name + '\n')
-        oct_courtlist[code_num].insert(END, input_num + '\n')
-        oct_courtlist[code_num].insert(END, timings[0] + ' - ' + timings[1] + '\n')
-        oct_courtlist[code_num].insert(END, "Booking ID: " + location_code.strip('Location Code: ') + '\n')
-        oct_courtlist[code_num].config(bg="#00688B", fg="white")
-    elif input_month == "November":
-        nov_courtlist[code_num].insert(END, input_name + '\n')
-        nov_courtlist[code_num].insert(END, input_num + '\n')
-        nov_courtlist[code_num].insert(END, timings[0] + ' - ' + timings[1] + '\n')
-        nov_courtlist[code_num].insert(END, "Booking ID: " + location_code.strip('Location Code: ') + '\n')
-        nov_courtlist[code_num].config(bg="#00688B", fg="white")
-    elif input_month == "December":
-        dec_courtlist[code_num].insert(END, input_name + '\n')
-        dec_courtlist[code_num].insert(END, input_num + '\n')
-        dec_courtlist[code_num].insert(END, timings[0] + ' - ' + timings[1] + '\n')
-        dec_courtlist[code_num].insert(END, "Booking ID: " + location_code.strip('Location Code: ') + '\n')
-        dec_courtlist[code_num].config(bg="#00688B", fg="white")
+    for month in months:
+        if month == input_month:
+            courtlist = month_courtlists[months.index(month)]
+            courtlist[code_num].insert(END, input_name + '\n')
+            courtlist[code_num].insert(END, input_num + '\n')
+            courtlist[code_num].insert(END, timings[0] + ' - ' + timings[1] + '\n')
+            courtlist[code_num].insert(END, "Booking ID: " + location_code.strip('Location Code: ') + '\n')
+            courtlist[code_num].config(bg="#00688B", fg="white")
+            break
 
 schedule_window.mainloop()
